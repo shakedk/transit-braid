@@ -5,6 +5,11 @@ LineStrings; it returns GeoJSON with each route in its own lane where routes sha
 station bars across each bundle. The work runs in Rust compiled to WebAssembly, off the page's
 main thread, and the result is geometry only, so any map library can draw it.
 
+<img src="https://raw.githubusercontent.com/shakedk/transit-braid/v0.1.1/docs/img/before-after.png" width="820" alt="Four bus routes that share a street: drawn as given they hide each other; transit-braid draws each in its own lane">
+
+**[Live demo](https://shakedk.github.io/transit-braid/)**: Tel Aviv's bus routes side by side, to
+zoom and edit · [GitHub](https://github.com/shakedk/transit-braid)
+
 > **Status:** early development (0.x). The API may still change between minor versions.
 
 ## Install
