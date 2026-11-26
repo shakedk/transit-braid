@@ -16,7 +16,7 @@
     "e2e": "playwright test --project chromium",
     "test:pack": "playwright test --config playwright.pack.config.ts",
     "build:site": "pnpm --filter transit-braid-demo build:site",
-    "e2e:site": "BRAID_E2E_SITE=1 playwright test demo.spec deck.spec --project chromium",
+    "e2e:site": "BRAID_E2E_SITE=1 playwright test demo.spec deck.spec examples.spec --project chromium",
     "secrets": "gitleaks git --redact --no-banner",
     "lint:workflows": "scripts/lint-workflows.sh",
     "check:ts": "pnpm format:check && pnpm build:wasm && pnpm build:packages && pnpm lint && pnpm typecheck && pnpm test && pnpm e2e && pnpm test:pack",

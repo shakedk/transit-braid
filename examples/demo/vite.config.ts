@@ -17,7 +17,7 @@ const site: UserConfig = {
   build: {
     outDir: 'dist-site',
     emptyOutDir: true,
-    rollupOptions: { input: { main: 'index.html', deck: 'deck.html' } },
+    rollupOptions: { input: { main: 'index.html', deck: 'deck.html', examples: 'examples.html' } },
   },
   preview: { port: 5197, strictPort: true },
 };

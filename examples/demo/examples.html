@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>transit-braid: examples</title>
+    <meta
+      name="description"
+      content="Examples of transit routes drawn side by side by transit-braid: real bus routes and made-up scenarios, each opening in the live demo."
+    />
+    <style>
+      :root {
+        --bg: #eef3f1;
+        --ink: #17262b;
+        --muted: #55666b;
+        --card: #fff;
+        --line: #d6dfdc;
+        --accent: #0f5c6e;
+        --mono: ui-monospace, sfmono-regular, menlo, consolas, monospace;
+        --sans: system-ui, -apple-system, 'Segoe UI', roboto, sans-serif;
+
+        color-scheme: light;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font: 14px/1.45 var(--sans);
+      }
+      a {
+        color: var(--accent);
+      }
+      header,
+      main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 16px 24px 0;
+      }
+      h1 {
+        margin: 0 0 4px;
+        font-size: 22px;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+      }
+      .kicker {
+        margin-right: 6px;
+        font: 600 11px/1 var(--mono);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      header p {
+        max-width: 80ch;
+        margin: 0;
+        color: var(--muted);
+      }
+      h2 {
+        margin: 24px 0 10px;
+        color: var(--muted);
+        font: 600 11px/1.2 var(--mono);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 14px;
+        padding-bottom: 8px;
+      }
+      .card {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--card);
+        color: var(--ink);
+        text-decoration: none;
+      }
+      .card:hover,
+      .card:focus-visible {
+        border-color: var(--accent);
+        outline: none;
+        box-shadow: 0 0 0 1px var(--accent);
+      }
+      .thumb {
+        width: 100%;
+        height: auto;
+        border-radius: 6px;
+        background: #f4f1ea;
+      }
+      .thumb polyline {
+        fill: none;
+        stroke-width: 3;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .thumb circle {
+        fill: #fff;
+        stroke: #1d2b2f;
+        stroke-width: 1.2;
+      }
+      .card h3 {
+        margin: 2px 0 0;
+        font-size: 15px;
+      }
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .card .look {
+        padding-left: 8px;
+        border-left: 2px solid var(--line);
+      }
+      .open {
+        margin-top: auto;
+        color: var(--accent);
+        font-weight: 600;
+      }
+      footer {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 16px 24px 28px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      @media (width <= 700px) {
+        header,
+        main,
+        footer {
+          padding-right: 12px;
+          padding-left: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Examples</h1>
+      <p>
+        <span class="kicker">transit-braid · demo</span>
+        Each example opens in the <a href="./">live demo</a>, where you can zoom, change the lane
+        cap, turn side by side off and on, and move, add or remove routes. The pictures show the
+        routes as given, before transit-braid.
+        <a href="https://github.com/shakedk/transit-braid">GitHub</a> ·
+        <a href="https://www.npmjs.com/package/transit-braid">npm</a>
+      </p>
+    </header>
+    <main>
+      <h2>Real streets</h2>
+      <section id="real" class="grid" aria-label="Real streets"></section>
+      <h2>Scenarios: made-up routes, each showing one thing to get right</h2>
+      <section id="scenarios" class="grid" aria-label="Scenarios"></section>
+    </main>
+    <footer>
+      The scenarios are the routes transit-braid's own tests draw (MIT). Tel Aviv's routes and
+      stops: Israel public transport GTFS, Ministry of Transport and Road Safety; not affiliated
+      with or endorsed by the Ministry.
+    </footer>
+    <script type="module" src="/src/examples.ts"></script>
+  </body>
+</html>
