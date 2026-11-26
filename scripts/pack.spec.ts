@@ -198,8 +198,8 @@ test('each tarball holds only what ships, and its manifest is the published one'
     expect(exported.length).toBeGreaterThan(1);
     for (const target of exported) expect(paths).toContain(target.replace(/^\.\//, ''));
     expect(JSON.stringify(manifest)).not.toContain('workspace:');
-    // Not publishable until the release step; the release settings are ready.
-    expect(manifest.private).toBe(true);
+    // Publishable: not private, public access, provenance when the release workflow publishes.
+    expect(manifest.private).toBeUndefined();
     expect(manifest.publishConfig).toEqual({ access: 'public', provenance: true });
     expect(manifest.engines).toEqual({ node: '>=24' });
 

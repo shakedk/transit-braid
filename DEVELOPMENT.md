@@ -381,9 +381,8 @@ cd packages/transit-braid && pnpm pack --dry-run # what the tarball would hold
   and `pnpm publish` put it in the packed `package.json` (npm itself doesn't: release from the
   tarball `pnpm pack` makes). The published `transit-braid` maps `.` and `./inline` to the Node
   entry under the `node` condition, so a server-side import works too.
-- **Not publishable yet:** both packages keep `"private": true` until the release step, so
-  nothing can be published by accident. `publishConfig` already asks for public access and
-  provenance.
+- **Publishing:** `publishConfig` asks for public access and provenance; npm makes provenance
+  only in CI, so the release workflow publishes (§7).
 - **`files`** lists only what ships: `dist/`, the three WASM files, plus the README, LICENSE and
   `package.json` npm always adds. Tests, sources and fixtures never ship.
 - **`transit-braid-deck`** takes `transit-braid` and deck.gl as peer dependencies; pnpm turns
@@ -765,8 +764,8 @@ Wait for all green checks before merging.
 
 ## 7. Releasing
 
-`release.yml` is a draft: it has never run, and it runs only in the public repository once its
-`BRAID_PUBLIC` variable is `true`. The packages reach npm only from it, through npm's trusted
+`release.yml` runs only in the public repository, and only while its `BRAID_PUBLIC` variable is
+`true`. The packages reach npm only from it, through npm's trusted
 publishing: no npm token exists anywhere, npm links each version to the run that built it
 (provenance), and each version is staged first and goes public only when a maintainer approves
 it with 2FA. The Rust crates are not published.
@@ -795,8 +794,7 @@ Nothing is staged on npm or put on the GitHub release unless its files were atte
 site isn't a release file, so it doesn't wait for the attestation.
 
 Safety locks, each enough to stop a publish: the repository and variable check on every job;
-`"private": true` in both packages until the release that removes it (npm refuses to publish or
-stage a private package); npm trusts only this repository's `release.yml` in the `npm`
+npm trusts only this repository's `release.yml` in the `npm`
 environment, which waits for a maintainer; and every staged version waits for a maintainer's 2FA.
 
 **Each release:**
@@ -840,8 +838,9 @@ npm's own provenance: `npm audit signatures`.)
   logged in with 2FA (`npm login`):
 
   ```sh
-  npm stage publish ./transit-braid-0.1.0.tgz        # staged; this creates the package
-  npm stage publish ./transit-braid-deck-0.1.0.tgz
+  # From a laptop, npm can't make provenance, so turn off what publishConfig asks for.
+  npm stage publish --provenance=false ./transit-braid-0.1.0.tgz   # creates the package
+  npm stage publish --provenance=false ./transit-braid-deck-0.1.0.tgz
   npm stage list                                     # the stage ids
   npm stage approve <id>                             # each, with 2FA
   ```

@@ -1,7 +1,6 @@
 {
   "name": "transit-braid",
   "version": "0.1.0",
-  "private": true,
   "description": "Side-by-side transit lines for web maps: overlapping route polylines in, bundled parallel lines out.",
   "keywords": [
     "bus",

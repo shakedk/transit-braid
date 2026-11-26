@@ -11,7 +11,6 @@ name: Release
 # Safety locks, each enough on its own to stop a publish:
 # - every job runs only in the public repository, and only once its `BRAID_PUBLIC` variable is
 #   'true' (no other copy of this file has both);
-# - the packages say "private": true until the release that drops it, and npm refuses those;
 # - npm trusts only this repository's release.yml, in the `npm` environment, whose deployments
 #   wait for a maintainer's approval; and a staged version waits for a maintainer's 2FA;
 # - the build refuses a tag that isn't both packages' version, or a version without a dated
