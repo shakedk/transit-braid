@@ -5,9 +5,11 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html): while the version is 0.x, a
 minor version (0.2.0) may change the API.
 
-## [0.1.0] - Unreleased
+## [Unreleased]
 
-The first version. Not on npm yet: the date is set when it is published.
+## [0.1.0] - 2026-11-26
+
+The first version.
 
 ### Added
 
@@ -96,4 +98,5 @@ dependencies.
   change redraws the station bars too: about 100 ms with 1,875 stations on a 50-route network.
 - Where junctions are very close together, and at some roundabouts, lines can take small jogs.
 
+[Unreleased]: https://github.com/shakedk/transit-braid/compare/v0.1.0...HEAD
 [0.1.0]: https://github.com/shakedk/transit-braid/releases/tag/v0.1.0

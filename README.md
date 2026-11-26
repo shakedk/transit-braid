@@ -5,7 +5,7 @@
 [![CI](https://github.com/shakedk/transit-braid/actions/workflows/ci.yml/badge.svg)](https://github.com/shakedk/transit-braid/actions/workflows/ci.yml)
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/shakedk/transit-braid/badge)](https://scorecard.dev/viewer/?uri=github.com/shakedk/transit-braid)
 
-**[Live demo](https://shakedk.github.io/transit-braid/)** (online from the first release)
+**[Live demo](https://shakedk.github.io/transit-braid/)**
 
 Side-by-side transit lines for web maps. Give it overlapping bus, tram or rail routes as GeoJSON
 lines; it returns GeoJSON with the routes drawn next to each other where they share a street, plus
@@ -13,6 +13,10 @@ station bars. It runs in the browser (Rust → WebAssembly in a Web Worker) and 
 computes geometry only, so any map library can draw the result.
 
 <img src="docs/img/before-after.svg" width="820" alt="Four routes that share a street: drawn as given they hide each other; transit-braid draws each in its own lane">
+
+```sh
+npm install transit-braid
+```
 
 ```ts
 import { sideBySide } from 'transit-braid';
@@ -22,7 +26,7 @@ const out = await sideBySide(routes, { zoom: 13, lineWidth: 4, spacing: 1 });
 // out.stations → GeoJSON station bars
 ```
 
-> **Status:** version 0.1.0, built and tested, not on npm yet. The API here works as shown;
+> **Status:** version 0.1.0, the first release. The API here works as shown;
 > [CHANGELOG.md](CHANGELOG.md) lists what 0.1.0 does, its limits and its errors. Full
 > documentation comes later.
 
