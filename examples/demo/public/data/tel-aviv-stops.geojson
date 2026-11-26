@@ -1,0 +1,3568 @@
+{
+  "type": "FeatureCollection",
+  "braid": {
+    "name": "tel-aviv-stops",
+    "description": "The stops of those 25 routes.",
+    "attribution": "Israel public transport GTFS, Ministry of Transport and Road Safety",
+    "license": "The data.gov.il usage license: free use, copying and changes, with credit to the source",
+    "source": "https://gtfs.mot.gov.il/gtfsfiles/israel-public-transportation.zip (weekday schedule of 24 Nov 2026)",
+    "note": "Not affiliated with or endorsed by the Ministry of Transport. It may contain errors or be out of date."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "name": "מסוף עמידר" },
+      "geometry": { "type": "Point", "coordinates": [34.838966, 32.069212] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "התפוצות/קוממיות" },
+      "geometry": { "type": "Point", "coordinates": [34.838128, 32.067572] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אצ''ל/המחתרת" },
+      "geometry": { "type": "Point", "coordinates": [34.836374, 32.067346] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אצ''ל/בן אליעזר" },
+      "geometry": { "type": "Point", "coordinates": [34.83368, 32.066277] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בן אליעזר/אצ''ל" },
+      "geometry": { "type": "Point", "coordinates": [34.832938, 32.065799] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "פנחס רוטנברג/בן אליעזר" },
+      "geometry": { "type": "Point", "coordinates": [34.832247, 32.06353] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הירדן/ פנחס" },
+      "geometry": { "type": "Point", "coordinates": [34.828494, 32.063857] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הירדן/אצ''ל" },
+      "geometry": { "type": "Point", "coordinates": [34.828521, 32.066062] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "נגבה/ הירדן" },
+      "geometry": { "type": "Point", "coordinates": [34.827992, 32.070201] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "נגבה/ הרא''ה" },
+      "geometry": { "type": "Point", "coordinates": [34.825556, 32.07038] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הרא''ה/ שד. ירושלים" },
+      "geometry": { "type": "Point", "coordinates": [34.825028, 32.073724] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הרא''ה/ברקאי" },
+      "geometry": { "type": "Point", "coordinates": [34.825261, 32.077271] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "חיבת ציון/הרא''ה" },
+      "geometry": { "type": "Point", "coordinates": [34.825057, 32.079233] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "חיבת ציון/דרך בן גוריון" },
+      "geometry": { "type": "Point", "coordinates": [34.821279, 32.079364] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "קריניצי/הרצל" },
+      "geometry": { "type": "Point", "coordinates": [34.818367, 32.080839] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ארלוזורוב/ביאליק" },
+      "geometry": { "type": "Point", "coordinates": [34.814189, 32.079323] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "גן הקופים/ארלוזורוב" },
+      "geometry": { "type": "Point", "coordinates": [34.812015, 32.080909] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ארלוזורוב/החשמונאים" },
+      "geometry": { "type": "Point", "coordinates": [34.809175, 32.081474] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "צומת עלית/ארלוזורוב" },
+      "geometry": { "type": "Point", "coordinates": [34.805378, 32.081944] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת.רק''ל אבא הלל/דרך ז'בוטינסקי" },
+      "geometry": { "type": "Point", "coordinates": [34.802159, 32.083007] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת. רכבת תל אביב סבידור/על פרשת דרכים" },
+      "geometry": { "type": "Point", "coordinates": [34.795453, 32.082475] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ארלוזורוב/דרך נמיר" },
+      "geometry": { "type": "Point", "coordinates": [34.792922, 32.082984] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ארלוזורוב/משה שרת" },
+      "geometry": { "type": "Point", "coordinates": [34.787875, 32.084075] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הוועד הפועל/ארלוזורוב" },
+      "geometry": { "type": "Point", "coordinates": [34.78481, 32.08473] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אבן גבירול/ארלוזורוב" },
+      "geometry": { "type": "Point", "coordinates": [34.781547, 32.084806] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "עיריית תל אביב - יפו/אבן גבירול" },
+      "geometry": { "type": "Point", "coordinates": [34.781176, 32.082914] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "כיכר רבין/מלכי ישראל" },
+      "geometry": { "type": "Point", "coordinates": [34.780657, 32.0796] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד' בן גוריון/שלמה המלך" },
+      "geometry": { "type": "Point", "coordinates": [34.778572, 32.082334] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דיזנגוף/ש''ץ" },
+      "geometry": { "type": "Point", "coordinates": [34.774083, 32.08366] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "כיכר דיזנגוף/דיזנגוף" },
+      "geometry": { "type": "Point", "coordinates": [34.773907, 32.078936] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "כיכר דיזנגוף/פינסקר" },
+      "geometry": { "type": "Point", "coordinates": [34.773089, 32.077087] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "טרומפלדור/פינסקר" },
+      "geometry": { "type": "Point", "coordinates": [34.770528, 32.075167] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "טרומפלדור/בן יהודה" },
+      "geometry": { "type": "Point", "coordinates": [34.767296, 32.075514] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "חוף ירושלים" },
+      "geometry": { "type": "Point", "coordinates": [34.764793, 32.073296] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "חוף בננה ביץ'" },
+      "geometry": { "type": "Point", "coordinates": [34.763816, 32.070602] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מסוף כרמלית/הורדה" },
+      "geometry": { "type": "Point", "coordinates": [34.765823, 32.067287] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מסוף הטייסים" },
+      "geometry": { "type": "Point", "coordinates": [34.813778, 32.047685] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך הטייסים/דרך בר לב" },
+      "geometry": { "type": "Point", "coordinates": [34.813526, 32.046202] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך בר לב/דרך הטייסים" },
+      "geometry": { "type": "Point", "coordinates": [34.8114, 32.044958] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך בר לב/שד' ששת הימים" },
+      "geometry": { "type": "Point", "coordinates": [34.808983, 32.045205] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך בר לב/צביה לובטקין" },
+      "geometry": { "type": "Point", "coordinates": [34.805717, 32.045785] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך בר לב/אונטרמן" },
+      "geometry": { "type": "Point", "coordinates": [34.804024, 32.046062] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך בר לב/דרך משה דיין" },
+      "geometry": { "type": "Point", "coordinates": [34.800032, 32.046839] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שכונת הארגזים/לח''י" },
+      "geometry": { "type": "Point", "coordinates": [34.79592, 32.047557] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אצ''ל/לח''י" },
+      "geometry": { "type": "Point", "coordinates": [34.793219, 32.048306] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אצ''ל/חנוך" },
+      "geometry": { "type": "Point", "coordinates": [34.791655, 32.051239] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שוק התקווה/אצ''ל" },
+      "geometry": { "type": "Point", "coordinates": [34.791288, 32.053436] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך ההגנה/המעפילים" },
+      "geometry": { "type": "Point", "coordinates": [34.787996, 32.054313] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת.רכבת ההגנה" },
+      "geometry": { "type": "Point", "coordinates": [34.784028, 32.05496] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת.מרכזית תל אביב/דרך שלמה" },
+      "geometry": { "type": "Point", "coordinates": [34.778747, 32.054262] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך שלמה/מסילת ישרים" },
+      "geometry": { "type": "Point", "coordinates": [34.77648, 32.054745] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך שלמה/שד' הר ציון" },
+      "geometry": { "type": "Point", "coordinates": [34.774632, 32.055015] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "צ'לנוב/מטלון" },
+      "geometry": { "type": "Point", "coordinates": [34.775157, 32.057836] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "צ'לנוב/הגדוד העברי" },
+      "geometry": { "type": "Point", "coordinates": [34.775866, 32.059733] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך מנחם בגין/אלנבי" },
+      "geometry": { "type": "Point", "coordinates": [34.775001, 32.06059] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך יפו/נחלת בנימין" },
+      "geometry": { "type": "Point", "coordinates": [34.771973, 32.060725] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הרצל/יהודה הלוי" },
+      "geometry": { "type": "Point", "coordinates": [34.770272, 32.061828] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מגדל שלום/מונטיפיורי" },
+      "geometry": { "type": "Point", "coordinates": [34.769228, 32.064693] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מסוף כרמלית/הכרמל" },
+      "geometry": { "type": "Point", "coordinates": [34.766098, 32.066363] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הירקון/עזרא הסופר" },
+      "geometry": { "type": "Point", "coordinates": [34.764907, 32.070195] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הירקון/יונה הנביא" },
+      "geometry": { "type": "Point", "coordinates": [34.76607, 32.073094] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הירקון/טרומפלדור" },
+      "geometry": { "type": "Point", "coordinates": [34.766633, 32.07536] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "חוף בוגרשוב/הירקון" },
+      "geometry": { "type": "Point", "coordinates": [34.767699, 32.078377] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "חוף פרישמן" },
+      "geometry": { "type": "Point", "coordinates": [34.768444, 32.080415] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "חוף גורדון" },
+      "geometry": { "type": "Point", "coordinates": [34.768527, 32.081934] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הירקון/שדרות בן גוריון" },
+      "geometry": { "type": "Point", "coordinates": [34.769531, 32.084191] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הירקון/ארלוזורוב" },
+      "geometry": { "type": "Point", "coordinates": [34.771282, 32.087939] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בן יהודה/ז'בוטינסקי" },
+      "geometry": { "type": "Point", "coordinates": [34.774032, 32.090003] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בן יהודה/שד' נורדאו" },
+      "geometry": { "type": "Point", "coordinates": [34.775016, 32.093349] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "עירוני ה'/בן יהודה" },
+      "geometry": { "type": "Point", "coordinates": [34.775551, 32.095047] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דיזנגוף/בן יהודה" },
+      "geometry": { "type": "Point", "coordinates": [34.776059, 32.096391] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מסוף רדינג/הורדה" },
+      "geometry": { "type": "Point", "coordinates": [34.778771, 32.098973] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "משרד הרישוי/הלוחמים" },
+      "geometry": { "type": "Point", "coordinates": [34.770086, 32.034209] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "תל גיבורים/שז''ר" },
+      "geometry": { "type": "Point", "coordinates": [34.769639, 32.039365] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בנין פנורמה/תיאטרון ניקו ניתאי" },
+      "geometry": { "type": "Point", "coordinates": [34.770306, 32.040375] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בניין פנורמה/דרך בן צבי" },
+      "geometry": { "type": "Point", "coordinates": [34.77215, 32.042069] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד' ישראל גורי/גיתית" },
+      "geometry": { "type": "Point", "coordinates": [34.776024, 32.041226] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד' ישראל גורי/דיק" },
+      "geometry": { "type": "Point", "coordinates": [34.779157, 32.041603] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "קופ''ח כללית/שד' ישראל גורי" },
+      "geometry": { "type": "Point", "coordinates": [34.780795, 32.04361] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד' ישראל גורי/דרך קיבוץ גלויות" },
+      "geometry": { "type": "Point", "coordinates": [34.780691, 32.046386] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מתחם ברנר/קיבוץ גלויות" },
+      "geometry": { "type": "Point", "coordinates": [34.778574, 32.047872] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מסילת ישרים/דרך קיבוץ גלויות" },
+      "geometry": { "type": "Point", "coordinates": [34.776124, 32.049176] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מסילת ישרים/חכמי ישראל" },
+      "geometry": { "type": "Point", "coordinates": [34.776791, 32.051271] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שדרות הר ציון/מטלון" },
+      "geometry": { "type": "Point", "coordinates": [34.777069, 32.05754] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת. מרכזית תל אביב/לוינסקי" },
+      "geometry": { "type": "Point", "coordinates": [34.779058, 32.05693] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת. רכבת ההגנה/החרש" },
+      "geometry": { "type": "Point", "coordinates": [34.783438, 32.054639] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הרכבת/המסגר" },
+      "geometry": { "type": "Point", "coordinates": [34.783556, 32.059556] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הרכבת/סלומון" },
+      "geometry": { "type": "Point", "coordinates": [34.780103, 32.062567] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת.רק''ל אלנבי/יבנה" },
+      "geometry": { "type": "Point", "coordinates": [34.774284, 32.062901] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד' רוטשילד/מזא''ה" },
+      "geometry": { "type": "Point", "coordinates": [34.777286, 32.06567] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד' רוטשילד/שיינקין" },
+      "geometry": { "type": "Point", "coordinates": [34.778387, 32.068653] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הבימה/שד' רוטשילד" },
+      "geometry": { "type": "Point", "coordinates": [34.779155, 32.071059] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הבימה/שד' תרס''ט" },
+      "geometry": { "type": "Point", "coordinates": [34.7788, 32.072934] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "היכל התרבות/דיזנגוף" },
+      "geometry": { "type": "Point", "coordinates": [34.778231, 32.074359] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דיזנגוף סנטר/דיזנגוף" },
+      "geometry": { "type": "Point", "coordinates": [34.77512, 32.075566] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "כיכר דיזנגוף/ריינס" },
+      "geometry": { "type": "Point", "coordinates": [34.77495, 32.07895] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ריינס/גורדון" },
+      "geometry": { "type": "Point", "coordinates": [34.775838, 32.081909] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דיזנגוף/יודפת" },
+      "geometry": { "type": "Point", "coordinates": [34.774625, 32.085447] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דיזנגוף/ארלוזורוב" },
+      "geometry": { "type": "Point", "coordinates": [34.775256, 32.087957] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דיזנגוף/ז'בוטינסקי" },
+      "geometry": { "type": "Point", "coordinates": [34.77566, 32.089631] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שדרות נורדאו/דיזנגוף" },
+      "geometry": { "type": "Point", "coordinates": [34.776753, 32.092224] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד' נורדאו/יהושע בן נון" },
+      "geometry": { "type": "Point", "coordinates": [34.78082, 32.091847] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "כיכר מילאנו/דה האז" },
+      "geometry": { "type": "Point", "coordinates": [34.78459, 32.093673] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ביה''ס עירוני י''א/יהודה המכבי" },
+      "geometry": { "type": "Point", "coordinates": [34.78823, 32.093734] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יהודה המכבי/דרך נמיר" },
+      "geometry": { "type": "Point", "coordinates": [34.792836, 32.094067] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך נמיר/יהודה המכבי" },
+      "geometry": { "type": "Point", "coordinates": [34.794543, 32.093781] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "תיכון חדש רבין/דרך נמיר" },
+      "geometry": { "type": "Point", "coordinates": [34.795303, 32.090293] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך נמיר/ז'בוטינסקי" },
+      "geometry": { "type": "Point", "coordinates": [34.795006, 32.085267] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת. רכבת תל אביב - סבידור/הורדה" },
+      "geometry": { "type": "Point", "coordinates": [34.796637, 32.082844] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מסוף אוניברסיטת ת''א " },
+      "geometry": { "type": "Point", "coordinates": [34.804116, 32.117204] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ביה''ס לרפואה/קלצ'קין" },
+      "geometry": { "type": "Point", "coordinates": [34.805957, 32.117386] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מדעי החיים/קלאוזנר" },
+      "geometry": { "type": "Point", "coordinates": [34.807243, 32.115503] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אוניברסיטת ת''א/מוזיאון הטבע" },
+      "geometry": { "type": "Point", "coordinates": [34.80742, 32.113359] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הפקולטה להנדסה/ד''ר ג'ורג' וויז" },
+      "geometry": { "type": "Point", "coordinates": [34.80702, 32.109701] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ד''ר ג'ורג' וייז/שלום רוזנפלד" },
+      "geometry": { "type": "Point", "coordinates": [34.805353, 32.107177] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "קמפוס ברושים/שלום רוזנפלד" },
+      "geometry": { "type": "Point", "coordinates": [34.802794, 32.106714] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "חיים לבנון/ד''ר ג'ורג' וויז" },
+      "geometry": { "type": "Point", "coordinates": [34.80168, 32.112104] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "האוניברסיטה/איינשטיין" },
+      "geometry": { "type": "Point", "coordinates": [34.800488, 32.113392] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "קניון רמת אביב/ברודצקי" },
+      "geometry": { "type": "Point", "coordinates": [34.797662, 32.112531] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ברודצקי/רדינג" },
+      "geometry": { "type": "Point", "coordinates": [34.798129, 32.110322] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "רדינג/אשר ברש" },
+      "geometry": { "type": "Point", "coordinates": [34.796267, 32.1097] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ביה''ס אלומות/רדינג" },
+      "geometry": { "type": "Point", "coordinates": [34.79409, 32.108371] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ביה''ס אליאנס/רדינג" },
+      "geometry": { "type": "Point", "coordinates": [34.794161, 32.10653] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "רדינג/הררי" },
+      "geometry": { "type": "Point", "coordinates": [34.794434, 32.104385] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "סמינר הקיבוצים/דרך נמיר" },
+      "geometry": { "type": "Point", "coordinates": [34.792779, 32.101886] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך נמיר/יהודה המכבי" },
+      "geometry": { "type": "Point", "coordinates": [34.794137, 32.095376] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יהודה המכבי/דרך נמיר" },
+      "geometry": { "type": "Point", "coordinates": [34.793079, 32.094212] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יהודה המכבי/ויצמן" },
+      "geometry": { "type": "Point", "coordinates": [34.789004, 32.093831] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יהודה המכבי/מתתיהו" },
+      "geometry": { "type": "Point", "coordinates": [34.786018, 32.093807] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "כיכר מילאנו/יהודה המכבי" },
+      "geometry": { "type": "Point", "coordinates": [34.784624, 32.093956] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אבן גבירול/פנקס" },
+      "geometry": { "type": "Point", "coordinates": [34.782604, 32.090246] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אבן גבירול/ז'בוטינסקי" },
+      "geometry": { "type": "Point", "coordinates": [34.782306, 32.088644] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "המלך ג'ורג'/זמנהוף" },
+      "geometry": { "type": "Point", "coordinates": [34.777315, 32.076897] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דיזנגוף סנטר/המלך ג'ורג'" },
+      "geometry": { "type": "Point", "coordinates": [34.776195, 32.075397] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דיזנגוף סנטר/שדרות בן ציון" },
+      "geometry": { "type": "Point", "coordinates": [34.775586, 32.073756] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הבימה/שד' רוטשילד" },
+      "geometry": { "type": "Point", "coordinates": [34.778882, 32.071428] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד' רוטשילד/שיינקין" },
+      "geometry": { "type": "Point", "coordinates": [34.777966, 32.0685] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד' רוטשילד/נחמני" },
+      "geometry": { "type": "Point", "coordinates": [34.776104, 32.064942] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת.רק''ל אלנבי/יהודה הלוי" },
+      "geometry": { "type": "Point", "coordinates": [34.77418, 32.062454] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "קאנטרי שוק העלייה/העלייה" },
+      "geometry": { "type": "Point", "coordinates": [34.773308, 32.058329] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "העלייה/דרך שלמה" },
+      "geometry": { "type": "Point", "coordinates": [34.772258, 32.05518] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך שלמה/בן עטר" },
+      "geometry": { "type": "Point", "coordinates": [34.768637, 32.054945] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך שלמה/אליפלט" },
+      "geometry": { "type": "Point", "coordinates": [34.766208, 32.054923] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אצטדיון בלומפילד/שלבים" },
+      "geometry": { "type": "Point", "coordinates": [34.764878, 32.051292] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "האקדמית תל אביב-יפו/היינריך היינה" },
+      "geometry": { "type": "Point", "coordinates": [34.762886, 32.047253] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "היינריך היינה/נס לגויים" },
+      "geometry": { "type": "Point", "coordinates": [34.762307, 32.04382] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "היינריך הינה\\יגאל ידין" },
+      "geometry": { "type": "Point", "coordinates": [34.760919, 32.038485] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אד' קוץ/אלפרדו דבלין" },
+      "geometry": { "type": "Point", "coordinates": [34.757416, 32.037461] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שדרות ירושלים/שדרות הבעש''ט" },
+      "geometry": { "type": "Point", "coordinates": [34.755134, 32.037431] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד' ירושלים/מחרוזת" },
+      "geometry": { "type": "Point", "coordinates": [34.751789, 32.034456] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת.רק''ל מחרוזת/שד' ירושלים" },
+      "geometry": { "type": "Point", "coordinates": [34.75122, 32.032344] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד' ירושלים/שמחה הולצברג" },
+      "geometry": { "type": "Point", "coordinates": [34.75029, 32.03012] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "כיכר המצבה/העצמאות" },
+      "geometry": { "type": "Point", "coordinates": [34.748079, 32.026569] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בלפור/שדרות העצמאות" },
+      "geometry": { "type": "Point", "coordinates": [34.745328, 32.022063] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בלפור/ז'בוטינסקי" },
+      "geometry": { "type": "Point", "coordinates": [34.745431, 32.020498] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת.רק''ל בלפור" },
+      "geometry": { "type": "Point", "coordinates": [34.745392, 32.017508] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בלפור/מקס נורדאו" },
+      "geometry": { "type": "Point", "coordinates": [34.74334, 32.015184] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בלפור/יצחק שדה" },
+      "geometry": { "type": "Point", "coordinates": [34.741976, 32.012248] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יצחק שדה/בלפור" },
+      "geometry": { "type": "Point", "coordinates": [34.740463, 32.0114] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך בן גוריון/יצחק שדה" },
+      "geometry": { "type": "Point", "coordinates": [34.738705, 32.010962] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הקוממיות/הנביאים" },
+      "geometry": { "type": "Point", "coordinates": [34.741449, 32.006855] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הקוממיות/הרב ניסנבאום" },
+      "geometry": { "type": "Point", "coordinates": [34.746922, 32.00411] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בית העלמין/הקוממיות" },
+      "geometry": { "type": "Point", "coordinates": [34.753473, 32.002343] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "תחנת רכבת קוממיות" },
+      "geometry": { "type": "Point", "coordinates": [34.760742, 32.001109] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "חניון אגד/דן שומרון" },
+      "geometry": { "type": "Point", "coordinates": [34.763454, 31.998823] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת.רק''ל הקוממיות/דרך בגין" },
+      "geometry": { "type": "Point", "coordinates": [34.746829, 32.00203] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הרב ניסנבאום/הקוממיות" },
+      "geometry": { "type": "Point", "coordinates": [34.748332, 32.00435] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת.רק''ל העמל/הרב ניסנבאום" },
+      "geometry": { "type": "Point", "coordinates": [34.748972, 32.005543] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הרב ניסנבאום/הרב מיימון" },
+      "geometry": { "type": "Point", "coordinates": [34.750553, 32.008662] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת.רק''ל כ''ט בנובמבר" },
+      "geometry": { "type": "Point", "coordinates": [34.752147, 32.01105] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "כ''ט בנובמבר/הרב לוי" },
+      "geometry": { "type": "Point", "coordinates": [34.753507, 32.010374] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "כ''ט בנובמבר/אלי כהן" },
+      "geometry": { "type": "Point", "coordinates": [34.757062, 32.009039] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אלי כהן/חצור" },
+      "geometry": { "type": "Point", "coordinates": [34.758168, 32.01078] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אלי כהן/דוד רזיאל" },
+      "geometry": { "type": "Point", "coordinates": [34.75881, 32.013054] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מבצע סיני/יוספטל" },
+      "geometry": { "type": "Point", "coordinates": [34.7594, 32.016465] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מבצע סיני/הארזים" },
+      "geometry": { "type": "Point", "coordinates": [34.759282, 32.018878] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מבצע סיני/סטרומה" },
+      "geometry": { "type": "Point", "coordinates": [34.757273, 32.021638] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אנילביץ'/כצנלסון" },
+      "geometry": { "type": "Point", "coordinates": [34.753697, 32.021998] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הרב עוזיאל/דניאל" },
+      "geometry": { "type": "Point", "coordinates": [34.749758, 32.02211] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הרב עוזיאל/שדרות העצמאות" },
+      "geometry": { "type": "Point", "coordinates": [34.747665, 32.022902] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "כיכר המצבה/רק''ל העצמאות" },
+      "geometry": { "type": "Point", "coordinates": [34.7491, 32.028084] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד' ירושלים/שמחה הולצברג" },
+      "geometry": { "type": "Point", "coordinates": [34.750499, 32.029896] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת.רק''ל מחרוזת/שד' ירושלים" },
+      "geometry": { "type": "Point", "coordinates": [34.751588, 32.032586] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד' ירושלים/מחרוזת" },
+      "geometry": { "type": "Point", "coordinates": [34.752164, 32.034515] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מרכז הטניס/הרב הלר" },
+      "geometry": { "type": "Point", "coordinates": [34.755922, 32.036217] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "היינריך היינה/שז''ר" },
+      "geometry": { "type": "Point", "coordinates": [34.761688, 32.039277] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "היינריך היינה/נס לגויים" },
+      "geometry": { "type": "Point", "coordinates": [34.762805, 32.044945] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "האקדמית תל אביב-יפו/היינריך היינה" },
+      "geometry": { "type": "Point", "coordinates": [34.762991, 32.046458] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אצטדיון בלומפילד/שלבים" },
+      "geometry": { "type": "Point", "coordinates": [34.765061, 32.051093] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך שלמה/שלבים" },
+      "geometry": { "type": "Point", "coordinates": [34.765578, 32.054772] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך שלמה/אבולעפיה" },
+      "geometry": { "type": "Point", "coordinates": [34.769417, 32.054789] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הרצל/פלורנטין" },
+      "geometry": { "type": "Point", "coordinates": [34.770883, 32.056033] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הרצל/וולפסון" },
+      "geometry": { "type": "Point", "coordinates": [34.770874, 32.058222] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הרצל/דרך יפו" },
+      "geometry": { "type": "Point", "coordinates": [34.770478, 32.060837] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד' רוטשילד/אלנבי" },
+      "geometry": { "type": "Point", "coordinates": [34.773702, 32.063554] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד' רוטשילד/בלפור" },
+      "geometry": { "type": "Point", "coordinates": [34.777553, 32.066146] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד' רוטשילד/חשמונאים" },
+      "geometry": { "type": "Point", "coordinates": [34.779052, 32.070732] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דיזנגוף סנטר/שדרות בן ציון" },
+      "geometry": { "type": "Point", "coordinates": [34.776007, 32.073814] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דיזנגוף סנטר/המלך ג'ורג'" },
+      "geometry": { "type": "Point", "coordinates": [34.776404, 32.075533] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הנביאים/שמריהו לוין" },
+      "geometry": { "type": "Point", "coordinates": [34.778733, 32.075873] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "כיכר רבין/מלכי ישראל" },
+      "geometry": { "type": "Point", "coordinates": [34.780372, 32.079416] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "עיריית תל אביב - יפו/אבן גבירול" },
+      "geometry": { "type": "Point", "coordinates": [34.781421, 32.081798] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אבן גבירול/ארלוזורוב" },
+      "geometry": { "type": "Point", "coordinates": [34.781789, 32.084898] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אבן גבירול/ז'בוטינסקי" },
+      "geometry": { "type": "Point", "coordinates": [34.782552, 32.08874] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אבן גבירול/פנקס" },
+      "geometry": { "type": "Point", "coordinates": [34.782879, 32.090509] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך נמיר/יהודה המכבי" },
+      "geometry": { "type": "Point", "coordinates": [34.794466, 32.095157] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "סמינר הקיבוצים/ש''י עגנון" },
+      "geometry": { "type": "Point", "coordinates": [34.792115, 32.103067] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שדרות לוי אשכול/ש''י עגנון" },
+      "geometry": { "type": "Point", "coordinates": [34.788945, 32.103923] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד' לוי אשכול/אפטר" },
+      "geometry": { "type": "Point", "coordinates": [34.788583, 32.10672] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד' לוי אשכול/דב האוזנר" },
+      "geometry": { "type": "Point", "coordinates": [34.789188, 32.10985] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שדרות לוי אשכול/איינשטיין" },
+      "geometry": { "type": "Point", "coordinates": [34.789768, 32.112893] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד' לוי אשכול/זריצקי" },
+      "geometry": { "type": "Point", "coordinates": [34.790207, 32.115205] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שדרות לוי אשכול/מארק שאגאל" },
+      "geometry": { "type": "Point", "coordinates": [34.790631, 32.117433] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד' לוי אשכול/רודנסקי" },
+      "geometry": { "type": "Point", "coordinates": [34.791321, 32.121124] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "צבי פרופס/שד' לוי אשכול" },
+      "geometry": { "type": "Point", "coordinates": [34.790712, 32.123423] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שושנה פרסיץ/אבן גבירול" },
+      "geometry": { "type": "Point", "coordinates": [34.792452, 32.131882] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "תיכון עמוס עוז/שושנה פרסיץ" },
+      "geometry": { "type": "Point", "coordinates": [34.793848, 32.131422] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "קריית חינוך/שושנה פרסיץ" },
+      "geometry": { "type": "Point", "coordinates": [34.796066, 32.132841] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "קריית חינוך" },
+      "geometry": { "type": "Point", "coordinates": [34.797798, 32.137236] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "קהילות יעקב/רבי יוסף צבי רימון" },
+      "geometry": { "type": "Point", "coordinates": [34.838308, 32.07124] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בירנבוים/הרב עוזיאל" },
+      "geometry": { "type": "Point", "coordinates": [34.840713, 32.071681] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הרב יצחק ניסים/קהילות יעקב" },
+      "geometry": { "type": "Point", "coordinates": [34.83865, 32.073339] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דמשק אליעזר/האדמו''ר מויז'ניץ" },
+      "geometry": { "type": "Point", "coordinates": [34.837276, 32.074832] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "עזרא/דמשק אליעזר" },
+      "geometry": { "type": "Point", "coordinates": [34.836184, 32.076564] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "נחמיה/עזרא" },
+      "geometry": { "type": "Point", "coordinates": [34.837455, 32.079161] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "נחמיה/חזון אי''ש" },
+      "geometry": { "type": "Point", "coordinates": [34.83462, 32.079863] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "חזון אי''ש/האדמו''ר מגור" },
+      "geometry": { "type": "Point", "coordinates": [34.835422, 32.082575] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "חזון אי''ש/רבנו תם" },
+      "geometry": { "type": "Point", "coordinates": [34.836367, 32.084589] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "רבי עקיבא/הרב שך" },
+      "geometry": { "type": "Point", "coordinates": [34.834862, 32.085829] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "רבי עקיבא/גן ורשה" },
+      "geometry": { "type": "Point", "coordinates": [34.832095, 32.086061] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ירושלים/בן זכאי" },
+      "geometry": { "type": "Point", "coordinates": [34.829869, 32.085445] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "עיריית בני ברק/ירושלים" },
+      "geometry": { "type": "Point", "coordinates": [34.828338, 32.083104] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ירושלים/הרא''ה" },
+      "geometry": { "type": "Point", "coordinates": [34.826186, 32.082796] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הרא''ה/הבנים" },
+      "geometry": { "type": "Point", "coordinates": [34.823978, 32.083468] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הרא''ה/דרך בן גוריון" },
+      "geometry": { "type": "Point", "coordinates": [34.822267, 32.083679] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הרא''ה/הרצל" },
+      "geometry": { "type": "Point", "coordinates": [34.816328, 32.083897] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "עיריית ר''ג/ביאליק" },
+      "geometry": { "type": "Point", "coordinates": [34.814746, 32.08225] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ביאליק/השוטרת" },
+      "geometry": { "type": "Point", "coordinates": [34.814843, 32.081044] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בלוך/ארלוזורוב" },
+      "geometry": { "type": "Point", "coordinates": [34.785504, 32.084139] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "עיריית תל אביב - יפו/בלוך" },
+      "geometry": { "type": "Point", "coordinates": [34.781907, 32.081593] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שדרות בן גוריון/בן יהודה" },
+      "geometry": { "type": "Point", "coordinates": [34.773271, 32.0848] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אליעזר פרי/ארלוזורוב" },
+      "geometry": { "type": "Point", "coordinates": [34.770673, 32.087486] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "חוף גורדון" },
+      "geometry": { "type": "Point", "coordinates": [34.768191, 32.082345] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "חוף בוגרשוב/טיילת" },
+      "geometry": { "type": "Point", "coordinates": [34.766845, 32.078216] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מסוף כרמלית/הורדה" },
+      "geometry": { "type": "Point", "coordinates": [34.765823, 32.067287] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת.רכבת תל אביב - סבידור/רציפים C" },
+      "geometry": { "type": "Point", "coordinates": [34.795844, 32.08255] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת.רק''ל ארלוזורוב/דרך מנחם בגין" },
+      "geometry": { "type": "Point", "coordinates": [34.796115, 32.080578] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בית הדר דפנה/שד' שאול המלך" },
+      "geometry": { "type": "Point", "coordinates": [34.790426, 32.077593] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בית המשפט/ויצמן" },
+      "geometry": { "type": "Point", "coordinates": [34.788581, 32.078868] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ביה''ח איכילוב/שדרות דוד המלך" },
+      "geometry": { "type": "Point", "coordinates": [34.788226, 32.079841] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "רבנות תל אביב/שד' דוד המלך" },
+      "geometry": { "type": "Point", "coordinates": [34.784906, 32.080103] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד' דוד המלך/אבן גבירול" },
+      "geometry": { "type": "Point", "coordinates": [34.78247, 32.080303] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "פרישמן/שלמה המלך" },
+      "geometry": { "type": "Point", "coordinates": [34.776668, 32.079679] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "המרד/פינס" },
+      "geometry": { "type": "Point", "coordinates": [34.764104, 32.06448] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מרכז הטקסטיל/המרד" },
+      "geometry": { "type": "Point", "coordinates": [34.763501, 32.063189] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "פרופ' קויפמן/שנקר" },
+      "geometry": { "type": "Point", "coordinates": [34.761281, 32.062428] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בית האצ''ל/גולדמן" },
+      "geometry": { "type": "Point", "coordinates": [34.758658, 32.058253] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "כיכר השעון/נחום גולדמן" },
+      "geometry": { "type": "Point", "coordinates": [34.756916, 32.056288] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שוק הפשפשים/יפת" },
+      "geometry": { "type": "Point", "coordinates": [34.755347, 32.054049] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יפת/לואי פסטר" },
+      "geometry": { "type": "Point", "coordinates": [34.752929, 32.051606] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יפת/יהודה הימית" },
+      "geometry": { "type": "Point", "coordinates": [34.752755, 32.049974] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יפת/ד''ר ארליך" },
+      "geometry": { "type": "Point", "coordinates": [34.752424, 32.047706] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יפת/סייפן" },
+      "geometry": { "type": "Point", "coordinates": [34.751917, 32.044245] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יפת/מנדס פראנס" },
+      "geometry": { "type": "Point", "coordinates": [34.751605, 32.042043] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יפת/הבעש''ט" },
+      "geometry": { "type": "Point", "coordinates": [34.750164, 32.037971] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יפת/נגיב מחפוז" },
+      "geometry": { "type": "Point", "coordinates": [34.749216, 32.036768] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת.רק''ל מחרוזת/סהרון" },
+      "geometry": { "type": "Point", "coordinates": [34.751208, 32.034129] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הרב עוזיאל/שדרות העצמאות" },
+      "geometry": { "type": "Point", "coordinates": [34.747715, 32.022748] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אנילביץ'/דניאל" },
+      "geometry": { "type": "Point", "coordinates": [34.750804, 32.021964] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מבצע סיני/כצנלסון" },
+      "geometry": { "type": "Point", "coordinates": [34.755397, 32.021858] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "היכל התרבות/מבצע סיני" },
+      "geometry": { "type": "Point", "coordinates": [34.758196, 32.021027] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מבצע סיני/יוספטל" },
+      "geometry": { "type": "Point", "coordinates": [34.759275, 32.016884] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אלי כהן/יוספטל" },
+      "geometry": { "type": "Point", "coordinates": [34.758943, 32.014335] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אלי כהן/מצדה" },
+      "geometry": { "type": "Point", "coordinates": [34.758479, 32.012692] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אלי כהן/חצור" },
+      "geometry": { "type": "Point", "coordinates": [34.757893, 32.010584] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "כ''ט בנובמבר/אלי כהן" },
+      "geometry": { "type": "Point", "coordinates": [34.75663, 32.009318] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אנה פרנק/כ''ט בנובמבר" },
+      "geometry": { "type": "Point", "coordinates": [34.754873, 32.008954] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אנה פרנק/הרב מיימון" },
+      "geometry": { "type": "Point", "coordinates": [34.754302, 32.006909] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אנה פרנק/הקוממיות" },
+      "geometry": { "type": "Point", "coordinates": [34.753384, 32.003665] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מסוף בית העלמין/הורדה" },
+      "geometry": { "type": "Point", "coordinates": [34.752923, 32.002365] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "חנה וסע ראשל''צ/איסוף שאטלים" },
+      "geometry": { "type": "Point", "coordinates": [34.754763, 31.969282] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך נמיר/שדרות שאול המלך" },
+      "geometry": { "type": "Point", "coordinates": [34.793016, 32.078509] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מתחם שרונה/אליעזר קפלן" },
+      "geometry": { "type": "Point", "coordinates": [34.787018, 32.073491] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אליעזר קפלן/דובנוב" },
+      "geometry": { "type": "Point", "coordinates": [34.783258, 32.07356] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "לונדון מיניסטור/אבן גבירול" },
+      "geometry": { "type": "Point", "coordinates": [34.781836, 32.074469] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "האופרה/שד' שאול המלך" },
+      "geometry": { "type": "Point", "coordinates": [34.784789, 32.075623] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ביה''ח איכילוב/ויצמן" },
+      "geometry": { "type": "Point", "coordinates": [34.788879, 32.080816] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "חנה וסע ראשל''צ/הורדה שאטלים " },
+      "geometry": { "type": "Point", "coordinates": [34.755387, 31.969452] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "חיים לבנון/קלצ'קין" },
+      "geometry": { "type": "Point", "coordinates": [34.801382, 32.117801] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "קניון רמת אביב/אינשטיין" },
+      "geometry": { "type": "Point", "coordinates": [34.79716, 32.113103] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "איינשטיין/דרך נמיר" },
+      "geometry": { "type": "Point", "coordinates": [34.79194, 32.112704] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד' לוי אשכול/אינשטיין" },
+      "geometry": { "type": "Point", "coordinates": [34.789253, 32.111741] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד' לוי אשכול/דב האוזנר" },
+      "geometry": { "type": "Point", "coordinates": [34.788905, 32.109944] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שדרות לוי אשכול/ש''י עגנון" },
+      "geometry": { "type": "Point", "coordinates": [34.788631, 32.103945] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שדרות לוי אשכול/כיכר מאיר יערי" },
+      "geometry": { "type": "Point", "coordinates": [34.789292, 32.100997] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שדרות רוקח/אבן גבירול" },
+      "geometry": { "type": "Point", "coordinates": [34.782012, 32.098709] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דיזנגוף/בן יהודה" },
+      "geometry": { "type": "Point", "coordinates": [34.775963, 32.096302] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דיזנגוף/שד' נורדאו" },
+      "geometry": { "type": "Point", "coordinates": [34.776506, 32.093454] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דיזנגוף/בזל" },
+      "geometry": { "type": "Point", "coordinates": [34.776014, 32.091443] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דיזנגוף/ז'בוטינסקי" },
+      "geometry": { "type": "Point", "coordinates": [34.775357, 32.088826] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דיזנגוף/יודפת" },
+      "geometry": { "type": "Point", "coordinates": [34.774508, 32.085415] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דיזנגוף סנטר/דיזנגוף" },
+      "geometry": { "type": "Point", "coordinates": [34.77537, 32.075129] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "היכל התרבות/דיזנגוף" },
+      "geometry": { "type": "Point", "coordinates": [34.779383, 32.073958] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אליעזר קפלן/אבן גבירול" },
+      "geometry": { "type": "Point", "coordinates": [34.782953, 32.073377] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מתחם שרונה/אליעזר קפלן" },
+      "geometry": { "type": "Point", "coordinates": [34.786797, 32.073253] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת. רכבת השלום" },
+      "geometry": { "type": "Point", "coordinates": [34.79339, 32.072666] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יגאל אלון/דרך השלום" },
+      "geometry": { "type": "Point", "coordinates": [34.794118, 32.071549] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יגאל אלון/קרמנצקי" },
+      "geometry": { "type": "Point", "coordinates": [34.792921, 32.067602] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יגאל אלון/יצחק שדה" },
+      "geometry": { "type": "Point", "coordinates": [34.792274, 32.064876] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יגאל אלון/הפלמ''ח" },
+      "geometry": { "type": "Point", "coordinates": [34.792016, 32.062878] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "היכל הספורט/יגאל אלון" },
+      "geometry": { "type": "Point", "coordinates": [34.791891, 32.060644] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "לה גווארדייה/שער הגיא" },
+      "geometry": { "type": "Point", "coordinates": [34.792881, 32.059152] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "לה גווארדייה/לוחמי גליפולי" },
+      "geometry": { "type": "Point", "coordinates": [34.795294, 32.059086] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "לה גווארדייה/הגיבור האלמוני" },
+      "geometry": { "type": "Point", "coordinates": [34.798466, 32.059086] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך משה דיין/לה גווארדייה" },
+      "geometry": { "type": "Point", "coordinates": [34.800238, 32.058606] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך משה דיין/צבי נשרי" },
+      "geometry": { "type": "Point", "coordinates": [34.800093, 32.055144] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך משה דיין/ההגנה" },
+      "geometry": { "type": "Point", "coordinates": [34.799862, 32.052456] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך משה דיין/קרייתי" },
+      "geometry": { "type": "Point", "coordinates": [34.799322, 32.049334] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך בר לב/דרך משה דיין" },
+      "geometry": { "type": "Point", "coordinates": [34.799899, 32.046689] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך בר לב/אונטרמן" },
+      "geometry": { "type": "Point", "coordinates": [34.804118, 32.045863] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך בר לב/שד' ששת הימים" },
+      "geometry": { "type": "Point", "coordinates": [34.808098, 32.045144] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד' ששת הימים/דרך בר לב" },
+      "geometry": { "type": "Point", "coordinates": [34.809878, 32.045794] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד' ששת הימים/תקוע" },
+      "geometry": { "type": "Point", "coordinates": [34.810171, 32.047742] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מח''ל/שד' ששת הימים" },
+      "geometry": { "type": "Point", "coordinates": [34.810483, 32.049149] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מח''ל/מעפילי אגוז" },
+      "geometry": { "type": "Point", "coordinates": [34.812225, 32.049377] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מסוף הטייסים/הורדה" },
+      "geometry": { "type": "Point", "coordinates": [34.813803, 32.048724] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "צביה לובטקין/צוקרמן" },
+      "geometry": { "type": "Point", "coordinates": [34.806857, 32.046937] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ביה''ס בעש''ט/צביה לובטקין" },
+      "geometry": { "type": "Point", "coordinates": [34.80667, 32.049237] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אסא קדמוני/הרב יוסף צוברי" },
+      "geometry": { "type": "Point", "coordinates": [34.805331, 32.050985] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הרב אלנקווה/אסא קדמוני" },
+      "geometry": { "type": "Point", "coordinates": [34.804423, 32.053204] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בית ברבור/דרך ההגנה" },
+      "geometry": { "type": "Point", "coordinates": [34.80164, 32.053444] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך משה דיין/צבי נשרי" },
+      "geometry": { "type": "Point", "coordinates": [34.800345, 32.054703] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך משה דיין/לה גווארדייה" },
+      "geometry": { "type": "Point", "coordinates": [34.800537, 32.057897] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "לה גווארדייה/הגיבור האלמוני" },
+      "geometry": { "type": "Point", "coordinates": [34.798721, 32.059183] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "לה גווארדייה/לוחמי גליפולי" },
+      "geometry": { "type": "Point", "coordinates": [34.79595, 32.059169] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "לה גווארדייה/שער הגיא" },
+      "geometry": { "type": "Point", "coordinates": [34.79378, 32.059214] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יגאל אלון/לה גווארדייה" },
+      "geometry": { "type": "Point", "coordinates": [34.792069, 32.059696] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "היכל הספורט/יגאל אלון" },
+      "geometry": { "type": "Point", "coordinates": [34.792128, 32.061469] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "סינרמה/יצחק שדה" },
+      "geometry": { "type": "Point", "coordinates": [34.791607, 32.0645] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יצחק שדה/שונצינו" },
+      "geometry": { "type": "Point", "coordinates": [34.787835, 32.065133] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יצחק שדה/המסגר" },
+      "geometry": { "type": "Point", "coordinates": [34.785302, 32.065676] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "קניון טי.אל.וי/קרליבך" },
+      "geometry": { "type": "Point", "coordinates": [34.783206, 32.068334] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "קרליבך/הארבעה" },
+      "geometry": { "type": "Point", "coordinates": [34.782571, 32.070456] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הבימה/שד' בן ציון" },
+      "geometry": { "type": "Point", "coordinates": [34.779715, 32.07188] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "גימנסיה הרצליה/ז'בוטינסקי" },
+      "geometry": { "type": "Point", "coordinates": [34.784929, 32.087558] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "כיכר המדינה/ז'בוטינסקי" },
+      "geometry": { "type": "Point", "coordinates": [34.791702, 32.0863] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך נמיר/ז'בוטינסקי" },
+      "geometry": { "type": "Point", "coordinates": [34.795493, 32.086375] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך נמיר/פנקס" },
+      "geometry": { "type": "Point", "coordinates": [34.795206, 32.092013] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד' רוקח/דרך נמיר" },
+      "geometry": { "type": "Point", "coordinates": [34.794904, 32.100026] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מרכז רבין/שד' רוקח" },
+      "geometry": { "type": "Point", "coordinates": [34.800011, 32.101156] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת. רכבת האוניברסיטה/שד' רוקח" },
+      "geometry": { "type": "Point", "coordinates": [34.80697, 32.102783] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אקספו תל אביב/שד' רוקח" },
+      "geometry": { "type": "Point", "coordinates": [34.809664, 32.103834] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "לונה פארק/שד' רוקח" },
+      "geometry": { "type": "Point", "coordinates": [34.81257, 32.105513] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בני אפרים/בכור שטרית" },
+      "geometry": { "type": "Point", "coordinates": [34.815587, 32.108515] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הדר יוסף/בני אפרים" },
+      "geometry": { "type": "Point", "coordinates": [34.817416, 32.110376] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הדר יוסף/קהילת ורשה" },
+      "geometry": { "type": "Point", "coordinates": [34.819316, 32.108838] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "קהילת ורשה/שלום אש" },
+      "geometry": { "type": "Point", "coordinates": [34.8203, 32.108522] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "קהילת יאסי/קהילת ורשה" },
+      "geometry": { "type": "Point", "coordinates": [34.822846, 32.110142] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "קהילת יאסי/פנחס רוזן" },
+      "geometry": { "type": "Point", "coordinates": [34.825403, 32.110121] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "פנחס רוזן/מבצע קדש" },
+      "geometry": { "type": "Point", "coordinates": [34.825646, 32.111251] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "פנחס רוזן/שלונסקי" },
+      "geometry": { "type": "Point", "coordinates": [34.825525, 32.114749] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שלונסקי/קהילת ונציה" },
+      "geometry": { "type": "Point", "coordinates": [34.824143, 32.116082] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שלונסקי/בני אפרים" },
+      "geometry": { "type": "Point", "coordinates": [34.819709, 32.117871] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בני אפרים/חנה רובינא" },
+      "geometry": { "type": "Point", "coordinates": [34.819801, 32.12027] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בני אפרים/מנורה" },
+      "geometry": { "type": "Point", "coordinates": [34.821577, 32.121512] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "משה סנה/בני אפרים" },
+      "geometry": { "type": "Point", "coordinates": [34.825126, 32.124779] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "סשה ארגוב/לוין קיפניס" },
+      "geometry": { "type": "Point", "coordinates": [34.831077, 32.126216] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "סשה ארגוב/מקס זליגמן" },
+      "geometry": { "type": "Point", "coordinates": [34.835016, 32.126058] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "וילנסקי/לוין קיפניס" },
+      "geometry": { "type": "Point", "coordinates": [34.832253, 32.128076] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אלי תבין/וילנסקי" },
+      "geometry": { "type": "Point", "coordinates": [34.829263, 32.12789] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בית העלמין/קרית שאול" },
+      "geometry": { "type": "Point", "coordinates": [34.820267, 32.129537] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הכובשים/דניאל" },
+      "geometry": { "type": "Point", "coordinates": [34.765534, 32.068527] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הירקון/אלנבי" },
+      "geometry": { "type": "Point", "coordinates": [34.766306, 32.073731] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בוגרשוב/פינסקר" },
+      "geometry": { "type": "Point", "coordinates": [34.770873, 32.076306] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "החשמונאים/יהודה הלוי" },
+      "geometry": { "type": "Point", "coordinates": [34.780607, 32.06998] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "החשמונאים/קרליבך" },
+      "geometry": { "type": "Point", "coordinates": [34.783648, 32.069472] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת.רק''ל יהודית/דרך מנחם בגין" },
+      "geometry": { "type": "Point", "coordinates": [34.788125, 32.069862] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "קניון עזריאלי/דרך מנחם בגין" },
+      "geometry": { "type": "Point", "coordinates": [34.791116, 32.074453] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "נחלת יצחק/יגאל אלון" },
+      "geometry": { "type": "Point", "coordinates": [34.796167, 32.075127] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מגדלי תל אביב/נחלת יצחק" },
+      "geometry": { "type": "Point", "coordinates": [34.798057, 32.074579] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "נחלת יצחק/עליית הנוער" },
+      "geometry": { "type": "Point", "coordinates": [34.800651, 32.07381] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ב. עלמין נחלת יצחק/רמב''ם" },
+      "geometry": { "type": "Point", "coordinates": [34.802554, 32.070507] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "רמב''ם/אילת" },
+      "geometry": { "type": "Point", "coordinates": [34.807074, 32.070466] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ויצמן/צה''ל" },
+      "geometry": { "type": "Point", "coordinates": [34.808682, 32.07234] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ויצמן/ז'בוטינסקי" },
+      "geometry": { "type": "Point", "coordinates": [34.80864, 32.073859] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "גן הזיכרון/כצנלסון" },
+      "geometry": { "type": "Point", "coordinates": [34.810752, 32.075625] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "כצנלסון/סירקין" },
+      "geometry": { "type": "Point", "coordinates": [34.815073, 32.076926] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "כצנלסון/דרך בן גוריון" },
+      "geometry": { "type": "Point", "coordinates": [34.8175, 32.07533] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שדרות ירושלים/דרך בן גוריון" },
+      "geometry": { "type": "Point", "coordinates": [34.818964, 32.074711] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד. ירושלים/מוריה" },
+      "geometry": { "type": "Point", "coordinates": [34.821709, 32.074616] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ביה''ס חורב/עוזיאל" },
+      "geometry": { "type": "Point", "coordinates": [34.822999, 32.072195] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "תיכון אלון/עוזיאל" },
+      "geometry": { "type": "Point", "coordinates": [34.821594, 32.067943] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "עוזיאל/פנחס רוטנברג" },
+      "geometry": { "type": "Point", "coordinates": [34.820443, 32.064679] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הרא''ה/פנחס רוטנברג" },
+      "geometry": { "type": "Point", "coordinates": [34.823418, 32.063607] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הרא''ה/דרך יצחק רבין" },
+      "geometry": { "type": "Point", "coordinates": [34.821781, 32.061914] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אלוף שדה/דרך יצחק רבין" },
+      "geometry": { "type": "Point", "coordinates": [34.822176, 32.059551] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אלוף שדה/הירדן" },
+      "geometry": { "type": "Point", "coordinates": [34.828604, 32.058355] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מסוף אלוף שדה" },
+      "geometry": { "type": "Point", "coordinates": [34.833997, 32.054928] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "תחנה תפעולית/תל השומר" },
+      "geometry": { "type": "Point", "coordinates": [34.843218, 32.041405] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בית החולים תל השומר/כניסה דרומית" },
+      "geometry": { "type": "Point", "coordinates": [34.843298, 32.042781] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בית החולים תל השומר/מכון עיניים" },
+      "geometry": { "type": "Point", "coordinates": [34.845938, 32.045079] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בית החולים תל השומר/אונקולוגיה" },
+      "geometry": { "type": "Point", "coordinates": [34.845992, 32.046427] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ביה''ח תל השומר/מעבדות" },
+      "geometry": { "type": "Point", "coordinates": [34.844046, 32.047409] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בית החולים תל השומר/ילדים" },
+      "geometry": { "type": "Point", "coordinates": [34.842623, 32.048024] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בית החולים תל השומר/כניסה ראשית" },
+      "geometry": { "type": "Point", "coordinates": [34.84118, 32.048928] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך שיבא/כפר אז''ר" },
+      "geometry": { "type": "Point", "coordinates": [34.839229, 32.051602] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "רמת אפעל/דרך שיבא" },
+      "geometry": { "type": "Point", "coordinates": [34.837174, 32.052716] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אלוף שדה/כביש 4" },
+      "geometry": { "type": "Point", "coordinates": [34.832771, 32.057419] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הירדן/ אלוף שדה" },
+      "geometry": { "type": "Point", "coordinates": [34.828287, 32.059308] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בן גוריון/ החץ" },
+      "geometry": { "type": "Point", "coordinates": [34.820663, 32.082033] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "קניון עזריאלי/דרך מנחם בגין" },
+      "geometry": { "type": "Point", "coordinates": [34.790607, 32.074584] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הבימה/שד' תרס''ט" },
+      "geometry": { "type": "Point", "coordinates": [34.778812, 32.073638] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד' רוטשילד/בלפור" },
+      "geometry": { "type": "Point", "coordinates": [34.77721, 32.066128] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת. רק''ל אלנבי/רוטשילד" },
+      "geometry": { "type": "Point", "coordinates": [34.774444, 32.064049] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שדרות רוטשילד/אלנבי" },
+      "geometry": { "type": "Point", "coordinates": [34.772773, 32.063556] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מגדל שלום/הרצל" },
+      "geometry": { "type": "Point", "coordinates": [34.769838, 32.063828] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "חניון אגד/חורשת היובל" },
+      "geometry": { "type": "Point", "coordinates": [34.763544, 31.998722] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "תחנת דלק היובל/משה דיין" },
+      "geometry": { "type": "Point", "coordinates": [34.76328, 32.001204] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת. רכבת הקוממיות" },
+      "geometry": { "type": "Point", "coordinates": [34.75953, 32.001476] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בית העלמין/הקוממיות" },
+      "geometry": { "type": "Point", "coordinates": [34.75448, 32.002322] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הקוממיות/אנה פרנק" },
+      "geometry": { "type": "Point", "coordinates": [34.752376, 32.002782] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הקוממיות/הרב ניסנבאום" },
+      "geometry": { "type": "Point", "coordinates": [34.747223, 32.004235] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הקוממיות/נפחא" },
+      "geometry": { "type": "Point", "coordinates": [34.743966, 32.005555] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הקוממיות/הנביאים" },
+      "geometry": { "type": "Point", "coordinates": [34.741865, 32.006839] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הנביאים/הקוממיות" },
+      "geometry": { "type": "Point", "coordinates": [34.7426, 32.008458] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יצחק שדה/הנביאים" },
+      "geometry": { "type": "Point", "coordinates": [34.743849, 32.010386] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "חוף מרינה/דרך בן גוריון" },
+      "geometry": { "type": "Point", "coordinates": [34.738948, 32.011935] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך בן גוריון/מקס נורדאו" },
+      "geometry": { "type": "Point", "coordinates": [34.738558, 32.015851] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יוספטל/מסריק" },
+      "geometry": { "type": "Point", "coordinates": [34.740964, 32.019026] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דקר/יוספטל" },
+      "geometry": { "type": "Point", "coordinates": [34.743335, 32.019074] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בלפור/פרלשטיין" },
+      "geometry": { "type": "Point", "coordinates": [34.74552, 32.020751] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בלפור/הרב קוק" },
+      "geometry": { "type": "Point", "coordinates": [34.745285, 32.02442] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בלפור/רוטשילד" },
+      "geometry": { "type": "Point", "coordinates": [34.745339, 32.027348] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בלפור/שמחה הולצברג" },
+      "geometry": { "type": "Point", "coordinates": [34.744034, 32.032033] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יפת/יוטבת" },
+      "geometry": { "type": "Point", "coordinates": [34.745942, 32.033897] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יפת/אייזיק חריף" },
+      "geometry": { "type": "Point", "coordinates": [34.748487, 32.035768] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יפת/הבעש''ט" },
+      "geometry": { "type": "Point", "coordinates": [34.75049, 32.038092] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יפת/מנדס פראנס" },
+      "geometry": { "type": "Point", "coordinates": [34.751546, 32.041261] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יפת/חייבי" },
+      "geometry": { "type": "Point", "coordinates": [34.752277, 32.044858] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יפת/ד''ר ארליך" },
+      "geometry": { "type": "Point", "coordinates": [34.752583, 32.047155] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יפת/יצחק אבינרי" },
+      "geometry": { "type": "Point", "coordinates": [34.752751, 32.049054] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יפת/לואי פסטר" },
+      "geometry": { "type": "Point", "coordinates": [34.753208, 32.052346] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שוק הפשפשים/יפת" },
+      "geometry": { "type": "Point", "coordinates": [34.75499, 32.053685] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "כיכר השעון" },
+      "geometry": { "type": "Point", "coordinates": [34.756352, 32.054967] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מתחם התחנה/פרופ' קויפמן" },
+      "geometry": { "type": "Point", "coordinates": [34.76046, 32.059784] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מרכז הטקסטיל/המרד" },
+      "geometry": { "type": "Point", "coordinates": [34.763649, 32.063276] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "המרד/פינס" },
+      "geometry": { "type": "Point", "coordinates": [34.764763, 32.065078] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יוסף לוי/הכובשים" },
+      "geometry": { "type": "Point", "coordinates": [34.764095, 32.065867] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ספורטק/שד' רוקח" },
+      "geometry": { "type": "Point", "coordinates": [34.78494, 32.09861] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "סמינר הקיבוצים/חיים לבנון" },
+      "geometry": { "type": "Point", "coordinates": [34.793726, 32.102795] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מוזאון ארץ ישראל/חיים לבנון" },
+      "geometry": { "type": "Point", "coordinates": [34.797126, 32.10372] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מכון הנפט/חיים לבנון" },
+      "geometry": { "type": "Point", "coordinates": [34.800019, 32.105457] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "טאגור/אנדרסן" },
+      "geometry": { "type": "Point", "coordinates": [34.796223, 32.114559] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מרכז מסחרי/טאגור" },
+      "geometry": { "type": "Point", "coordinates": [34.798088, 32.117679] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "חיים לבנון/קלצ'קין" },
+      "geometry": { "type": "Point", "coordinates": [34.801869, 32.119043] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד' קק''ל/שלמה בן יוסף" },
+      "geometry": { "type": "Point", "coordinates": [34.798889, 32.122078] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד' קק''ל/שלמה בן יוסף" },
+      "geometry": { "type": "Point", "coordinates": [34.796594, 32.122465] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "קדושי השואה/צבי פרופס" },
+      "geometry": { "type": "Point", "coordinates": [34.792227, 32.125722] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מסוף אזורי חן" },
+      "geometry": { "type": "Point", "coordinates": [34.792217, 32.128509] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "איצטדיון וינטר" },
+      "geometry": { "type": "Point", "coordinates": [34.814621, 32.046172] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך הטייסים/ככר הרב פרדס" },
+      "geometry": { "type": "Point", "coordinates": [34.814011, 32.050346] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך הטייסים/שלם" },
+      "geometry": { "type": "Point", "coordinates": [34.813005, 32.0526] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "עודד/אלוף דוד" },
+      "geometry": { "type": "Point", "coordinates": [34.811377, 32.056774] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "המאבק/עמישב" },
+      "geometry": { "type": "Point", "coordinates": [34.810789, 32.060063] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "המאבק/כ''ג" },
+      "geometry": { "type": "Point", "coordinates": [34.810416, 32.062575] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "המאבק/מנורה" },
+      "geometry": { "type": "Point", "coordinates": [34.809093, 32.06522] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ויצמן/ריינס" },
+      "geometry": { "type": "Point", "coordinates": [34.808579, 32.067865] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "סירקין/ביאליק" },
+      "geometry": { "type": "Point", "coordinates": [34.814717, 32.077704] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "קריניצי/ביאליק" },
+      "geometry": { "type": "Point", "coordinates": [34.815753, 32.079296] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הרצל/קריניצי" },
+      "geometry": { "type": "Point", "coordinates": [34.818264, 32.081206] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הרצל/קופת חולים" },
+      "geometry": { "type": "Point", "coordinates": [34.816128, 32.082619] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הרצל/דרך ז'בוטינסקי" },
+      "geometry": { "type": "Point", "coordinates": [34.814894, 32.087636] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת.רק''ל ביאליק/דרך ז'בוטינסקי" },
+      "geometry": { "type": "Point", "coordinates": [34.8128, 32.087259] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ביאליק/דרך ז'בוטינסקי" },
+      "geometry": { "type": "Point", "coordinates": [34.810245, 32.086026] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ביאליק/מבוא הרימון" },
+      "geometry": { "type": "Point", "coordinates": [34.808117, 32.08688] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ביאליק/תובל" },
+      "geometry": { "type": "Point", "coordinates": [34.804702, 32.088489] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "רדינג/ברודצקי" },
+      "geometry": { "type": "Point", "coordinates": [34.794623, 32.104603] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ביה''ס אליאנס/רדינג" },
+      "geometry": { "type": "Point", "coordinates": [34.794153, 32.107227] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "רדינג/אשר ברש" },
+      "geometry": { "type": "Point", "coordinates": [34.794712, 32.109117] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "רדינג/הברון הירש" },
+      "geometry": { "type": "Point", "coordinates": [34.797792, 32.10986] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "קניון רמת אביב/ברודצקי" },
+      "geometry": { "type": "Point", "coordinates": [34.797919, 32.112327] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "האוניברסיטה/חיים לבנון" },
+      "geometry": { "type": "Point", "coordinates": [34.801548, 32.113879] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "קלצ'קין/חיים לבנון" },
+      "geometry": { "type": "Point", "coordinates": [34.802148, 32.118007] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת. רכבת אוניברסיטה/הורדה" },
+      "geometry": { "type": "Point", "coordinates": [34.804264, 32.104786] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בי''ח וולפסון" },
+      "geometry": { "type": "Point", "coordinates": [34.763276, 32.036288] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הלוחמים/תל גיבורים" },
+      "geometry": { "type": "Point", "coordinates": [34.767471, 32.035433] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שז''ר/תל גיבורים" },
+      "geometry": { "type": "Point", "coordinates": [34.769089, 32.038751] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "נווה עופר/שז''ר" },
+      "geometry": { "type": "Point", "coordinates": [34.766814, 32.039137] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ביה''ס שז''ר/שז''ר" },
+      "geometry": { "type": "Point", "coordinates": [34.764004, 32.039513] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שז''ר/שקד" },
+      "geometry": { "type": "Point", "coordinates": [34.762819, 32.040295] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שקד/גרינבוים" },
+      "geometry": { "type": "Point", "coordinates": [34.764436, 32.040384] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ביה''ס ברנר/מאיר גרוסמן" },
+      "geometry": { "type": "Point", "coordinates": [34.767368, 32.040799] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך קיבוץ גלויות/שד' ישראל גורי" },
+      "geometry": { "type": "Point", "coordinates": [34.782298, 32.047015] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "גשר קיבוץ גלויות" },
+      "geometry": { "type": "Point", "coordinates": [34.785506, 32.046892] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "לח''י/דרך קיבוץ גלויות" },
+      "geometry": { "type": "Point", "coordinates": [34.790168, 32.047314] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יגאל אלון/ההגנה" },
+      "geometry": { "type": "Point", "coordinates": [34.791709, 32.054622] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יגאל אלון/שד' החי''ל" },
+      "geometry": { "type": "Point", "coordinates": [34.791929, 32.057022] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יגאל אלון/יצחק שדה" },
+      "geometry": { "type": "Point", "coordinates": [34.792625, 32.065464] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אסותא/יגאל אלון" },
+      "geometry": { "type": "Point", "coordinates": [34.793808, 32.069847] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יגאל אלון/דרך השלום" },
+      "geometry": { "type": "Point", "coordinates": [34.794982, 32.073136] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יגאל אלון/עמק ברכה" },
+      "geometry": { "type": "Point", "coordinates": [34.796819, 32.077451] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יגאל אלון/ערבי נחל" },
+      "geometry": { "type": "Point", "coordinates": [34.798278, 32.078727] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שדרות שאול המלך/הנרייטה סולד" },
+      "geometry": { "type": "Point", "coordinates": [34.792251, 32.078129] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "כיכר המדינה/ויצמן" },
+      "geometry": { "type": "Point", "coordinates": [34.78948, 32.084855] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "כיכר המדינה/אריה עקיבא" },
+      "geometry": { "type": "Point", "coordinates": [34.790814, 32.087673] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בית החייל/ויצמן" },
+      "geometry": { "type": "Point", "coordinates": [34.790677, 32.09063] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בית ברודצקי/ברודצקי" },
+      "geometry": { "type": "Point", "coordinates": [34.79843, 32.107905] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ברודצקי/רדינג" },
+      "geometry": { "type": "Point", "coordinates": [34.798459, 32.109531] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מלצ'ט/בורוכוב" },
+      "geometry": { "type": "Point", "coordinates": [34.776463, 32.071392] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שוק הכרמל/שינקין" },
+      "geometry": { "type": "Point", "coordinates": [34.770716, 32.069787] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "גינת שינקין/יוחנן הסנדלר" },
+      "geometry": { "type": "Point", "coordinates": [34.773389, 32.069415] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "העבודה/המלך ג'ורג'" },
+      "geometry": { "type": "Point", "coordinates": [34.772299, 32.070807] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "גן מאיר/המלך ג'ורג'" },
+      "geometry": { "type": "Point", "coordinates": [34.77327, 32.071704] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "המלך ג'ורג'/שדרות בן ציון" },
+      "geometry": { "type": "Point", "coordinates": [34.775094, 32.073374] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מסוף בית העלמין/איסוף" },
+      "geometry": { "type": "Point", "coordinates": [34.752095, 32.002528] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אנה פרנק/הקוממיות" },
+      "geometry": { "type": "Point", "coordinates": [34.75357, 32.00356] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ביה''ס מקיף רמות/קרן היסוד" },
+      "geometry": { "type": "Point", "coordinates": [34.750966, 32.004883] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת.רק''ל כ''ט בנובמבר/הרב ניסנבאום" },
+      "geometry": { "type": "Point", "coordinates": [34.752032, 32.011597] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בית ספר שזר/הרב ניסנבאום" },
+      "geometry": { "type": "Point", "coordinates": [34.753209, 32.014003] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "כצנלסון/יוספטל" },
+      "geometry": { "type": "Point", "coordinates": [34.754575, 32.016434] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "כצנלסון/אנילביץ'" },
+      "geometry": { "type": "Point", "coordinates": [34.754556, 32.020643] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "כצנלסון/ההגנה" },
+      "geometry": { "type": "Point", "coordinates": [34.754612, 32.022486] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ירושלים/השלושה" },
+      "geometry": { "type": "Point", "coordinates": [34.75276, 32.025859] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ירושלים/דניאל" },
+      "geometry": { "type": "Point", "coordinates": [34.749653, 32.02596] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת. רק''ל אלנבי/רוטשילד" },
+      "geometry": { "type": "Point", "coordinates": [34.775308, 32.064045] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "החשמונאים/שד' רוטשילד" },
+      "geometry": { "type": "Point", "coordinates": [34.779325, 32.070312] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הסינמטק/קרליבך" },
+      "geometry": { "type": "Point", "coordinates": [34.782559, 32.070473] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "לונדון מיניסטור/שד' שאול המלך" },
+      "geometry": { "type": "Point", "coordinates": [34.78282, 32.075465] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בית המשפט/שד' שאול המלך" },
+      "geometry": { "type": "Point", "coordinates": [34.788446, 32.076734] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בית הדר דפנה/שד' שאול המלך" },
+      "geometry": { "type": "Point", "coordinates": [34.790544, 32.07742] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת. רכבת תל אביב סבידור/על פרשת דרכים" },
+      "geometry": { "type": "Point", "coordinates": [34.795464, 32.082162] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הבורסה/דרך ז'בוטינסקי" },
+      "geometry": { "type": "Point", "coordinates": [34.800724, 32.082534] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת.רק''ל אבא הלל" },
+      "geometry": { "type": "Point", "coordinates": [34.803468, 32.083873] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך אבא הלל/ביאליק" },
+      "geometry": { "type": "Point", "coordinates": [34.807448, 32.08826] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך אבא הלל/רוקח" },
+      "geometry": { "type": "Point", "coordinates": [34.810376, 32.090008] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך אבא הלל/התקווה" },
+      "geometry": { "type": "Point", "coordinates": [34.813685, 32.091173] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך אבא הלל/רש''י" },
+      "geometry": { "type": "Point", "coordinates": [34.816607, 32.092905] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך אבא הלל /דרך ששת הימים" },
+      "geometry": { "type": "Point", "coordinates": [34.820452, 32.095507] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "קניון איילון/דרך ששת הימים" },
+      "geometry": { "type": "Point", "coordinates": [34.826805, 32.098418] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת. רכבת בני ברק/מבצע קדש" },
+      "geometry": { "type": "Point", "coordinates": [34.827868, 32.103514] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מבצע קדש/ראול ולנברג" },
+      "geometry": { "type": "Point", "coordinates": [34.827796, 32.105466] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ראול ולנברג/משמר הירדן" },
+      "geometry": { "type": "Point", "coordinates": [34.830514, 32.106733] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ראול ולנברג/הברזל" },
+      "geometry": { "type": "Point", "coordinates": [34.833789, 32.107031] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מטה מרחב ירקון/ראול ולנברג" },
+      "geometry": { "type": "Point", "coordinates": [34.835243, 32.108001] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ראול ולנברג/הנחושת" },
+      "geometry": { "type": "Point", "coordinates": [34.837166, 32.1097] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ראול ולנברג/הארד" },
+      "geometry": { "type": "Point", "coordinates": [34.839688, 32.112816] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דבורה הנביאה/ראול ולנברג" },
+      "geometry": { "type": "Point", "coordinates": [34.841026, 32.114229] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מסוף עתידים" },
+      "geometry": { "type": "Point", "coordinates": [34.842539, 32.113359] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "פארק אתגרים/משה דיין" },
+      "geometry": { "type": "Point", "coordinates": [34.764568, 32.000929] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אהרונוביץ'/משה דיין" },
+      "geometry": { "type": "Point", "coordinates": [34.767782, 32.001519] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מקס וג'סי הכהן/אהרונוביץ'" },
+      "geometry": { "type": "Point", "coordinates": [34.766992, 32.004807] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אילת/התנאים" },
+      "geometry": { "type": "Point", "coordinates": [34.764681, 32.006547] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מכללת תלפיות/אילת" },
+      "geometry": { "type": "Point", "coordinates": [34.764842, 32.008714] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אילת/דוד רמז" },
+      "geometry": { "type": "Point", "coordinates": [34.765017, 32.010647] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אילת/יוספטל" },
+      "geometry": { "type": "Point", "coordinates": [34.765012, 32.012542] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אילת/חצרים" },
+      "geometry": { "type": "Point", "coordinates": [34.764993, 32.016556] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אילת/צאלים" },
+      "geometry": { "type": "Point", "coordinates": [34.76507, 32.02016] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "המעפילים/שד' דב הוז" },
+      "geometry": { "type": "Point", "coordinates": [34.765658, 32.024295] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "המעפילים/הרמב''ם" },
+      "geometry": { "type": "Point", "coordinates": [34.766071, 32.026368] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "המעפילים/הבנים" },
+      "geometry": { "type": "Point", "coordinates": [34.766825, 32.028933] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "המעפילים/הלוחמים" },
+      "geometry": { "type": "Point", "coordinates": [34.768935, 32.03118] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "קאנטרי חולון/הלוחמים" },
+      "geometry": { "type": "Point", "coordinates": [34.77066, 32.031845] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ביה''ס ברנר/מאיר גרוסמן" },
+      "geometry": { "type": "Point", "coordinates": [34.767566, 32.040954] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "גרינבוים/מאיר גרוסמן" },
+      "geometry": { "type": "Point", "coordinates": [34.765921, 32.042014] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "גרינבוים/דרך בן צבי" },
+      "geometry": { "type": "Point", "coordinates": [34.767557, 32.044757] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הרצל/דרך בן צבי" },
+      "geometry": { "type": "Point", "coordinates": [34.768771, 32.046238] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הגן הזואולוגי/הרצל" },
+      "geometry": { "type": "Point", "coordinates": [34.769184, 32.048142] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הרצל/דרך קיבוץ גלויות" },
+      "geometry": { "type": "Point", "coordinates": [34.770258, 32.05191] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הרצל/דרך שלמה" },
+      "geometry": { "type": "Point", "coordinates": [34.770865, 32.054436] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך נמיר/דרך מנחם בגין" },
+      "geometry": { "type": "Point", "coordinates": [34.794181, 32.080207] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת. רכבת תל אביב - סבידור/דרך נמיר" },
+      "geometry": { "type": "Point", "coordinates": [34.795008, 32.083482] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בית ראסל/אריה בן אליעזר" },
+      "geometry": { "type": "Point", "coordinates": [34.832731, 32.068757] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בית העלמין/חזון אי''ש" },
+      "geometry": { "type": "Point", "coordinates": [34.833115, 32.072899] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד' ירושלים/חזון אי''ש" },
+      "geometry": { "type": "Point", "coordinates": [34.832221, 32.074883] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שדרות ירושלים/תרצה" },
+      "geometry": { "type": "Point", "coordinates": [34.827914, 32.074557] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד' ירושלים/הרא''ה" },
+      "geometry": { "type": "Point", "coordinates": [34.82544, 32.074627] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד. ירושלים/ עוזיאל" },
+      "geometry": { "type": "Point", "coordinates": [34.822264, 32.074755] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שדרות ירושלים/דרך בן גוריון" },
+      "geometry": { "type": "Point", "coordinates": [34.819256, 32.07487] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "כצנלסון/דרך בן גוריון" },
+      "geometry": { "type": "Point", "coordinates": [34.81724, 32.07566] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "כיכר נח/כצנלסון" },
+      "geometry": { "type": "Point", "coordinates": [34.81372, 32.07702] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "כצנלסון/ויצמן" },
+      "geometry": { "type": "Point", "coordinates": [34.80926, 32.075525] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "כצנלסון/קק''ל" },
+      "geometry": { "type": "Point", "coordinates": [34.806944, 32.075287] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "כצנלסון/לכיש" },
+      "geometry": { "type": "Point", "coordinates": [34.803222, 32.075356] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "עליית הנוער/כצנלסון" },
+      "geometry": { "type": "Point", "coordinates": [34.801898, 32.075643] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ערבי נחל/בורוכוב" },
+      "geometry": { "type": "Point", "coordinates": [34.801218, 32.078281] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "קריית הממשלה/דרך מנחם בגין" },
+      "geometry": { "type": "Point", "coordinates": [34.789606, 32.072279] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך מנחם בגין/המלאכה" },
+      "geometry": { "type": "Point", "coordinates": [34.784932, 32.067185] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת.רק''ל קרליבך/דרך מנחם בגין B" },
+      "geometry": { "type": "Point", "coordinates": [34.783215, 32.065453] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ישראל טל/דרך מנחם בגין" },
+      "geometry": { "type": "Point", "coordinates": [34.782387, 32.064062] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "המסגר/ריב''ל" },
+      "geometry": { "type": "Point", "coordinates": [34.784975, 32.062708] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "המסגר/לה גווארדיה" },
+      "geometry": { "type": "Point", "coordinates": [34.784326, 32.059909] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת.מרכזית תל אביב קומה 7/הורדה" },
+      "geometry": { "type": "Point", "coordinates": [34.780466, 32.055636] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך משה דיין/דרך בר לב" },
+      "geometry": { "type": "Point", "coordinates": [34.799321, 32.047976] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך משה דיין/ההגנה" },
+      "geometry": { "type": "Point", "coordinates": [34.8, 32.051417] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך משה דיין/משה שטינשנידר" },
+      "geometry": { "type": "Point", "coordinates": [34.800182, 32.061547] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך משה דיין/הרכבי" },
+      "geometry": { "type": "Point", "coordinates": [34.799609, 32.063125] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ביה''ס ניב/יצחק שדה" },
+      "geometry": { "type": "Point", "coordinates": [34.796565, 32.064025] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "עיריית תל אביב-יפו/אבן גבירול" },
+      "geometry": { "type": "Point", "coordinates": [34.781427, 32.082493] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "כיכר מילאנו/אבן גבירול" },
+      "geometry": { "type": "Point", "coordinates": [34.783627, 32.09434] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אבן גבירול/שד' רוקח" },
+      "geometry": { "type": "Point", "coordinates": [34.782769, 32.09938] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ש''י עגנון/אבן גבירול" },
+      "geometry": { "type": "Point", "coordinates": [34.782974, 32.101969] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ש''י עגנון/שד' לוי אשכול" },
+      "geometry": { "type": "Point", "coordinates": [34.786844, 32.102523] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אבן גבירול/שושנה פרסיץ" },
+      "geometry": { "type": "Point", "coordinates": [34.792275, 32.13234] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אבן גבירול" },
+      "geometry": { "type": "Point", "coordinates": [34.794433, 32.136203] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שטקליס/אבן גבירול" },
+      "geometry": { "type": "Point", "coordinates": [34.796359, 32.138684] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מסוף אזורי חן" },
+      "geometry": { "type": "Point", "coordinates": [34.792417, 32.12791] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "קדושי השואה/צבי פרופס" },
+      "geometry": { "type": "Point", "coordinates": [34.791779, 32.124652] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד' קק''ל/שלמה בן יוסף" },
+      "geometry": { "type": "Point", "coordinates": [34.79566, 32.122384] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שלמה בן יוסף/אבא אחימאיר" },
+      "geometry": { "type": "Point", "coordinates": [34.797914, 32.124059] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אבא אחימאיר/אליהו בית צורי" },
+      "geometry": { "type": "Point", "coordinates": [34.799838, 32.124818] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מרכז שוסטר/אבא אחימאיר" },
+      "geometry": { "type": "Point", "coordinates": [34.802192, 32.124679] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "רקנאטי/שד' קק''ל" },
+      "geometry": { "type": "Point", "coordinates": [34.802242, 32.122109] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "האוניברסיטה/חיים לבנון" },
+      "geometry": { "type": "Point", "coordinates": [34.801289, 32.113964] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "כיכר רבין/אבן גבירול" },
+      "geometry": { "type": "Point", "coordinates": [34.781162, 32.078796] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אבן גבירול/השופטים" },
+      "geometry": { "type": "Point", "coordinates": [34.781314, 32.076684] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "לונדון מיניסטור/אבן גבירול" },
+      "geometry": { "type": "Point", "coordinates": [34.781574, 32.075104] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יהודה הלוי/מרמורק" },
+      "geometry": { "type": "Point", "coordinates": [34.781467, 32.070475] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך מנחם בגין/החשמונאים" },
+      "geometry": { "type": "Point", "coordinates": [34.786781, 32.068718] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת.רק''ל קרליבך/דרך מנחם בגין A" },
+      "geometry": { "type": "Point", "coordinates": [34.783121, 32.065556] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך מנחם בגין/נחמני" },
+      "geometry": { "type": "Point", "coordinates": [34.781449, 32.064395] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הרכבת/סלומון" },
+      "geometry": { "type": "Point", "coordinates": [34.78004, 32.062285] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הרכבת/בני ברק" },
+      "geometry": { "type": "Point", "coordinates": [34.781999, 32.060522] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת. רכבת ההגנה/החרש" },
+      "geometry": { "type": "Point", "coordinates": [34.783286, 32.055692] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד' הר ציון/דרך שלמה" },
+      "geometry": { "type": "Point", "coordinates": [34.774813, 32.0539] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד' הר ציון/דרך קיבוץ גלויות" },
+      "geometry": { "type": "Point", "coordinates": [34.77369, 32.05078] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "לבון/דרך קיבוץ גלויות" },
+      "geometry": { "type": "Point", "coordinates": [34.773123, 32.049015] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "תל גיבורים/בית מעצר" },
+      "geometry": { "type": "Point", "coordinates": [34.770392, 32.042523] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "תל גיבורים/מאיר גרוסמן" },
+      "geometry": { "type": "Point", "coordinates": [34.769533, 32.039831] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "משרד הרישוי/הלוחמים" },
+      "geometry": { "type": "Point", "coordinates": [34.770115, 32.033445] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "המעפילים/הלוחמים" },
+      "geometry": { "type": "Point", "coordinates": [34.76957, 32.031482] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "המעפילים/הבנים" },
+      "geometry": { "type": "Point", "coordinates": [34.76662, 32.028997] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "המעפילים/דב הוז" },
+      "geometry": { "type": "Point", "coordinates": [34.765541, 32.024706] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אילת/צאלים" },
+      "geometry": { "type": "Point", "coordinates": [34.76503, 32.021319] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מרכז נאות רחל/אילת" },
+      "geometry": { "type": "Point", "coordinates": [34.764759, 32.018119] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מרכז רפואי מכבי הופיין" },
+      "geometry": { "type": "Point", "coordinates": [34.766419, 32.01417] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אהרונוביץ'/הופיין" },
+      "geometry": { "type": "Point", "coordinates": [34.769673, 32.012333] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אהרונוביץ'/דוד רמז" },
+      "geometry": { "type": "Point", "coordinates": [34.769097, 32.009258] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אהרונוביץ'/הציונות" },
+      "geometry": { "type": "Point", "coordinates": [34.768544, 32.007466] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אהרונוביץ'/משה דיין" },
+      "geometry": { "type": "Point", "coordinates": [34.767637, 32.002074] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "משה דיין/בן גוריון" },
+      "geometry": { "type": "Point", "coordinates": [34.766169, 32.00106] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הרב ניסנבאום/הרב מיימון" },
+      "geometry": { "type": "Point", "coordinates": [34.749755, 32.007752] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת.רק''ל העמל/הרב ניסנבאום" },
+      "geometry": { "type": "Point", "coordinates": [34.748377, 32.005034] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת.רק''ל הקוממיות/דרך בגין" },
+      "geometry": { "type": "Point", "coordinates": [34.746553, 32.002145] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "האדמור מנדבורנא/חזון אי''ש" },
+      "geometry": { "type": "Point", "coordinates": [34.833822, 32.075852] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "חזון אי''ש/דבורה הנביאה" },
+      "geometry": { "type": "Point", "coordinates": [34.834037, 32.078652] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "חזון איש/נחמיה" },
+      "geometry": { "type": "Point", "coordinates": [34.834663, 32.080841] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "רבי עקיבא/הרב קוק" },
+      "geometry": { "type": "Point", "coordinates": [34.828114, 32.087547] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "רבי עקיבא/הראשונים" },
+      "geometry": { "type": "Point", "coordinates": [34.825597, 32.090518] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת.רק''ל בן גוריון/מכון מור" },
+      "geometry": { "type": "Point", "coordinates": [34.824447, 32.09139] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך ז'בוטינסקי/רש''י" },
+      "geometry": { "type": "Point", "coordinates": [34.818457, 32.089649] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך ז'בוטינסקי/הרצל" },
+      "geometry": { "type": "Point", "coordinates": [34.816021, 32.089] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך ז'בוטינסקי/ביאליק" },
+      "geometry": { "type": "Point", "coordinates": [34.810136, 32.085293] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך ז'בוטינסקי/גלעד" },
+      "geometry": { "type": "Point", "coordinates": [34.806421, 32.083677] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ביה''ס בני ציון/הנביאים" },
+      "geometry": { "type": "Point", "coordinates": [34.746522, 32.012171] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הנביאים/השר רבינוביץ'" },
+      "geometry": { "type": "Point", "coordinates": [34.748571, 32.014236] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שד' בר אילן/החרושת" },
+      "geometry": { "type": "Point", "coordinates": [34.748599, 32.015438] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת.רק''ל בנימין/יוספטל" },
+      "geometry": { "type": "Point", "coordinates": [34.74747, 32.01659] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "רוטשילד/בלפור" },
+      "geometry": { "type": "Point", "coordinates": [34.745833, 32.026735] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שלבים/אליפלט" },
+      "geometry": { "type": "Point", "coordinates": [34.765206, 32.054148] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אליפלט/הרבי מבכרך" },
+      "geometry": { "type": "Point", "coordinates": [34.764583, 32.057072] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת.רק''ל אליפלט/אילת" },
+      "geometry": { "type": "Point", "coordinates": [34.764793, 32.058215] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אילת/שלוש" },
+      "geometry": { "type": "Point", "coordinates": [34.767261, 32.059499] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך יפו/הרצל" },
+      "geometry": { "type": "Point", "coordinates": [34.769134, 32.060121] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך יפו/נחלת בנימין" },
+      "geometry": { "type": "Point", "coordinates": [34.771841, 32.060644] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך מנחם בגין/אלנבי" },
+      "geometry": { "type": "Point", "coordinates": [34.775367, 32.060498] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך מנחם בגין/הגליל" },
+      "geometry": { "type": "Point", "coordinates": [34.777831, 32.061823] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך מנחם בגין/הרכבת" },
+      "geometry": { "type": "Point", "coordinates": [34.780072, 32.063416] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "המסגר/ישראל טל" },
+      "geometry": { "type": "Point", "coordinates": [34.785694, 32.063805] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "המסגר/המלאכה" },
+      "geometry": { "type": "Point", "coordinates": [34.786744, 32.066289] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "קניון עזריאלי/דרך מנחם בגין" },
+      "geometry": { "type": "Point", "coordinates": [34.791623, 32.075726] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "סמינר הקיבוצים/דרך נמיר" },
+      "geometry": { "type": "Point", "coordinates": [34.792661, 32.103962] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "איינשטיין/דרך נמיר" },
+      "geometry": { "type": "Point", "coordinates": [34.793215, 32.112547] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "קניון רמת אביב/אינשטיין" },
+      "geometry": { "type": "Point", "coordinates": [34.797161, 32.112891] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מסוף אוניברסיטת ת''א/הורדה" },
+      "geometry": { "type": "Point", "coordinates": [34.804011, 32.117233] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בית ברודצקי/ברודצקי" },
+      "geometry": { "type": "Point", "coordinates": [34.798322, 32.108097] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ברודצקי/סלואדור" },
+      "geometry": { "type": "Point", "coordinates": [34.796903, 32.10596] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת. רכבת תל אביב - סבידור/דרך נמיר" },
+      "geometry": { "type": "Point", "coordinates": [34.794199, 32.081367] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת.רק''ל שאול המלך/דרך מנחם בגין" },
+      "geometry": { "type": "Point", "coordinates": [34.792029, 32.076881] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "המסגר/יד חרוצים" },
+      "geometry": { "type": "Point", "coordinates": [34.784769, 32.061963] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "בית ספר הולץ/חיל השריון" },
+      "geometry": { "type": "Point", "coordinates": [34.783261, 32.046238] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ת. רכבת צומת חולון/לוי אשכול" },
+      "geometry": { "type": "Point", "coordinates": [34.777816, 32.037502] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "כיכר הלוחמים/איצטדיון" },
+      "geometry": { "type": "Point", "coordinates": [34.772365, 32.02952] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אילת/יוספטל" },
+      "geometry": { "type": "Point", "coordinates": [34.764801, 32.013952] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אילת/דוד רמז" },
+      "geometry": { "type": "Point", "coordinates": [34.764836, 32.011319] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מכללת תלפיות/אילת" },
+      "geometry": { "type": "Point", "coordinates": [34.764827, 32.009724] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אילת/העבודה" },
+      "geometry": { "type": "Point", "coordinates": [34.764541, 32.00737] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "האמוראים/התנאים" },
+      "geometry": { "type": "Point", "coordinates": [34.763012, 32.005547] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "הסנהדרין/הסבוראים" },
+      "geometry": { "type": "Point", "coordinates": [34.762873, 32.003618] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ארבע ארצות/הסנהדרין" },
+      "geometry": { "type": "Point", "coordinates": [34.763274, 32.002586] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ארבע ארצות/זרובבל" },
+      "geometry": { "type": "Point", "coordinates": [34.764842, 32.002567] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "חניון אגד/דן שומרון" },
+      "geometry": { "type": "Point", "coordinates": [34.763601, 32.000164] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מסוף כרמלית" },
+      "geometry": { "type": "Point", "coordinates": [34.765902, 32.066804] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יצחק אלחנן/הכרמל" },
+      "geometry": { "type": "Point", "coordinates": [34.765682, 32.065425] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מגדל שלום/גרוזנברג" },
+      "geometry": { "type": "Point", "coordinates": [34.768985, 32.065282] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מזא''ה/אלנבי" },
+      "geometry": { "type": "Point", "coordinates": [34.77172, 32.067013] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "יוחנן הסנדלר/בלפור" },
+      "geometry": { "type": "Point", "coordinates": [34.77309, 32.068074] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "גינת שינקין/שינקין" },
+      "geometry": { "type": "Point", "coordinates": [34.7735, 32.069172] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "שיינקין/פיארברג" },
+      "geometry": { "type": "Point", "coordinates": [34.776696, 32.068444] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך השלום/יגאל אלון" },
+      "geometry": { "type": "Point", "coordinates": [34.795651, 32.071995] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך השלום/שדרות ההשכלה" },
+      "geometry": { "type": "Point", "coordinates": [34.797494, 32.071418] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך משה דיין/דרך השלום" },
+      "geometry": { "type": "Point", "coordinates": [34.799241, 32.069794] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "רמת ישראל/דרך משה דיין" },
+      "geometry": { "type": "Point", "coordinates": [34.79878, 32.068221] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ביה''ס בלוך/דרך משה דיין" },
+      "geometry": { "type": "Point", "coordinates": [34.798705, 32.065827] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך השלום/דרך יצחק רבין" },
+      "geometry": { "type": "Point", "coordinates": [34.803052, 32.065178] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך יצחק רבין/דרך השלום" },
+      "geometry": { "type": "Point", "coordinates": [34.80419, 32.066064] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "דרך יצחק רבין/רביבים" },
+      "geometry": { "type": "Point", "coordinates": [34.807705, 32.066351] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ריינס/הכנסת" },
+      "geometry": { "type": "Point", "coordinates": [34.812681, 32.068378] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ריינס/דרך בן גוריון" },
+      "geometry": { "type": "Point", "coordinates": [34.816383, 32.06837] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "קאנטרי/בן גוריון" },
+      "geometry": { "type": "Point", "coordinates": [34.815957, 32.066407] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "אלוף שדה/דרך יצחק רבין" },
+      "geometry": { "type": "Point", "coordinates": [34.820244, 32.059538] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "מסוף כורזין" },
+      "geometry": { "type": "Point", "coordinates": [34.816488, 32.059937] }
+    }
+  ]
+}
