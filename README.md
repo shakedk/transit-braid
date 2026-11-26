@@ -160,14 +160,23 @@ New here? [CONTRIBUTING.md](CONTRIBUTING.md) gets you running in five commands. 
 ## Credits
 
 - **The research it builds on.** The line graph and the line-ordering model follow the published
-  work of Hannah Bast, Patrick Brosi and Sabine Storandt: "Efficient Generation of Geographically
-  Accurate Transit Maps" (ACM SIGSPATIAL 2018; ACM TSAS 2019), Brosi's dissertation, and Brosi
-  and Bast (The Cartographic Journal, 2024). transit-braid builds on their research, uses none of
-  LOOM's code, and makes changes of its own; where it differs, and why: [docs/design](docs/design/).
-- **LOOM**, the authors' own open-source tool for this research (GPL-3.0). Credited with thanks;
-  we never read its source code and use none of it.
-- **Transit** (the app), whose public work on drawing transit lines side by side showed what a good
-  map looks like. Credited with thanks; transit-braid did not rely on it and uses none of its code.
+  work of Hannah Bast, Patrick Brosi and Sabine Storandt:
+  - "Efficient Generation of Geographically Accurate Transit Maps":
+    [ACM SIGSPATIAL 2018](https://ad-publications.informatik.uni-freiburg.de/SIGSPATIAL_transitmaps_2018.pdf), and the extended version in ACM TSAS 2019
+    ([arXiv:1710.02226](https://arxiv.org/abs/1710.02226));
+  - Patrick Brosi's dissertation, ["Automated Generation of Transit Maps"](https://ad-research.cs.uni-freiburg.de/tmp/diss-patrick-brosi.pdf)
+    (University of Freiburg, 2022);
+  - Brosi and Bast, ["Large-Scale Generation of Transit Maps from OpenStreetMap Data"](https://ad-publications.cs.uni-freiburg.de/Large-Scale_Generation_of_Transit_Maps_from_OpenStreetMap_Data.pdf)
+    (The Cartographic Journal, 2024).
+
+  transit-braid builds on their research, uses none of LOOM's code, and makes changes of its own;
+  where it differs, and why: [docs/design](docs/design/).
+
+- **[LOOM](https://github.com/ad-freiburg/loom)**, the authors' own open-source tool for this research (GPL-3.0). Credited with
+  thanks; we never read its source code and use none of it.
+- **Transit** (the app), whose public write-up on
+  [how it draws transit lines side by side](https://blog.transitapp.com/how-we-built-the-worlds-prettiest-auto-generated-transit-maps-12d0c6fa502f/) showed what a good map looks like. Credited with
+  thanks; transit-braid did not rely on it and uses none of its code.
 - **The demo's Tel Aviv routes and stops**: Israel public transport GTFS, Ministry of Transport and
   Road Safety (the data.gov.il usage license). Not affiliated with or endorsed by the Ministry.
 

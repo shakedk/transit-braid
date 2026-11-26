@@ -8,8 +8,9 @@ geometry use only this. The pictures below show each step on a small example.
 Builds on the published work of Bast, Brosi and Storandt, Brosi's dissertation and Brosi &
 Bast, with changes of its own ("How it relates to the papers", below); none of LOOM's code
 (GPL-3.0) is used. Code: `crates/transit-braid-core/src/topology/`.
-References: [BBS19] (Bast, Brosi, Storandt, ACM TSAS 2019, §2), [B22] (Brosi's dissertation,
-Ch. 3), [BB24] (Brosi and Bast, The Cartographic Journal, 2024).
+References: [BBS19] ([Bast, Brosi, Storandt, ACM TSAS 2019](https://arxiv.org/abs/1710.02226), §2), [B22]
+([Brosi's dissertation](https://ad-research.cs.uni-freiburg.de/tmp/diss-patrick-brosi.pdf), Ch. 3), [BB24]
+([Brosi and Bast, The Cartographic Journal, 2024](https://ad-publications.cs.uni-freiburg.de/Large-Scale_Generation_of_Transit_Maps_from_OpenStreetMap_Data.pdf)).
 
 ## The problem
 

@@ -7,8 +7,9 @@ how a crossing is found, what an order costs, how the search works, and what an 
 
 Builds on the published work of Bast, Brosi and Storandt, with changes of its own ("How it
 relates to the papers", below); none of LOOM's code is used. Code:
-`crates/transit-braid-core/src/ordering/`. References: [BBS18] (Bast, Brosi, Storandt, ACM
-SIGSPATIAL 2018), [BBS19] (the same authors, ACM TSAS 2019), [B22] (Brosi's dissertation).
+`crates/transit-braid-core/src/ordering/`. References: [BBS18] ([Bast, Brosi, Storandt, ACM
+SIGSPATIAL 2018](https://ad-publications.informatik.uni-freiburg.de/SIGSPATIAL_transitmaps_2018.pdf)), [BBS19] ([the same authors, ACM TSAS 2019](https://arxiv.org/abs/1710.02226)), [B22]
+([Brosi's dissertation](https://ad-research.cs.uni-freiburg.de/tmp/diss-patrick-brosi.pdf)).
 
 ## The problem
 
