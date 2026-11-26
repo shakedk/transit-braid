@@ -400,11 +400,17 @@ cd packages/transit-braid && pnpm pack --dry-run # what the tarball would hold
 
 ### Demo map — `examples/demo`
 
-A web page with a MapLibre map (OpenFreeMap tiles, no API key). Three made-up routes in Tel Aviv
-share a trunk, then split; `sideBySide()` draws them side by side. Every change calls it
-again:
+A web page with a MapLibre map (OpenFreeMap tiles, no API key) and a side panel.
+`sideBySide()` draws the routes side by side, with station bars and a small arrow every so often
+showing each route's direction. Every change calls it again, through one session:
 
-- **Side by side** (checkbox): off shows the routes as given, on top of each other (before).
+- **Network**: three made-up routes in Tel Aviv that share a trunk, then split (the default, to
+  edit); or 25 real bus routes in Tel Aviv with their 711 stops (`public/data/*.geojson`, from the
+  Israel Ministry of Transport's GTFS; each file says its source, license and credit, and the page
+  shows the credit with the network).
+- **Side by side** (switch): off shows the routes as given, on top of each other (before).
+- **Zoom** (slider) and **Lane cap** (`maxSideBySide`: whole routes left out where more than that
+  many share a street; the panel says how many).
 - **Remove** a route with its ✕ in the list.
 - **Move** a route: click its name, then drag its points on the map (drawn again on release;
   live dragging comes later).
@@ -412,8 +418,8 @@ again:
   **Cancel** drops it.
 - **Zoom**: widths are in pixels but offsets are in meters, so zooming draws again.
 
-The edit logic is in
-`src/edit.ts` (tested in Node, `src/edit.test.ts`).
+The edit logic and reading routes from GeoJSON are in `src/edit.ts`, the networks in
+`src/networks.ts`, the direction arrows in `src/chevrons.ts` (each tested in Node, `*.test.ts`).
 
 ```sh
 pnpm build:wasm && pnpm demo        # then open http://localhost:5199
@@ -425,8 +431,9 @@ pnpm exec playwright show-report    # open the last report, with the screenshot
 - The e2e tests (`examples/demo/e2e/*.spec.ts`) don't compare screenshots pixel by pixel
   (rendering differs between macOS, Linux and GPUs). They ask deck.gl which line is drawn at a
   point known to lie on each line. "Before" and "after" screenshots are attached to the report.
-- The demo exposes `window.braidDebug` (map, overlay, routes, draws started, the route being
-  moved, points of a route being added, status, probe points) for the tests.
+- The demo exposes `window.braidDebug` (map, overlay, network, routes, draws started, the route
+  being moved, points of a route being added, status, probe points, bars, arrows, routes the cap
+  left out) for the tests.
 - deck.gl draws on its own canvas above the map (`interleaved: false`): deck.gl 9.4's
   interleaved mode breaks with MapLibre 6.
 

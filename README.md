@@ -166,6 +166,8 @@ New here? [CONTRIBUTING.md](CONTRIBUTING.md) gets you running in five commands. 
   we never read its source code and use none of it.
 - **Transit** (the app), whose public work on drawing transit lines side by side showed what a good
   map looks like. Credited with thanks; transit-braid did not rely on it and uses none of its code.
+- **The demo's Tel Aviv routes and stops**: Israel public transport GTFS, Ministry of Transport and
+  Road Safety (the data.gov.il usage license). Not affiliated with or endorsed by the Ministry.
 
 ## License
 
