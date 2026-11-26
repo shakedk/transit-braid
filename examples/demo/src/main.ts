@@ -58,8 +58,11 @@ const BLANK_STYLE: StyleSpecification = {
 type Drawn = { lineId: string; path: LngLat[]; color: Rgb };
 
 const params = new URLSearchParams(location.search);
-const style =
-  params.get('basemap') === 'none' ? BLANK_STYLE : 'https://tiles.openfreemap.org/styles/positron';
+/** `?basemap=none`: the plain background for every network (stable tests, no map tiles). */
+const alwaysPlain = params.get('basemap') === 'none';
+const STREETS_STYLE = 'https://tiles.openfreemap.org/styles/positron';
+const styleFor = (n: Network): StyleSpecification | string =>
+  alwaysPlain || n.basemap === 'plain' ? BLANK_STYLE : STREETS_STYLE;
 
 // MapLibre builds its worker file's name at run time, so no bundler sees it: point MapLibre at the
 // copy Vite emits for this import, or a built site has no worker and draws no map.
@@ -74,6 +77,7 @@ const statusEl = byId('status', HTMLParagraphElement);
 const chipEl = byId('map-chip', HTMLDivElement);
 const networkSelect = byId('network', HTMLSelectElement);
 const aboutEl = byId('network-about', HTMLParagraphElement);
+const lookEl = byId('network-look', HTMLParagraphElement);
 const creditEl = byId('network-credit', HTMLParagraphElement);
 const sideBox = byId('side-by-side', HTMLInputElement);
 const zoomInput = byId('zoom', HTMLInputElement);
@@ -88,10 +92,12 @@ const cancelButton = byId('cancel', HTMLButtonElement);
 
 const [firstNetwork] = NETWORKS;
 if (!firstNetwork) throw new Error('The demo has no networks');
-let network: Network = firstNetwork;
+/** `?network=<id>` opens that network (the Examples page links to each one this way). */
+let network: Network = NETWORKS.find((n) => n.id === params.get('network')) ?? firstNetwork;
+let shownStyle = styleFor(network);
 const map = new MapLibreMap({
   container: 'map',
-  style,
+  style: shownStyle,
   center: network.center,
   zoom: network.zoom,
 });
@@ -438,6 +444,8 @@ finishButton.addEventListener('click', () => {
 
 function showNetworkText(): void {
   aboutEl.textContent = network.about;
+  lookEl.textContent = network.look === undefined ? '' : `What to look for: ${network.look}`;
+  lookEl.hidden = network.look === undefined;
   creditEl.textContent = network.credit ?? '';
   creditEl.hidden = network.credit === undefined;
 }
@@ -464,18 +472,44 @@ async function pickNetwork(next: Network): Promise<void> {
   session.close();
   session = createSession();
   renderList();
-  map.jumpTo({ center: next.center, zoom: next.zoom });
+  const nextStyle = styleFor(next);
+  if (nextStyle !== shownStyle) {
+    shownStyle = nextStyle;
+    map.setStyle(nextStyle);
+  }
+  if (next.bounds) map.fitBounds(next.bounds, { padding: 48, duration: 0 });
+  else map.jumpTo({ center: next.center, zoom: next.zoom });
+  const url = new URL(location.href);
+  url.searchParams.set('network', next.id);
+  history.replaceState(null, '', url);
   redraw();
 }
 
+/** A labeled group of the network picker's options. */
+function optionGroup(label: string, networks: readonly Network[]): HTMLOptGroupElement {
+  const group = document.createElement('optgroup');
+  group.label = label;
+  group.append(
+    ...networks.map((n) => {
+      const option = document.createElement('option');
+      option.value = n.id;
+      option.textContent = n.name;
+      return option;
+    }),
+  );
+  return group;
+}
 networkSelect.replaceChildren(
-  ...NETWORKS.map((n) => {
-    const option = document.createElement('option');
-    option.value = n.id;
-    option.textContent = n.name;
-    return option;
-  }),
+  optionGroup(
+    'Real streets',
+    NETWORKS.filter((n) => n.basemap !== 'plain'),
+  ),
+  optionGroup(
+    'Scenarios (made up, plain background)',
+    NETWORKS.filter((n) => n.basemap === 'plain'),
+  ),
 );
+networkSelect.value = network.id;
 networkSelect.addEventListener('change', () => {
   const next = NETWORKS.find((n) => n.id === networkSelect.value);
   if (next) void pickNetwork(next);
