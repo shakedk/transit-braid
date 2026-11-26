@@ -89,11 +89,20 @@ const listEl = byId('routes', HTMLUListElement);
 const addButton = byId('add', HTMLButtonElement);
 const finishButton = byId('finish', HTMLButtonElement);
 const cancelButton = byId('cancel', HTMLButtonElement);
+const editButton = byId('edit-mode', HTMLButtonElement);
+const editHelp = byId('edit-help', HTMLParagraphElement);
+const undoButton = byId('undo', HTMLButtonElement);
 
+/** The network the demo opens with: real bus routes. */
+const DEFAULT_NETWORK = 'tel-aviv';
 const [firstNetwork] = NETWORKS;
 if (!firstNetwork) throw new Error('The demo has no networks');
-/** `?network=<id>` opens that network (the Examples page links to each one this way). */
-let network: Network = NETWORKS.find((n) => n.id === params.get('network')) ?? firstNetwork;
+/** `?network=<id>` opens that network (the Examples page links to each one this way); without one,
+ * or with an unknown one, the default. */
+let network: Network =
+  NETWORKS.find((n) => n.id === params.get('network')) ??
+  NETWORKS.find((n) => n.id === DEFAULT_NETWORK) ??
+  firstNetwork;
 let shownStyle = styleFor(network);
 const map = new MapLibreMap({
   container: 'map',
@@ -128,6 +137,10 @@ let marks: Mark[] = [];
 let dropped: string[] = [];
 /** The route whose points can be dragged, or null. */
 let editing: string | null = null;
+/** Edit mode: a click on a line picks it, and the edit help shows. */
+let editMode = false;
+/** The routes before each edit, newest last, for Undo. */
+let undoStack: DemoRoute[][] = [];
 /** Points of the route being added, or null when not adding. */
 let draft: LngLat[] | null = null;
 /** Changes so far: each edit, toggle or zoom asks for a draw. */
@@ -178,6 +191,12 @@ function render(): void {
       jointRounded: false,
       miterLimit: 4,
       pickable: true,
+      // In edit mode a click on a line picks its route (again: lets it go).
+      onClick: (info) => {
+        if (!editMode || draft !== null || !info.object) return false;
+        pickRoute(editing === info.object.lineId ? null : info.object.lineId);
+        return true;
+      },
     }),
     new TextLayer<Mark>({
       id: 'direction-marks',
@@ -254,10 +273,13 @@ function publish(): void {
     calls,
     shown,
     move: (routeId: string, index: number, to: LngLat) => {
+      remember();
       routes = movePoint(routes, routeId, index, to);
       redraw();
     },
     editing,
+    editMode,
+    undo: undoStack.length,
     drafting: draft?.length ?? null,
     status,
     probes,
@@ -354,6 +376,7 @@ function showMarkers(): void {
     marker.getElement().dataset['point'] = String(index);
     marker.on('dragend', () => {
       const { lng, lat } = marker.getLngLat();
+      remember();
       routes = movePoint(routes, route.id, index, [lng, lat]);
       redraw();
     });
@@ -380,10 +403,7 @@ function renderList(): void {
       pick.setAttribute('aria-pressed', String(editing === r.id));
       pick.title = 'Move this route: drag its points on the map';
       pick.addEventListener('click', () => {
-        editing = editing === r.id ? null : r.id;
-        renderList();
-        showMarkers();
-        publish();
+        pickRoute(editing === r.id ? null : r.id);
       });
       const remove = document.createElement('button');
       remove.type = 'button';
@@ -391,6 +411,7 @@ function renderList(): void {
       remove.textContent = '✕';
       remove.setAttribute('aria-label', `Remove ${name}`);
       remove.addEventListener('click', () => {
+        remember();
         routes = removeRoute(routes, r.id);
         if (editing === r.id) editing = null;
         renderList();
@@ -402,6 +423,52 @@ function renderList(): void {
     }),
   );
 }
+
+// --- Edit mode and Undo ---
+
+/** Keeps the routes as they are now, so Undo can bring them back. */
+function remember(): void {
+  undoStack = [...undoStack.slice(-49), routes];
+  undoButton.disabled = false;
+}
+
+function setEditMode(on: boolean): void {
+  editMode = on;
+  editButton.setAttribute('aria-pressed', String(on));
+  editButton.textContent = on ? 'Done editing' : '✎ Edit routes';
+  editHelp.hidden = !on;
+  if (!on) {
+    editing = null;
+    if (draft !== null) setDrafting(false);
+    renderList();
+    showMarkers();
+  }
+  publish();
+}
+
+/** Makes route `id` the one whose points can be dragged (null: none), in edit mode. */
+function pickRoute(id: string | null): void {
+  if (id !== null && !editMode) setEditMode(true);
+  editing = id;
+  renderList();
+  showMarkers();
+  publish();
+}
+
+editButton.addEventListener('click', () => {
+  setEditMode(!editMode);
+});
+undoButton.addEventListener('click', () => {
+  const previous = undoStack.at(-1);
+  if (previous === undefined) return;
+  undoStack = undoStack.slice(0, -1);
+  undoButton.disabled = undoStack.length === 0;
+  routes = previous;
+  if (editing !== null && !routes.some((r) => r.id === editing)) editing = null;
+  renderList();
+  showMarkers();
+  redraw();
+});
 
 // --- Adding a route ---
 
@@ -420,6 +487,7 @@ map.on('click', (e: MapMouseEvent) => {
   render();
 });
 addButton.addEventListener('click', () => {
+  if (!editMode) setEditMode(true);
   setDrafting(true);
   setStatus('Click points on the map, then “Finish”.');
 });
@@ -434,6 +502,7 @@ finishButton.addEventListener('click', () => {
     publish();
     return;
   }
+  remember();
   routes = next;
   setDrafting(false);
   renderList();
@@ -457,6 +526,8 @@ async function pickNetwork(next: Network): Promise<void> {
   setStatus(`Loading ${next.name}…`);
   editing = null;
   showMarkers();
+  undoStack = [];
+  undoButton.disabled = true;
   if (draft !== null) setDrafting(false);
   try {
     const loaded = await next.load();
@@ -481,7 +552,7 @@ async function pickNetwork(next: Network): Promise<void> {
   else map.jumpTo({ center: next.center, zoom: next.zoom });
   const url = new URL(location.href);
   url.searchParams.set('network', next.id);
-  history.replaceState(null, '', url);
+  window.history.replaceState(null, '', url);
   redraw();
 }
 

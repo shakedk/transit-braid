@@ -253,6 +253,48 @@
       .remove {
         color: var(--muted);
       }
+      .guide {
+        margin: 0 0 18px;
+        padding: 10px 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--card);
+        font-size: 13px;
+      }
+      .guide summary {
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .guide ol {
+        margin: 8px 0 0;
+        padding-left: 18px;
+      }
+      .guide li {
+        margin: 4px 0;
+      }
+      .edit .row {
+        margin-top: 8px;
+      }
+      .routes-title {
+        margin-top: 12px !important;
+      }
+      button.primary {
+        width: 100%;
+        padding: 9px 12px;
+        border-color: var(--accent);
+        background: var(--accent);
+        color: #fff;
+        font-weight: 700;
+      }
+      button.primary:hover:not(:disabled) {
+        border-color: #0b4554;
+        background: #0b4554;
+      }
+      button.primary[aria-pressed='true'] {
+        border-color: var(--accent);
+        background: #fff;
+        color: var(--accent);
+      }
       @media (width <= 900px) {
         html,
         body {
@@ -290,12 +332,51 @@
         <div id="map-chip" class="chip">Loading…</div>
       </section>
       <aside class="panel">
+        <details class="guide" open>
+          <summary>How to use</summary>
+          <ol>
+            <li>
+              <b>Pick what to see</b> under Network: Tel Aviv's real bus routes, three routes to
+              edit, or a made-up scenario (<a href="examples.html">all examples</a>).
+            </li>
+            <li>
+              <b>Compare</b>: switch <i>Side by side</i> off to see the routes as given, on top of
+              each other.
+            </li>
+            <li>
+              <b>Zoom</b> with the slider or the map: each route keeps its lane at every zoom. The
+              <i>lane cap</i> leaves out whole routes where too many share a street.
+            </li>
+            <li>
+              <b>Edit</b>: press <i>Edit routes</i>, click a line, then drag its points. Add or
+              remove routes, and undo. Only what changed is drawn again; the time is under Engine.
+            </li>
+          </ol>
+        </details>
         <section>
           <h2><label for="network">Network</label></h2>
           <select id="network"></select>
           <p id="network-about" class="note"></p>
           <p id="network-look" class="note" hidden></p>
           <p id="network-credit" class="credit" hidden></p>
+        </section>
+        <section class="edit">
+          <h2>Edit</h2>
+          <button id="edit-mode" class="primary" type="button" aria-pressed="false">
+            ✎ Edit routes
+          </button>
+          <p id="edit-help" class="note" hidden>
+            Click a line on the map, or a route below, then drag its points. <b>Add route</b>: click
+            points on the map, then <b>Finish</b>. ✕ removes a route.
+          </p>
+          <div class="row">
+            <button id="add" type="button" disabled>Add route</button>
+            <button id="finish" type="button" hidden>Finish</button>
+            <button id="cancel" type="button" hidden>Cancel</button>
+            <button id="undo" type="button" disabled>Undo</button>
+          </div>
+          <h2 class="routes-title">Routes · <span id="route-count">0</span></h2>
+          <ul id="routes" aria-label="Routes"></ul>
         </section>
         <section>
           <h2>Drawing</h2>
@@ -328,16 +409,6 @@
             <span class="dot" aria-hidden="true"></span> WebAssembly in a Web Worker
           </p>
           <p id="status" class="mono">Loading…</p>
-        </section>
-        <section>
-          <h2>Routes · <span id="route-count">0</span></h2>
-          <ul id="routes" aria-label="Routes"></ul>
-          <p class="note">Click a route's name, then drag its points on the map to move it.</p>
-          <div class="row">
-            <button id="add" type="button" disabled>Add route</button>
-            <button id="finish" type="button" hidden>Finish</button>
-            <button id="cancel" type="button" hidden>Cancel</button>
-          </div>
         </section>
       </aside>
     </main>

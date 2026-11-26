@@ -26,6 +26,10 @@ export interface BraidDebug {
   move: (routeId: string, index: number, to: LngLat) => void;
   /** The route whose points can be dragged, or null. */
   editing: string | null;
+  /** Edit mode is on: a click on a line picks its route. */
+  editMode: boolean;
+  /** Edits Undo can still take back. */
+  undo: number;
   /** Points clicked so far while adding a route, or null when not adding. */
   drafting: number | null;
   /** The status line. */
