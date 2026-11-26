@@ -20,3 +20,20 @@ test('lists every network as a card, and a card opens it in the demo', async ({ 
   expect(await page.evaluate(() => window.braidDebug!.routes)).toEqual(['A', 'B', 'C']);
   expect(errors).toEqual([]);
 });
+
+test('every page has the logo as its icon, and the icon files load', async ({ request }) => {
+  const pages = await Promise.all(
+    ['/', '/examples.html', '/deck.html'].map(async (path) => (await request.get(path)).text()),
+  );
+  for (const html of pages) {
+    expect(html).toContain('<link rel="icon" href="favicon.svg" type="image/svg+xml"');
+    expect(html).toContain('<link rel="apple-touch-icon" href="apple-touch-icon.png"');
+  }
+  const [svg, png, touch] = await Promise.all(
+    ['/favicon.svg', '/favicon-32.png', '/apple-touch-icon.png'].map((path) => request.get(path)),
+  );
+  expect(svg?.status()).toBe(200);
+  expect(await svg?.text()).toContain('<svg');
+  expect(png?.headers()['content-type']).toBe('image/png');
+  expect(touch?.headers()['content-type']).toBe('image/png');
+});

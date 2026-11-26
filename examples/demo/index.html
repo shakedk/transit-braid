@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>transit-braid: routes side by side</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
     <meta
       name="description"
       content="Bus, tram or rail routes as GeoJSON in, one offset line per route out, side by side where they share a street."
@@ -38,6 +41,10 @@
       }
       a {
         color: var(--accent);
+      }
+      h1 .logo {
+        margin-right: 10px;
+        vertical-align: -6px;
       }
       .top {
         display: flex;
@@ -315,7 +322,10 @@
   </head>
   <body>
     <header class="top">
-      <h1>Transit routes, side by side</h1>
+      <h1>
+        <img class="logo" src="favicon.svg" alt="" width="34" height="34" />Transit routes, side by
+        side
+      </h1>
       <p>
         <span class="kicker">transit-braid · demo</span>
         Bus, tram or rail routes as GeoJSON in, one offset line per route out, side by side where
