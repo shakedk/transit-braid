@@ -70,7 +70,7 @@ describe('stationsFromGeoJson', () => {
 
 describe('NETWORKS', () => {
   it('starts with the routes to edit, and credits the real data', () => {
-    expect(NETWORKS.map((n) => n.id)).toEqual(['sample', 'tel-aviv']);
+    expect(NETWORKS.map((n) => n.id).slice(0, 2)).toEqual(['sample', 'tel-aviv']);
     expect(NETWORKS[0]?.credit).toBeUndefined();
     expect(NETWORKS[1]?.credit).toContain('Ministry of Transport');
     expect(NETWORKS[1]?.credit).toContain('Not affiliated with or endorsed');
@@ -85,5 +85,16 @@ describe('NETWORKS', () => {
     expect(a.stations).toBeNull();
     a.routes[0]?.points.splice(0);
     expect(b.routes[0]?.points.length).toBeGreaterThan(0);
+  });
+
+  it('ends with the 12 scenarios, each on a plain background and framed by its bounds', () => {
+    const scenarios = NETWORKS.slice(2);
+    expect(scenarios).toHaveLength(12);
+    for (const n of scenarios) {
+      expect(n.basemap).toBe('plain');
+      expect(n.bounds).toBeDefined();
+      expect(n.look).not.toBe('');
+    }
+    expect(NETWORKS.slice(0, 2).every((n) => n.basemap !== 'plain')).toBe(true);
   });
 });

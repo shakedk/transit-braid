@@ -1,9 +1,11 @@
-// The networks the demo shows: three made-up routes to edit, and real bus routes in Tel Aviv with
-// their stops. Real data loads only when picked, from the site's own folder.
+// The networks the demo shows: three made-up routes to edit, real bus routes in Tel Aviv with
+// their stops, and the repo's test scenarios. Real data loads only when picked, from the site's
+// own folder.
 import type { StationsInput } from 'transit-braid';
 
 import { type DemoRoute, isRecord, routesFromGeoJson, SAMPLE_ROUTES } from './edit.ts';
 import type { LngLat } from './project.ts';
+import { SCENARIOS } from './scenarios.ts';
 
 export interface Network {
   id: string;
@@ -14,8 +16,27 @@ export interface Network {
   credit?: string;
   center: LngLat;
   zoom: number;
+  /** The map under the routes: real streets (the default), or a plain background. */
+  basemap?: 'streets' | 'plain';
+  /** What a good drawing shows (the scenarios). */
+  look?: string;
+  /** Fit the view to these corners (south-west, north-east) instead of `center` and `zoom`. */
+  bounds?: [LngLat, LngLat];
   load: () => Promise<{ routes: DemoRoute[]; stations: StationsInput | null }>;
 }
+
+/** The repo's test scenarios as networks: made-up routes on a plain background. */
+const SCENARIO_NETWORKS: readonly Network[] = SCENARIOS.map((s) => ({
+  id: s.id,
+  name: s.title,
+  about: s.description,
+  look: s.look,
+  basemap: 'plain',
+  bounds: s.bounds,
+  center: [(s.bounds[0][0] + s.bounds[1][0]) / 2, (s.bounds[0][1] + s.bounds[1][1]) / 2],
+  zoom: 16,
+  load: async () => ({ routes: structuredClone(s.routes), stations: s.stations }),
+}));
 
 /** A GeoJSON file next to the page (relative, so it works under any path). */
 async function fetchJson(path: string): Promise<unknown> {
@@ -82,4 +103,5 @@ export const NETWORKS: readonly Network[] = [
       return { routes: routesFromGeoJson(routes), stations: stationsFromGeoJson(stops) };
     },
   },
+  ...SCENARIO_NETWORKS,
 ];
