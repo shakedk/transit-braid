@@ -10,6 +10,8 @@ export interface BraidDebug {
   overlay: MapboxOverlay;
   /** True once the map has loaded and something was drawn. */
   ready: boolean;
+  /** The network shown (its id in `networks.ts`). */
+  network: string;
   /** The "Side by side" box: lines from `sideBySide()`, or the routes as given. */
   sideBySide: boolean;
   /** The routes' ids, in order. */
@@ -30,6 +32,12 @@ export interface BraidDebug {
   status: string;
   /** For each drawn line, a point that lies on it (middle of its first segment). */
   probes: Record<string, LngLat>;
+  /** Station bars drawn. */
+  bars: number;
+  /** Direction marks drawn along the lines. */
+  marks: number;
+  /** Routes the lane cap left out of the last draw. */
+  dropped: string[];
 }
 
 declare global {

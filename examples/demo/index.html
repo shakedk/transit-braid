@@ -3,68 +3,342 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>transit-braid demo</title>
+    <title>transit-braid: routes side by side</title>
+    <meta
+      name="description"
+      content="Bus, tram or rail routes as GeoJSON in, one offset line per route out, side by side where they share a street."
+    />
     <style>
+      :root {
+        --bg: #eef3f1;
+        --ink: #17262b;
+        --muted: #55666b;
+        --card: #fff;
+        --line: #d6dfdc;
+        --accent: #0f5c6e;
+        --mono: ui-monospace, sfmono-regular, menlo, consolas, monospace;
+        --sans: system-ui, -apple-system, 'Segoe UI', roboto, sans-serif;
+
+        color-scheme: light;
+      }
+      * {
+        box-sizing: border-box;
+      }
       html,
-      body,
-      #map {
+      body {
         margin: 0;
         height: 100%;
+        background: var(--bg);
+        color: var(--ink);
+        font: 14px/1.45 var(--sans);
       }
-      #info {
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+      a {
+        color: var(--accent);
+      }
+      .top {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 4px 16px;
+        padding: 16px 24px 8px;
+      }
+      .top h1 {
+        margin: 0;
+        font-size: 22px;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+      }
+      .top p {
+        margin: 0;
+        max-width: 80ch;
+        color: var(--muted);
+      }
+      .kicker {
+        margin-right: 6px;
+        font: 600 11px/1 var(--mono);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .layout {
+        display: grid;
+        flex: 1;
+        grid-template-columns: minmax(0, 1fr) 340px;
+        gap: 16px;
+        min-height: 0;
+        padding: 8px 24px 20px;
+      }
+      .map-card {
+        position: relative;
+        min-height: 420px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: #f4f1ea;
+      }
+      #map {
         position: absolute;
-        top: 12px;
-        left: 12px;
-        z-index: 1;
-        padding: 8px 12px;
+        inset: 0;
+      }
+      .chip {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 2;
+        padding: 3px 8px;
+        border: 1px solid var(--line);
         border-radius: 6px;
         background: rgb(255 255 255 / 0.92);
-        font:
-          13px/1.4 system-ui,
-          sans-serif;
-        box-shadow: 0 1px 4px rgb(0 0 0 / 0.2);
+        font: 12px/1.4 var(--mono);
+        pointer-events: none;
       }
-      #info button {
+      .panel {
+        overflow: auto;
+        padding-right: 4px;
+      }
+      .panel section {
+        margin: 0 0 18px;
+      }
+      .panel h2 {
+        margin: 0 0 6px;
+        color: var(--muted);
+        font: 600 11px/1.2 var(--mono);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      select,
+      button {
+        padding: 6px 10px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: var(--card);
+        color: var(--ink);
         font: inherit;
+      }
+      select {
+        width: 100%;
+      }
+      button {
         cursor: pointer;
       }
+      button:hover:not(:disabled),
+      select:hover {
+        border-color: #9fb3ae;
+      }
+      button:disabled {
+        cursor: default;
+        opacity: 0.5;
+      }
+      .note {
+        margin: 6px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .credit {
+        margin: 8px 0 0;
+        padding-left: 8px;
+        border-left: 2px solid var(--line);
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+      }
+      input[type='range'] {
+        flex: 1;
+        accent-color: var(--accent);
+      }
+      output {
+        min-width: 4ch;
+        font: 600 13px var(--mono);
+        text-align: right;
+      }
+      .engine {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin: 0;
+      }
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #1a7f4b;
+      }
+      .mono {
+        margin: 4px 0 0;
+        font: 12.5px/1.4 var(--mono);
+      }
+      .switch {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .switch input {
+        position: relative;
+        width: 36px;
+        height: 20px;
+        margin: 0;
+        border-radius: 10px;
+        background: #c3cfcc;
+        cursor: pointer;
+        transition: background 0.15s;
+        appearance: none;
+      }
+      .switch input::after {
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #fff;
+        box-shadow: 0 1px 2px rgb(0 0 0 / 0.25);
+        content: '';
+        transition: transform 0.15s;
+      }
+      .switch input:checked {
+        background: var(--accent);
+      }
+      .switch input:checked::after {
+        transform: translateX(16px);
+      }
+      .switch input:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
       #routes {
-        list-style: none;
-        margin: 6px 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        max-height: 220px;
+        margin: 0;
         padding: 0;
+        overflow: auto;
+        list-style: none;
       }
       #routes li {
         display: flex;
         align-items: center;
-        gap: 6px;
-        margin: 2px 0;
+        gap: 2px;
+        padding: 0 2px 0 8px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: var(--card);
+      }
+      #routes button {
+        padding: 4px 6px;
+        border: 0;
+        background: none;
+        font: 12px var(--mono);
       }
       .swatch {
         display: inline-block;
         width: 14px;
-        height: 6px;
+        height: 5px;
         border-radius: 2px;
       }
       .pick[aria-pressed='true'] {
         font-weight: 700;
-        outline: 2px solid #333;
+        text-decoration: underline 2px;
+      }
+      .remove {
+        color: var(--muted);
+      }
+      @media (width <= 900px) {
+        html,
+        body {
+          height: auto;
+        }
+        .top {
+          padding: 12px 12px 4px;
+        }
+        .layout {
+          grid-template-columns: 1fr;
+          padding: 8px 12px 16px;
+        }
+        .map-card {
+          height: 62vh;
+        }
       }
     </style>
   </head>
   <body>
-    <div id="map"></div>
-    <div id="info">
-      <strong>transit-braid</strong> · demo<br />
-      Routes drawn side by side by <code>sideBySide()</code> (Rust in WebAssembly, in a Web Worker).
-      Every edit draws them again.<br />
-      <label><input type="checkbox" id="side-by-side" checked /> Side by side</label><br />
-      <span id="status">Loading…</span>
-      <ul id="routes" aria-label="Routes"></ul>
-      <small>Click a route's name, then drag its points to move it.</small><br />
-      <button id="add" type="button" disabled>Add route</button>
-      <button id="finish" type="button" hidden>Finish</button>
-      <button id="cancel" type="button" hidden>Cancel</button>
-    </div>
+    <header class="top">
+      <h1>Transit routes, side by side</h1>
+      <p>
+        <span class="kicker">transit-braid · demo</span>
+        Bus, tram or rail routes as GeoJSON in, one offset line per route out, side by side where
+        they share a street.
+        <a href="https://github.com/shakedk/transit-braid">GitHub</a> ·
+        <a href="https://www.npmjs.com/package/transit-braid">npm</a> ·
+        <a href="deck.html">the deck.gl layer</a>
+      </p>
+    </header>
+    <main class="layout">
+      <section class="map-card" aria-label="Map">
+        <div id="map"></div>
+        <div id="map-chip" class="chip">Loading…</div>
+      </section>
+      <aside class="panel">
+        <section>
+          <h2><label for="network">Network</label></h2>
+          <select id="network"></select>
+          <p id="network-about" class="note"></p>
+          <p id="network-credit" class="credit" hidden></p>
+        </section>
+        <section>
+          <h2>Drawing</h2>
+          <label class="switch">
+            <input type="checkbox" id="side-by-side" checked />
+            <span>Side by side</span>
+          </label>
+          <p class="note">Off: the routes as given, on top of each other.</p>
+        </section>
+        <section>
+          <h2><label for="zoom">Zoom</label></h2>
+          <div class="row">
+            <input type="range" id="zoom" min="10" max="19" step="0.1" />
+            <output id="zoom-value" for="zoom"></output>
+          </div>
+        </section>
+        <section>
+          <h2><label for="cap">Lane cap</label></h2>
+          <select id="cap">
+            <option value="">No cap</option>
+            <option value="1">1 line per street</option>
+            <option value="2">2 lines per street</option>
+            <option value="3">3 lines per street</option>
+          </select>
+          <p id="cap-about" class="note">No cap: every route is drawn.</p>
+        </section>
+        <section>
+          <h2>Engine</h2>
+          <p class="engine">
+            <span class="dot" aria-hidden="true"></span> WebAssembly in a Web Worker
+          </p>
+          <p id="status" class="mono">Loading…</p>
+        </section>
+        <section>
+          <h2>Routes · <span id="route-count">0</span></h2>
+          <ul id="routes" aria-label="Routes"></ul>
+          <p class="note">Click a route's name, then drag its points on the map to move it.</p>
+          <div class="row">
+            <button id="add" type="button" disabled>Add route</button>
+            <button id="finish" type="button" hidden>Finish</button>
+            <button id="cancel" type="button" hidden>Cancel</button>
+          </div>
+        </section>
+      </aside>
+    </main>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

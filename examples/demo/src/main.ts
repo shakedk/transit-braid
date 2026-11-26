@@ -1,23 +1,29 @@
-// Demo: a few routes drawn side by side by `sideBySide()`, the library's main call, and
-// edited on the map. Every change (add, remove or move a route, zoom) calls `sideBySide()` again:
+// Demo: transit routes drawn side by side by `sideBySide()`, the library's main call, on a map.
+//   - "Network": three made-up routes to edit, or 25 real bus routes in Tel Aviv with their stops
+//     (loaded only when picked).
 //   - "Side by side" off shows the routes as given, on top of each other (before).
-//   - The list removes a route (✕) or picks one to move: drag its points on the map.
+//   - "Zoom" and "Lane cap" (`maxSideBySide`) draw again; a route keeps its lane at every zoom.
+//   - The route list removes a route (✕) or picks one to move: drag its points on the map.
 //   - "Add route": click points on the map, then "Finish" (at least two different points).
+// Every change goes through one session (`createSession()`), so an edit redraws only what changed.
 // deck.gl draws the lines over a MapLibre map. Add `?basemap=none` for a plain background (used
 // by the e2e tests).
 import 'maplibre-gl/dist/maplibre-gl.css';
 
-import { PathLayer, ScatterplotLayer } from '@deck.gl/layers';
+import type { Layer } from '@deck.gl/core';
+import { PathLayer, ScatterplotLayer, TextLayer } from '@deck.gl/layers';
 import { MapboxOverlay } from '@deck.gl/mapbox';
 import {
   Map as MapLibreMap,
   type MapMouseEvent,
   Marker,
   NavigationControl,
+  ScaleControl,
   type StyleSpecification,
 } from 'maplibre-gl';
-import { createSession } from 'transit-braid';
+import { type BraidSession, createSession, type StationsInput } from 'transit-braid';
 
+import { type Mark, marksAlong, metersPerPixel } from './chevrons.ts';
 import {
   addRoute,
   type DemoRoute,
@@ -25,13 +31,15 @@ import {
   probeOf,
   removeRoute,
   type Rgb,
-  SAMPLE_ROUTES,
   toRoutesInput,
 } from './edit.ts';
+import { type Network, NETWORKS } from './networks.ts';
 import type { LngLat } from './project.ts';
 
 const LINE_WIDTH_PX = 6;
 const SPACING_PX = 2;
+/** Screen distance between two direction marks on a line. */
+const MARK_EVERY_PX = 140;
 
 const BLANK_STYLE: StyleSpecification = {
   version: 8,
@@ -43,10 +51,40 @@ type Drawn = { lineId: string; path: LngLat[]; color: Rgb };
 
 const params = new URLSearchParams(location.search);
 const style =
-  params.get('basemap') === 'none' ? BLANK_STYLE : 'https://tiles.openfreemap.org/styles/liberty';
+  params.get('basemap') === 'none' ? BLANK_STYLE : 'https://tiles.openfreemap.org/styles/positron';
 
-const map = new MapLibreMap({ container: 'map', style, center: [34.7775, 32.0765], zoom: 14.5 });
+function byId<T extends HTMLElement>(id: string, kind: new () => T): T {
+  const el = document.getElementById(id);
+  if (!(el instanceof kind)) throw new Error(`#${id} is missing from the page`);
+  return el;
+}
+const statusEl = byId('status', HTMLParagraphElement);
+const chipEl = byId('map-chip', HTMLDivElement);
+const networkSelect = byId('network', HTMLSelectElement);
+const aboutEl = byId('network-about', HTMLParagraphElement);
+const creditEl = byId('network-credit', HTMLParagraphElement);
+const sideBox = byId('side-by-side', HTMLInputElement);
+const zoomInput = byId('zoom', HTMLInputElement);
+const zoomOut = byId('zoom-value', HTMLOutputElement);
+const capSelect = byId('cap', HTMLSelectElement);
+const capAbout = byId('cap-about', HTMLParagraphElement);
+const countEl = byId('route-count', HTMLSpanElement);
+const listEl = byId('routes', HTMLUListElement);
+const addButton = byId('add', HTMLButtonElement);
+const finishButton = byId('finish', HTMLButtonElement);
+const cancelButton = byId('cancel', HTMLButtonElement);
+
+const [firstNetwork] = NETWORKS;
+if (!firstNetwork) throw new Error('The demo has no networks');
+let network: Network = firstNetwork;
+const map = new MapLibreMap({
+  container: 'map',
+  style,
+  center: network.center,
+  zoom: network.zoom,
+});
 map.addControl(new NavigationControl(), 'top-right');
+map.addControl(new ScaleControl({ unit: 'metric' }), 'bottom-left');
 
 // interleaved: false = deck.gl draws on its own canvas above the map. Interleaved mode
 // (lines under map labels) breaks with MapLibre 6 in deck.gl 9.4: it reads the removed
@@ -54,25 +92,22 @@ map.addControl(new NavigationControl(), 'top-right');
 const overlay = new MapboxOverlay({ interleaved: false, layers: [] });
 map.addControl(overlay);
 
-function byId<T extends HTMLElement>(id: string, kind: new () => T): T {
-  const el = document.getElementById(id);
-  if (!(el instanceof kind)) throw new Error(`#${id} is missing from the page`);
-  return el;
-}
-const statusEl = byId('status', HTMLSpanElement);
-const sideBox = byId('side-by-side', HTMLInputElement);
-const listEl = byId('routes', HTMLUListElement);
-const addButton = byId('add', HTMLButtonElement);
-const finishButton = byId('finish', HTMLButtonElement);
-const cancelButton = byId('cancel', HTMLButtonElement);
-
-let routes: DemoRoute[] = structuredClone([...SAMPLE_ROUTES]);
+let routes: DemoRoute[] = [];
+let stations: StationsInput | null = null;
 /** The page's session: every edit and zoom starts from the last draw, so a zoom redraws only
- * the geometry and an edit keeps the lanes the routes had. */
-const session = createSession();
+ * the geometry and an edit keeps the lanes the routes had. A new network starts a new one. */
+let session: BraidSession = createSession();
+/** At most this many lines per street (`maxSideBySide`), or null for no cap. */
+let cap: number | null = null;
 
 /** What is drawn now (the last good result stays when a call fails). */
 let drawn: Drawn[] = [];
+/** Station bars, as paths across their bundles. */
+let bars: LngLat[][] = [];
+/** Direction marks along the drawn lines. */
+let marks: Mark[] = [];
+/** Routes the lane cap left out of the last draw. */
+let dropped: string[] = [];
 /** The route whose points can be dragged, or null. */
 let editing: string | null = null;
 /** Points of the route being added, or null when not adding. */
@@ -96,8 +131,24 @@ const setStatus = (text: string): void => {
   statusEl.textContent = text;
 };
 
+const toPath = (coordinates: readonly (readonly number[])[]): LngLat[] =>
+  coordinates.map(([x = 0, y = 0]): LngLat => [x, y]);
+
+/** Direction marks for what is drawn, spaced for the map's zoom. */
+function placeMarks(): void {
+  const spacing = MARK_EVERY_PX * metersPerPixel(map.getZoom(), map.getCenter().lat);
+  marks = drawn.flatMap((d) => marksAlong(d.path, spacing));
+}
+
+function updateChip(): void {
+  const zoom = map.getZoom();
+  const mpp = metersPerPixel(zoom, map.getCenter().lat);
+  const mode = sideBox.checked ? 'Side by side' : 'As given';
+  chipEl.textContent = `${mode} · zoom ${zoom.toFixed(1)} · ${mpp.toFixed(2)} m/px`;
+}
+
 function render(): void {
-  const layers = [
+  const layers: Layer[] = [
     new PathLayer<Drawn>({
       id: 'braid-lines',
       data: drawn,
@@ -110,6 +161,38 @@ function render(): void {
       miterLimit: 4,
       pickable: true,
     }),
+    new TextLayer<Mark>({
+      id: 'direction-marks',
+      data: marks,
+      getPosition: (m) => m.position,
+      getText: () => '>',
+      getAngle: (m) => m.angle,
+      getSize: 9,
+      sizeUnits: 'pixels',
+      getColor: [255, 255, 255, 235],
+      fontWeight: 700,
+      characterSet: ['>'],
+      getTextAnchor: 'middle',
+      getAlignmentBaseline: 'center',
+    }),
+    new PathLayer<LngLat[]>({
+      id: 'station-bar-edges',
+      data: bars,
+      getPath: (b) => b,
+      getColor: [29, 43, 47],
+      getWidth: 7,
+      widthUnits: 'pixels',
+      capRounded: true,
+    }),
+    new PathLayer<LngLat[]>({
+      id: 'station-bars',
+      data: bars,
+      getPath: (b) => b,
+      getColor: [255, 255, 255],
+      getWidth: 4,
+      widthUnits: 'pixels',
+      capRounded: true,
+    }),
   ];
   if (draft !== null) {
     layers.push(
@@ -121,22 +204,18 @@ function render(): void {
         getWidth: 2,
         widthUnits: 'pixels',
       }),
-    );
-  }
-  const dots = draft === null ? [] : draft;
-  overlay.setProps({
-    layers: [
-      ...layers,
       new ScatterplotLayer<LngLat>({
         id: 'draft-points',
-        data: dots,
+        data: draft,
         getPosition: (p) => p,
         getFillColor: [60, 60, 60],
         getRadius: 4,
         radiusUnits: 'pixels',
       }),
-    ],
-  });
+    );
+  }
+  overlay.setProps({ layers });
+  updateChip();
   publish();
 }
 
@@ -150,6 +229,7 @@ function publish(): void {
     map,
     overlay,
     ready: true,
+    network: network.id,
     sideBySide: sideBox.checked,
     routes: routes.map((r) => r.id),
     runs,
@@ -163,7 +243,19 @@ function publish(): void {
     drafting: draft?.length ?? null,
     status,
     probes,
+    bars: bars.length,
+    marks: marks.length,
+    dropped,
   };
+}
+
+function updateCapAbout(): void {
+  if (cap === null) {
+    capAbout.textContent = 'No cap: every route is drawn.';
+    return;
+  }
+  const left = dropped.length === 1 ? '1 route left out' : `${dropped.length} routes left out`;
+  capAbout.textContent = `At most ${cap} per street: ${left} (whole routes, in input order).`;
 }
 
 /**
@@ -175,8 +267,12 @@ async function draw(): Promise<void> {
   const run = ++runs;
   if (!sideBox.checked) {
     drawn = routes.map((r) => ({ lineId: r.id, path: r.points, color: r.color }));
+    bars = [];
+    dropped = [];
     shown = run;
+    placeMarks();
     setStatus(`${routes.length} routes as given: they hide each other where they share a street.`);
+    updateCapAbout();
     render();
     return;
   }
@@ -194,19 +290,25 @@ async function draw(): Promise<void> {
         zoom: map.getZoom(),
         lineWidth: LINE_WIDTH_PX,
         spacing: SPACING_PX,
+        ...(stations === null ? {} : { stations }),
+        ...(cap === null ? {} : { maxSideBySide: cap }),
       });
       if (current !== runs) continue; // a newer change came in: drop this answer
       const color = new Map(routes.map((r) => [r.id, r.color]));
       drawn = out.lines.features.map((f) => ({
         lineId: String(f.id),
-        path: f.geometry.coordinates.map(([x = 0, y = 0]): LngLat => [x, y]),
+        path: toPath(f.geometry.coordinates),
         color: color.get(String(f.id)) ?? [0, 0, 0],
       }));
+      bars = out.stations.features.map((f) => toPath(f.geometry.coordinates));
+      dropped = out.dropped.map(String);
       shown = current;
+      placeMarks();
       const ms = performance.now() - started;
       setStatus(
         `${routes.length} routes side by side in ${ms.toFixed(1)} ms · zoom ${map.getZoom().toFixed(1)}`,
       );
+      updateCapAbout();
     } catch (error) {
       if (current !== runs) continue;
       setStatus(`Error: ${error instanceof Error ? error.message : String(error)}`);
@@ -244,8 +346,10 @@ function showMarkers(): void {
 // --- The route list ---
 
 function renderList(): void {
+  countEl.textContent = String(routes.length);
   listEl.replaceChildren(
     ...routes.map((r) => {
+      const name = r.name ?? r.id;
       const li = document.createElement('li');
       li.dataset['route'] = r.id;
       const swatch = document.createElement('span');
@@ -254,7 +358,7 @@ function renderList(): void {
       const pick = document.createElement('button');
       pick.type = 'button';
       pick.className = 'pick';
-      pick.textContent = r.id;
+      pick.textContent = name;
       pick.setAttribute('aria-pressed', String(editing === r.id));
       pick.title = 'Move this route: drag its points on the map';
       pick.addEventListener('click', () => {
@@ -267,7 +371,7 @@ function renderList(): void {
       remove.type = 'button';
       remove.className = 'remove';
       remove.textContent = '✕';
-      remove.setAttribute('aria-label', `Remove ${r.id}`);
+      remove.setAttribute('aria-label', `Remove ${name}`);
       remove.addEventListener('click', () => {
         routes = removeRoute(routes, r.id);
         if (editing === r.id) editing = null;
@@ -318,14 +422,81 @@ finishButton.addEventListener('click', () => {
   redraw();
 });
 
+// --- Networks ---
+
+function showNetworkText(): void {
+  aboutEl.textContent = network.about;
+  creditEl.textContent = network.credit ?? '';
+  creditEl.hidden = network.credit === undefined;
+}
+
+/** Shows `next`: its routes and stops, in a new session, centered where it is. */
+async function pickNetwork(next: Network): Promise<void> {
+  network = next;
+  showNetworkText();
+  setStatus(`Loading ${next.name}…`);
+  editing = null;
+  showMarkers();
+  if (draft !== null) setDrafting(false);
+  try {
+    const loaded = await next.load();
+    if (network !== next) return; // another network was picked meanwhile
+    routes = loaded.routes;
+    stations = loaded.stations;
+  } catch (error) {
+    setStatus(
+      `Could not load ${next.name}: ${error instanceof Error ? error.message : String(error)}`,
+    );
+    return;
+  }
+  session.close();
+  session = createSession();
+  renderList();
+  map.jumpTo({ center: next.center, zoom: next.zoom });
+  redraw();
+}
+
+networkSelect.replaceChildren(
+  ...NETWORKS.map((n) => {
+    const option = document.createElement('option');
+    option.value = n.id;
+    option.textContent = n.name;
+    return option;
+  }),
+);
+networkSelect.addEventListener('change', () => {
+  const next = NETWORKS.find((n) => n.id === networkSelect.value);
+  if (next) void pickNetwork(next);
+});
+
+// --- Drawing, zoom and lane cap ---
+
 sideBox.addEventListener('change', redraw);
+capSelect.addEventListener('change', () => {
+  cap = capSelect.value === '' ? null : Number(capSelect.value);
+  redraw();
+});
+zoomInput.addEventListener('input', () => {
+  map.jumpTo({ zoom: Number(zoomInput.value) });
+});
+map.on('zoom', () => {
+  const zoom = map.getZoom();
+  zoomInput.value = String(zoom);
+  zoomOut.textContent = zoom.toFixed(1);
+  updateChip();
+});
 
 map.on('load', () => {
-  renderList();
   addButton.disabled = false;
-  redraw();
+  void pickNetwork(network);
 });
 // Widths are in pixels, so the offsets in meters change with zoom: draw again after zooming.
 map.on('zoomend', () => {
   if (sideBox.checked) redraw();
+  else {
+    placeMarks();
+    render();
+  }
 });
+zoomInput.value = String(map.getZoom());
+zoomOut.textContent = map.getZoom().toFixed(1);

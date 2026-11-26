@@ -191,3 +191,55 @@ test('zooming draws again, still one lane apart', async ({ page }) => {
   expect(lane).toBeGreaterThan(7.5);
   expect(lane).toBeLessThan(8.5);
 });
+
+test('Tel Aviv: 25 real bus routes side by side, with station bars and the data credit', async ({
+  page,
+}, info) => {
+  const errors = await open(page);
+  await page.locator('#network').selectOption('tel-aviv');
+  await expect.poll(() => page.evaluate(() => window.braidDebug?.network)).toBe('tel-aviv');
+  await expect.poll(async () => (await state(page)).routes.length).toBe(25);
+  await expect(page.locator('#status')).toContainText('25 routes side by side');
+  await expect(page.locator('#routes li')).toHaveCount(25);
+  await expect(page.locator('#route-count')).toHaveText('25');
+  await expect(page.locator('#network-credit')).toBeVisible();
+  await expect(page.locator('#network-credit')).toContainText('Ministry of Transport');
+  const drawn = await page.evaluate(() => ({
+    bars: window.braidDebug!.bars,
+    marks: window.braidDebug!.marks,
+  }));
+  expect(drawn.bars).toBeGreaterThan(100);
+  expect(drawn.marks).toBeGreaterThan(25);
+  await info.attach('tel aviv', { body: await page.screenshot(), contentType: 'image/png' });
+  // Back to the routes to edit: no credit, no bars.
+  await page.locator('#network').selectOption('sample');
+  await expect.poll(async () => (await state(page)).routes).toEqual(['red', 'blue', 'yellow']);
+  await expect(page.locator('#network-credit')).toBeHidden();
+  await expect.poll(() => page.evaluate(() => window.braidDebug!.bars)).toBe(0);
+  expect(errors).toEqual([]);
+});
+
+test('the lane cap leaves whole routes out where too many share a street', async ({ page }) => {
+  await open(page);
+  // All three share their first street: one lane there keeps red only.
+  await page.locator('#cap').selectOption('1');
+  await expect
+    .poll(() => page.evaluate(() => window.braidDebug!.dropped))
+    .toEqual(['blue', 'yellow']);
+  await expect(page.locator('#cap-about')).toContainText('2 routes left out');
+  await expect.poll(() => hits(page)).toEqual({ red: 'red' });
+  await page.locator('#cap').selectOption('');
+  await expect(page.locator('#cap-about')).toHaveText('No cap: every route is drawn.');
+  await expect.poll(() => hits(page)).toEqual({ red: 'red', blue: 'blue', yellow: 'yellow' });
+});
+
+test('the zoom slider zooms the map, and the drawing follows', async ({ page }) => {
+  await open(page);
+  await page.locator('#zoom').fill('16');
+  await expect(page.locator('#zoom-value')).toHaveText('16.0');
+  await expect(page.locator('#status')).toContainText('zoom 16.0');
+  await expect(page.locator('#map-chip')).toContainText('Side by side · zoom 16.0');
+  const lane = await gap(page, 'red', 'blue');
+  expect(lane).toBeGreaterThan(7.5);
+  expect(lane).toBeLessThan(8.5);
+});
