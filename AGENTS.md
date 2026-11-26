@@ -46,3 +46,6 @@ Published names: npm `transit-braid` and `transit-braid-deck`.
 - Production WASM uses `opt-level = 3` (faster and smaller than `"z"` for this code).
 - MapLibre zoom uses 512 px tiles.
 - deck.gl 9.4's interleaved mode breaks with MapLibre 6.
+- MapLibre 6 names its worker file at run time, so bundlers don't copy it: the demo imports
+  `maplibre-gl/dist/maplibre-gl-worker.mjs?url` and passes it to `setWorkerUrl()`. The tests'
+  plain background has a GeoJSON source, so they run that worker too.

@@ -19,8 +19,10 @@ import {
   Marker,
   NavigationControl,
   ScaleControl,
+  setWorkerUrl,
   type StyleSpecification,
 } from 'maplibre-gl';
+import maplibreWorkerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url';
 import { type BraidSession, createSession, type StationsInput } from 'transit-braid';
 
 import { type Mark, marksAlong, metersPerPixel } from './chevrons.ts';
@@ -41,10 +43,16 @@ const SPACING_PX = 2;
 /** Screen distance between two direction marks on a line. */
 const MARK_EVERY_PX = 140;
 
+// The plain background of `?basemap=none` (no map tiles: stable tests). Its one GeoJSON source,
+// empty, makes MapLibre start its worker as a real map does, so the tests fail when the worker
+// file is missing (it was, on the built site, until main.ts set its URL).
 const BLANK_STYLE: StyleSpecification = {
   version: 8,
-  sources: {},
-  layers: [{ id: 'background', type: 'background', paint: { 'background-color': '#f4f1ea' } }],
+  sources: { empty: { type: 'geojson', data: { type: 'FeatureCollection', features: [] } } },
+  layers: [
+    { id: 'background', type: 'background', paint: { 'background-color': '#f4f1ea' } },
+    { id: 'empty', type: 'line', source: 'empty' },
+  ],
 };
 
 type Drawn = { lineId: string; path: LngLat[]; color: Rgb };
@@ -52,6 +60,10 @@ type Drawn = { lineId: string; path: LngLat[]; color: Rgb };
 const params = new URLSearchParams(location.search);
 const style =
   params.get('basemap') === 'none' ? BLANK_STYLE : 'https://tiles.openfreemap.org/styles/positron';
+
+// MapLibre builds its worker file's name at run time, so no bundler sees it: point MapLibre at the
+// copy Vite emits for this import, or a built site has no worker and draws no map.
+setWorkerUrl(maplibreWorkerUrl);
 
 function byId<T extends HTMLElement>(id: string, kind: new () => T): T {
   const el = document.getElementById(id);
