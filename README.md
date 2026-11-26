@@ -5,7 +5,9 @@
 [![CI](https://github.com/shakedk/transit-braid/actions/workflows/ci.yml/badge.svg)](https://github.com/shakedk/transit-braid/actions/workflows/ci.yml)
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/shakedk/transit-braid/badge)](https://scorecard.dev/viewer/?uri=github.com/shakedk/transit-braid)
 
-**[Live demo](https://shakedk.github.io/transit-braid/)**
+**[Live demo](https://shakedk.github.io/transit-braid/)** ·
+**[Examples](https://shakedk.github.io/transit-braid/examples.html)**: real bus routes and made-up
+scenarios (loops, splits, one-way pairs, stops), each opening in the demo
 
 Side-by-side transit lines for web maps. Give it overlapping bus, tram or rail routes as GeoJSON
 lines; it returns GeoJSON with the routes drawn next to each other where they share a street, plus

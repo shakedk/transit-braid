@@ -243,3 +243,32 @@ test('the zoom slider zooms the map, and the drawing follows', async ({ page }) 
   expect(lane).toBeGreaterThan(7.5);
   expect(lane).toBeLessThan(8.5);
 });
+
+test('?network= opens a scenario on a plain background, and the link follows the picker', async ({
+  page,
+}) => {
+  const errors: string[] = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  await page.goto('/?basemap=none&network=stops');
+  await page.waitForFunction(
+    () => window.braidDebug?.network === 'stops' && /side by side/.test(window.braidDebug.status),
+  );
+  await expect(page.locator('#network')).toHaveValue('stops');
+  await expect(page.locator('#network-look')).toContainText('What to look for');
+  // A bar for each stop near a route: 7 of the 8 (the far one gets none). The same-name pair's
+  // two bars sit at the same place, so they read as one.
+  expect(await page.evaluate(() => window.braidDebug!.bars)).toBe(7);
+  await page.locator('#network').selectOption('stress-grid');
+  await expect.poll(async () => (await state(page)).routes.length).toBe(70);
+  await expect(page.locator('#status')).toContainText('70 routes side by side');
+  expect(new URL(page.url()).searchParams.get('network')).toBe('stress-grid');
+  expect(errors).toEqual([]);
+});
+
+test('an unknown ?network= opens the routes to edit', async ({ page }) => {
+  await page.goto('/?basemap=none&network=nowhere');
+  await page.waitForFunction(
+    () => window.braidDebug?.ready === true && /side by side/.test(window.braidDebug.status),
+  );
+  expect((await state(page)).routes).toEqual(['red', 'blue', 'yellow']);
+});

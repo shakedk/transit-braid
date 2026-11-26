@@ -64,7 +64,7 @@ Run from the repo root.
 | `pnpm demo`                 | Start the demo map at http://localhost:5199                                                                                              |
 | `pnpm e2e`                  | End-to-end tests: opens the demo in Chromium and checks the lines (Playwright)                                                           |
 | `pnpm build:site`           | Build the demo as a static site with the inline entry (`examples/demo/dist-site/`; needs `pnpm build:packages`)                          |
-| `pnpm e2e:site`             | The demo's and deck page's e2e tests on that site, as a static server serves it                                                          |
+| `pnpm e2e:site`             | The demo's, deck page's and Examples page's e2e tests on that site, as a static server serves it                                         |
 | `pnpm setup:tools`          | Install/verify pinned wasm-bindgen, wasm-opt, gitleaks, cargo-deny, zizmor (`pnpm setup:tools gitleaks`: only the ones named)            |
 | `pnpm secrets`              | Scan the whole git history for leaked secrets (gitleaks)                                                                                 |
 | `pnpm lint:workflows`       | Lint the GitHub Actions workflows and `dependabot.yml` for security problems (zizmor, offline; skipped if zizmor isn't installed)        |
@@ -405,9 +405,14 @@ A web page with a MapLibre map (OpenFreeMap tiles, no API key) and a side panel.
 showing each route's direction. Every change calls it again, through one session:
 
 - **Network**: three made-up routes in Tel Aviv that share a trunk, then split (the default, to
-  edit); or 25 real bus routes in Tel Aviv with their 711 stops (`public/data/*.geojson`, from the
+  edit); 25 real bus routes in Tel Aviv with their 711 stops (`public/data/*.geojson`, from the
   Israel Ministry of Transport's GTFS; each file says its source, license and credit, and the page
-  shows the credit with the network).
+  shows the credit with the network); or one of the 12 test scenarios from `fixtures/` (made-up
+  routes in meters, drawn around 0°, 0° on a plain background, with what to look for).
+  `?network=<id>` opens a network, and the address follows the picker.
+- **Examples page** (`examples.html`, `src/examples.ts`): a card per network with a small picture
+  of its routes as given (`src/thumbnail.ts`), what it shows and what to look for; each card opens
+  the demo with it.
 - **Side by side** (switch): off shows the routes as given, on top of each other (before).
 - **Zoom** (slider) and **Lane cap** (`maxSideBySide`: whole routes left out where more than that
   many share a street; the panel says how many).
@@ -419,7 +424,8 @@ showing each route's direction. Every change calls it again, through one session
 - **Zoom**: widths are in pixels but offsets are in meters, so zooming draws again.
 
 The edit logic and reading routes from GeoJSON are in `src/edit.ts`, the networks in
-`src/networks.ts`, the direction arrows in `src/chevrons.ts` (each tested in Node, `*.test.ts`).
+`src/networks.ts`, the scenarios in `src/scenarios.ts`, the direction arrows in `src/chevrons.ts`
+and the Examples page's pictures in `src/thumbnail.ts` (each tested in Node, `*.test.ts`).
 
 ```sh
 pnpm build:wasm && pnpm demo        # then open http://localhost:5199
@@ -441,12 +447,12 @@ pnpm exec playwright show-report    # open the last report, with the screenshot
 §7): both pages built as a static
 site (`vite build --mode site`, `examples/demo/dist-site/`), every URL relative, and every import
 of `transit-braid` (the deck layer's too) replaced by `transit-braid/inline`, so the worker and the
-WASM come inside one file. `pnpm e2e:site` runs the demo's and the deck page's e2e tests on that
-build, served by `vite preview` on port 5197.
+WASM come inside one file. `pnpm e2e:site` runs the demo's, the deck page's and the Examples
+page's e2e tests on that build, served by `vite preview` on port 5197.
 
 ```sh
 pnpm build:wasm && pnpm build:packages && pnpm build:site   # examples/demo/dist-site/
-pnpm e2e:site                                               # the demo and deck tests on it
+pnpm e2e:site                                               # the demo, deck and Examples tests on it
 ```
 
 ### deck.gl layer — `packages/transit-braid-deck`
