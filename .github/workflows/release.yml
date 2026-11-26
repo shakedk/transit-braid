@@ -1,6 +1,6 @@
 name: Release
 
-# DRAFT, never run yet. A version tag (v0.1.0) builds and checks everything, packs both npm
+# A version tag (v0.1.0, v0.2.3, ...) builds and checks everything, packs both npm
 # packages, then, in a job of its own that runs no project code, attests the tarballs and SBOMs
 # (signed build provenance anyone can check with `gh attestation verify`). After that it stages
 # the packages on npm through trusted publishing (no token; a maintainer approves the staged

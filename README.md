@@ -26,8 +26,8 @@ const out = await sideBySide(routes, { zoom: 13, lineWidth: 4, spacing: 1 });
 // out.stations → GeoJSON station bars
 ```
 
-> **Status:** version 0.1.0, the first release. The API here works as shown;
-> [CHANGELOG.md](CHANGELOG.md) lists what 0.1.0 does, its limits and its errors. Full
+> **Status:** version 0.1.1. The API here works as shown;
+> [CHANGELOG.md](CHANGELOG.md) lists what each version does, its limits and its errors. Full
 > documentation comes later.
 
 ## Which one do I use?

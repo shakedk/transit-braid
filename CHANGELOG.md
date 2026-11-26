@@ -7,6 +7,13 @@ minor version (0.2.0) may change the API.
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-11-26
+
+### Changed
+
+- The README on npm shows a picture of what transit-braid draws, and links to the live demo and
+  the repository. No change to the code.
+
 ## [0.1.0] - 2026-11-26
 
 The first version.
@@ -98,5 +105,6 @@ dependencies.
   change redraws the station bars too: about 100 ms with 1,875 stations on a 50-route network.
 - Where junctions are very close together, and at some roundabouts, lines can take small jogs.
 
-[Unreleased]: https://github.com/shakedk/transit-braid/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/shakedk/transit-braid/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/shakedk/transit-braid/releases/tag/v0.1.1
 [0.1.0]: https://github.com/shakedk/transit-braid/releases/tag/v0.1.0

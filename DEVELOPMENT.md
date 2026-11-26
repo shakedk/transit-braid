@@ -766,7 +766,7 @@ Wait for all green checks before merging.
    "Leaf" = isolated helper) and **Data Flow**, then the maintainer's review checklist.
    Keep each part short.
 8. Merge when CI is green. Update this guide in the same PR if you added a part or command.
-9. **Versions:** both npm packages and the Rust workspace share one version (0.1.0 now, set in
+9. **Versions:** both npm packages and the Rust workspace share one version (0.1.1 now, set in
    `packages/*/package.json` and the root `Cargo.toml`). A PR that changes what the packages do
    or export says so in `CHANGELOG.md`: in the unpublished version's entry until it is released,
    then under `[Unreleased]`.
@@ -809,7 +809,10 @@ environment, which waits for a maintainer; and every staged version waits for a 
 **Each release:**
 
 1. A PR sets the version in both `packages/*/package.json` and the root `Cargo.toml`, and dates
-   its CHANGELOG entry (`## [0.2.0] - 2027-01-15`).
+   its CHANGELOG entry (`## [0.2.0] - 2027-01-15`). The package READMEs (what npm shows) load
+   their picture from that version's tag, so the PR also moves `v0.1.1` in their image URL to the
+   new tag; the picture is `docs/img/before-after.png`, a 2x PNG of the README's SVG (npm shows
+   no relative or SVG images), drawn again whenever the SVG changes.
 2. After it merges, a signed tag on `main`: `git tag -s v0.2.0 -m "transit-braid 0.2.0"`, then
    `git push origin v0.2.0`.
 3. Approve the run's `npm` and `github-pages` deployments (Actions → the run → Review
