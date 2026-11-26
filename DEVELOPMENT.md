@@ -411,6 +411,9 @@ showing each route's direction. Every change calls it again, through one session
   Tel Aviv streets to edit; or one of the 12 test scenarios from `fixtures/` (made-up routes in
   meters, drawn around 0°, 0° on a plain background, with what to look for).
   `?network=<id>` opens a network, and the address follows the picker.
+- **The logo** (`docs/img/logo.svg`) is each page's icon (`public/favicon.svg`, with
+  `favicon-32.png` and `apple-touch-icon.png` drawn from it) and sits beside the titles.
+  `docs/img/social-preview.png` is the image for GitHub's social preview (Settings → General).
 - **Examples page** (`examples.html`, `src/examples.ts`): a card per network with a small picture
   of its routes as given (`src/thumbnail.ts`), what it shows and what to look for; each card opens
   the demo with it.
@@ -774,7 +777,7 @@ Wait for all green checks before merging.
    "Leaf" = isolated helper) and **Data Flow**, then the maintainer's review checklist.
    Keep each part short.
 8. Merge when CI is green. Update this guide in the same PR if you added a part or command.
-9. **Versions:** both npm packages and the Rust workspace share one version (0.1.1 now, set in
+9. **Versions:** both npm packages and the Rust workspace share one version (0.1.2 now, set in
    `packages/*/package.json` and the root `Cargo.toml`). A PR that changes what the packages do
    or export says so in `CHANGELOG.md`: in the unpublished version's entry until it is released,
    then under `[Unreleased]`.
@@ -818,9 +821,9 @@ environment, which waits for a maintainer; and every staged version waits for a 
 
 1. A PR sets the version in both `packages/*/package.json` and the root `Cargo.toml`, and dates
    its CHANGELOG entry (`## [0.2.0] - 2027-01-15`). The package READMEs (what npm shows) load
-   their picture from that version's tag, so the PR also moves `v0.1.1` in their image URL to the
-   new tag; the picture is `docs/img/before-after.png`, a 2x PNG of the README's SVG (npm shows
-   no relative or SVG images), drawn again whenever the SVG changes.
+   their picture from that version's tag, so the PR also moves the tag in their image URLs to the new
+   one. npm shows no relative or SVG images, so they load PNGs: `docs/img/logo.png`, and 2x PNGs
+   of the README's `before-after.svg` and `stops.svg`, drawn again whenever an SVG changes.
 2. After it merges, a signed tag on `main`: `git tag -s v0.2.0 -m "transit-braid 0.2.0"`, then
    `git push origin v0.2.0`.
 3. Approve the run's `npm` and `github-pages` deployments (Actions → the run → Review
