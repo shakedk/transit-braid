@@ -404,11 +404,12 @@ A web page with a MapLibre map (OpenFreeMap tiles, no API key) and a side panel.
 `sideBySide()` draws the routes side by side, with station bars and a small arrow every so often
 showing each route's direction. Every change calls it again, through one session:
 
-- **Network**: three made-up routes in Tel Aviv that share a trunk, then split (the default, to
-  edit); 25 real bus routes in Tel Aviv with their 711 stops (`public/data/*.geojson`, from the
-  Israel Ministry of Transport's GTFS; each file says its source, license and credit, and the page
-  shows the credit with the network); or one of the 12 test scenarios from `fixtures/` (made-up
-  routes in meters, drawn around 0°, 0° on a plain background, with what to look for).
+- **How to use**: a short guide at the top of the panel.
+- **Network**: 25 real bus routes in Tel Aviv with their 711 stops (the default;
+  `public/data/*.geojson`, from the Israel Ministry of Transport's GTFS; each file says its source,
+  license and credit, and the page shows the credit with the network); three made-up routes on
+  Tel Aviv streets to edit; or one of the 12 test scenarios from `fixtures/` (made-up routes in
+  meters, drawn around 0°, 0° on a plain background, with what to look for).
   `?network=<id>` opens a network, and the address follows the picker.
 - **Examples page** (`examples.html`, `src/examples.ts`): a card per network with a small picture
   of its routes as given (`src/thumbnail.ts`), what it shows and what to look for; each card opens
@@ -416,9 +417,10 @@ showing each route's direction. Every change calls it again, through one session
 - **Side by side** (switch): off shows the routes as given, on top of each other (before).
 - **Zoom** (slider) and **Lane cap** (`maxSideBySide`: whole routes left out where more than that
   many share a street; the panel says how many).
-- **Remove** a route with its ✕ in the list.
-- **Move** a route: click its name, then drag its points on the map (drawn again on release;
-  live dragging comes later).
+- **Edit routes** (the button under Network) turns edit mode on: a click on a line, or on its
+  name in the list, picks it; then drag its points on the map (drawn again on release; live
+  dragging comes later). **Done editing** turns it off.
+- **Remove** a route with its ✕ in the list; **Undo** takes edits back, newest first.
 - **Add route**: click points on the map, then **Finish** (at least two different points);
   **Cancel** drops it.
 - **Zoom**: widths are in pixels but offsets are in meters, so zooming draws again.

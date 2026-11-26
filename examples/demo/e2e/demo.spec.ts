@@ -3,11 +3,11 @@
 // drawn at a point we know lies on each line (its "probe").
 import { expect, type Page, test } from '@playwright/test';
 
-/** Opens the demo on a plain background (no map tiles from the network: stable tests). */
+/** Opens the routes to edit on a plain background (no map tiles from the network: stable tests). */
 async function open(page: Page): Promise<string[]> {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
-  await page.goto('/?basemap=none');
+  await page.goto('/?basemap=none&network=sample');
   await page.waitForFunction(() => window.braidDebug?.ready === true);
   await expect(page.locator('#status')).toContainText('side by side');
   return errors;
@@ -265,10 +265,57 @@ test('?network= opens a scenario on a plain background, and the link follows the
   expect(errors).toEqual([]);
 });
 
-test('an unknown ?network= opens the routes to edit', async ({ page }) => {
-  await page.goto('/?basemap=none&network=nowhere');
-  await page.waitForFunction(
-    () => window.braidDebug?.ready === true && /side by side/.test(window.braidDebug.status),
-  );
-  expect((await state(page)).routes).toEqual(['red', 'blue', 'yellow']);
+test('opens Tel Aviv by default, and for an unknown ?network=', async ({ page }) => {
+  const opensTelAviv = async (url: string): Promise<void> => {
+    await page.goto(url);
+    await page.waitForFunction(
+      () =>
+        window.braidDebug?.network === 'tel-aviv' &&
+        /25 routes side by side/.test(window.braidDebug.status),
+    );
+    await expect(page.locator('#network')).toHaveValue('tel-aviv');
+  };
+  await opensTelAviv('/?basemap=none');
+  await opensTelAviv('/?basemap=none&network=nowhere');
+});
+
+test('Edit routes: a click on a line picks it, then its points can be dragged', async ({
+  page,
+}) => {
+  const errors = await open(page);
+  await expect(page.locator('#edit-help')).toBeHidden();
+  // Without edit mode, a click on a line picks nothing.
+  const red = await page.evaluate(() => {
+    const d = window.braidDebug!;
+    return d.map.project(d.probes['red']!);
+  });
+  const box = (await page.locator('#map').boundingBox())!;
+  await page.mouse.click(box.x + red.x, box.y + red.y);
+  expect((await state(page)).editing).toBeNull();
+  await page.locator('#edit-mode').click();
+  await expect(page.locator('#edit-mode')).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.locator('#edit-help')).toBeVisible();
+  await page.mouse.click(box.x + red.x, box.y + red.y);
+  await expect.poll(async () => (await state(page)).editing).toBe('red');
+  await expect(page.locator('.maplibregl-marker').first()).toBeVisible();
+  // Done editing lets the route go.
+  await page.locator('#edit-mode').click();
+  await expect(page.locator('#edit-mode')).toHaveAttribute('aria-pressed', 'false');
+  expect((await state(page)).editing).toBeNull();
+  await expect(page.locator('.maplibregl-marker')).toHaveCount(0);
+  expect(errors).toEqual([]);
+});
+
+test('Undo takes edits back, newest first', async ({ page }) => {
+  await open(page);
+  await expect(page.locator('#undo')).toBeDisabled();
+  await page.getByRole('button', { name: 'Remove blue' }).click();
+  await page.getByRole('button', { name: 'Remove yellow' }).click();
+  await expect.poll(async () => (await state(page)).routes).toEqual(['red']);
+  await page.locator('#undo').click();
+  await expect.poll(async () => (await state(page)).routes).toEqual(['red', 'yellow']);
+  await page.locator('#undo').click();
+  await expect.poll(async () => (await state(page)).routes).toEqual(['red', 'blue', 'yellow']);
+  await expect(page.locator('#undo')).toBeDisabled();
+  await expect.poll(() => hits(page)).toEqual({ red: 'red', blue: 'blue', yellow: 'yellow' });
 });
