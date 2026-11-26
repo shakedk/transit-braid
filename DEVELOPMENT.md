@@ -430,7 +430,8 @@ pnpm exec playwright show-report    # open the last report, with the screenshot
 - deck.gl draws on its own canvas above the map (`interleaved: false`): deck.gl 9.4's
   interleaved mode breaks with MapLibre 6.
 
-**The demo site** (published to GitHub Pages by a release, §7): both pages built as a static
+**The demo site** (published to GitHub Pages from `main` by `pages.yml`, and by every release,
+§7): both pages built as a static
 site (`vite build --mode site`, `examples/demo/dist-site/`), every URL relative, and every import
 of `transit-braid` (the deck layer's too) replaced by `transit-braid/inline`, so the worker and the
 WASM come inside one file. `pnpm e2e:site` runs the demo's and the deck page's e2e tests on that
@@ -662,12 +663,13 @@ Wait for all green checks before merging.
 
 **What runs by itself** (all free for a public repository):
 
-| What                          | When                                             | Does                                                                                                                    |
-| ----------------------------- | ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
-| CI (`ci.yml`)                 | every PR and every push to `main`                | the checks above                                                                                                        |
-| Release (`release.yml`)       | a version tag (`v*`) is pushed                   | builds, publishes both npm packages, drafts the GitHub release with signed files, updates the demo on GitHub Pages (§7) |
-| Scorecard (`scorecard.yml`)   | weekly and on every push to `main` (public only) | grades the repository's security habits (below)                                                                         |
-| Dependabot (`dependabot.yml`) | weekly                                           | opens PRs that update dependencies; never merges by itself. GitHub's own bot, on once its file is in the repo           |
+| What                          | When                                                                           | Does                                                                                                                    |
+| ----------------------------- | ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| CI (`ci.yml`)                 | every PR and every push to `main`                                              | the checks above                                                                                                        |
+| Release (`release.yml`)       | a version tag (`v*`) is pushed                                                 | builds, publishes both npm packages, drafts the GitHub release with signed files, updates the demo on GitHub Pages (§7) |
+| Demo site (`pages.yml`)       | a push to `main` that changes the demo, the packages or the core (public only) | builds and tests the demo site, then updates it on GitHub Pages once a maintainer approves                              |
+| Scorecard (`scorecard.yml`)   | weekly and on every push to `main` (public only)                               | grades the repository's security habits (below)                                                                         |
+| Dependabot (`dependabot.yml`) | weekly                                                                         | opens PRs that update dependencies; never merges by itself. GitHub's own bot, on once its file is in the repo           |
 
 **Supply-chain safety:**
 
@@ -830,8 +832,8 @@ npm's own provenance: `npm audit signatures`.)
   (Settings → Secrets and variables → Actions → Variables; it also turns on the Scorecard
   workflow); an environment `npm` with the maintainer as required reviewer and
   deployments from `v*` tags only; GitHub Pages built by "GitHub Actions", its `github-pages`
-  environment with the maintainer as required reviewer and deployments from `v*` tags only;
-  immutable releases; a ruleset that protects `v*` tags.
+  environment with the maintainer as required reviewer and deployments from `main` and `v*`
+  tags; immutable releases; a ruleset that protects `v*` tags.
 - The first version is published by hand, because npm sets up trusted publishing only for a
   package that already exists ([`npm trust`][npm-trust]). Reject the first run's `npm`
   deployment, download its `release` artifact, check it (`sha256sum --check SHA256SUMS`), then,

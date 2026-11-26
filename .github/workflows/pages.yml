@@ -1,0 +1,85 @@
+name: Demo site
+
+# Builds the demo site from main and deploys it to GitHub Pages once a maintainer approves (the
+# github-pages environment's required reviewer), so the demo can change between releases. A
+# release deploys it too (release.yml). Runs only in the public repository, once its
+# `BRAID_PUBLIC` variable is 'true', and only when something the site is built from changed.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'examples/demo/**'
+      - 'packages/**'
+      - 'crates/**'
+      - 'Cargo.lock'
+      - 'pnpm-lock.yaml'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+# No permissions by default: each job asks for the least it needs.
+permissions: {}
+
+# The site is public: build it from the source alone, as a release does, never from a cache.
+cache-mode: none
+
+# One deployment at a time; a newer push waits rather than cancelling one halfway.
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    name: Build and test the site
+    if: github.repository == 'shakedk/transit-braid' && vars.BRAID_PUBLIC == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - run: rustup show active-toolchain
+      - name: Install pinned wasm-bindgen and wasm-opt (SHA-256 verified)
+        run: |
+          TOOLS_BIN="$RUNNER_TEMP/bin" scripts/install-tools.sh wasm-bindgen wasm-opt
+          echo "$RUNNER_TEMP/bin" >> "$GITHUB_PATH"
+      # pnpm/action-setup reads the pnpm version from package.json "packageManager".
+      - uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1
+      # No cache here either (setup-node caches the pnpm store by default).
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium
+      # Both demo pages with transit-braid/inline (the worker and the WASM inside one file),
+      # tested in Chromium as served.
+      - run: pnpm build:wasm
+      - run: pnpm build:packages
+      - run: pnpm build:site
+      - run: pnpm e2e:site
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: examples/demo/dist-site/
+
+  deploy:
+    name: Deploy the demo site
+    needs: build
+    if: github.repository == 'shakedk/transit-braid' && vars.BRAID_PUBLIC == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    # A maintainer approves this job's deployment before it runs (the environment's required
+    # reviewer), so nothing goes public without that approval.
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write # to deploy the site
+      id-token: write # GitHub Pages checks the job's OIDC token
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
