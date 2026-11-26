@@ -1,0 +1,145 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+# No permissions by default: each job asks for what it needs, which is only to read the repo.
+permissions: {}
+
+# A new push to a pull request cancels the runs it replaces; runs on main always finish.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  rust:
+    name: Rust lint and tests
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      # rustup reads rust-toolchain.toml and installs the pinned version.
+      - run: rustup show active-toolchain
+      - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2.9.3
+      # --locked: build exactly what Cargo.lock says, and fail if it is out of date.
+      - name: Format check
+        run: cargo fmt --all --check
+      - name: Clippy
+        run: cargo clippy --workspace --all-targets --locked -- -D warnings
+      - name: Clippy (WebAssembly target)
+        run: cargo clippy -p transit-braid-wasm --target wasm32-unknown-unknown --locked -- -D warnings
+      - name: Tests
+        run: cargo test --workspace --locked
+
+  typescript:
+    name: TypeScript format, lint, types and tests
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      # The TS tests load the real WebAssembly build, so this job builds Rust too.
+      - run: rustup show active-toolchain
+      - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2.9.3
+      - name: Install pinned wasm-bindgen and wasm-opt (SHA-256 verified)
+        run: |
+          TOOLS_BIN="$RUNNER_TEMP/bin" scripts/install-tools.sh wasm-bindgen wasm-opt
+          echo "$RUNNER_TEMP/bin" >> "$GITHUB_PATH"
+      # pnpm/action-setup reads the pnpm version from package.json "packageManager".
+      - uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      # Real browsers: Chromium for the *.browser.test.ts tests (Vitest browser mode) and the e2e
+      # tests; Firefox and WebKit for the one smoke test each (*.smoke.test.ts).
+      - run: pnpm exec playwright install --with-deps chromium firefox webkit
+      - run: pnpm check:ts
+      # The e2e report holds the demo screenshot; keep it for a week to look at.
+      - name: Upload e2e report
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: e2e-report
+          path: playwright-report/
+          retention-days: 7
+
+  secrets:
+    name: Secret scan (full history)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Install pinned gitleaks (SHA-256 verified)
+        run: |
+          TOOLS_BIN="$RUNNER_TEMP/bin" scripts/install-tools.sh gitleaks
+          echo "$RUNNER_TEMP/bin" >> "$GITHUB_PATH"
+      - run: gitleaks git --redact --no-banner --verbose .
+
+  workflows:
+    name: Workflow lint (zizmor)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install pinned zizmor (SHA-256 verified)
+        run: |
+          TOOLS_BIN="$RUNNER_TEMP/bin" scripts/install-tools.sh zizmor
+          echo "$RUNNER_TEMP/bin" >> "$GITHUB_PATH"
+      # Every workflow, composite action and dependabot.yml, online: also the audits that ask
+      # GitHub (impostor commits, version comments that don't match their pin, known-vulnerable
+      # actions), with this job's token, which may only read (contents: read above).
+      - run: scripts/lint-workflows.sh --online
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+  licenses:
+    name: Dependency licenses and advisories
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      # cargo-deny reads the dependency graph through cargo.
+      - run: rustup show active-toolchain
+      - name: Install pinned cargo-deny (SHA-256 verified)
+        run: |
+          TOOLS_BIN="$RUNNER_TEMP/bin" scripts/install-tools.sh cargo-deny
+          echo "$RUNNER_TEMP/bin" >> "$GITHUB_PATH"
+      - name: Rust licenses, advisories, bans and sources
+        run: |
+          cargo deny --version
+          cargo deny --locked check
+      - uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+      # Known advisories in the npm packages that ship or that the shipped ones depend on (read
+      # from pnpm-lock.yaml, no install needed). Dev tools never ship; Dependabot keeps them current.
+      - name: npm advisories
+        run: pnpm audit --prod

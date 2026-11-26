@@ -1,0 +1,7 @@
+# Seeds for failure cases proptest has generated in the past. It is
+# automatically read and these particular cases re-run before any
+# novel cases are generated.
+#
+# It is recommended to check this file in to source control so that
+# everyone who runs the test benefits from these saved cases.
+cc 6a068b44f22f5470d7a7983a78f1d611a0314ef11c0030f5cc36f3778ee8bc8d # shrinks to lines = [[Point { x: -0.0025835750576703566, y: 0.0 }, Point { x: -0.0018112996591626318, y: 0.0017221833051664713 }], [Point { x: -0.0020311139108491866, y: 0.00106931496415123 }, Point { x: -0.0018298173521771402, y: 0.0017852439192198328 }], [Point { x: 0.0, y: 0.0 }, Point { x: 0.0, y: 0.00016680082924570516 }], [Point { x: 0.0, y: 0.0 }, Point { x: 0.0, y: -0.001842188796485915 }], [Point { x: 0.0, y: 0.0 }, Point { x: 0.0, y: -0.00028601475925824245 }], [Point { x: 0.0, y: 0.0 }, Point { x: 0.0, y: -0.00024759727662329383 }]], drop = 2260162767190833992, nudge = (9030441060446326876, -7.061569910448082e-5)

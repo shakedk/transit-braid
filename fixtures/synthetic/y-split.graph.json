@@ -1,0 +1,79 @@
+{
+  "fixture": "y-split",
+  "nodes": [
+    {
+      "id": "start",
+      "at": [0, 0]
+    },
+    {
+      "id": "split",
+      "at": [500, 0]
+    },
+    {
+      "id": "end-a",
+      "at": [900, 0]
+    },
+    {
+      "id": "end-b",
+      "at": [900, 300]
+    },
+    {
+      "id": "end-c",
+      "at": [900, -300]
+    }
+  ],
+  "edges": [
+    {
+      "id": "trunk",
+      "from": "start",
+      "to": "split",
+      "lines": [
+        {
+          "line": "A",
+          "dir": "forward"
+        },
+        {
+          "line": "B",
+          "dir": "forward"
+        },
+        {
+          "line": "C",
+          "dir": "forward"
+        }
+      ]
+    },
+    {
+      "id": "branch-a",
+      "from": "split",
+      "to": "end-a",
+      "lines": [
+        {
+          "line": "A",
+          "dir": "forward"
+        }
+      ]
+    },
+    {
+      "id": "branch-b",
+      "from": "split",
+      "to": "end-b",
+      "lines": [
+        {
+          "line": "B",
+          "dir": "forward"
+        }
+      ]
+    },
+    {
+      "id": "branch-c",
+      "from": "split",
+      "to": "end-c",
+      "lines": [
+        {
+          "line": "C",
+          "dir": "forward"
+        }
+      ]
+    }
+  ]
+}

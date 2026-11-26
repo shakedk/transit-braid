@@ -1,0 +1,72 @@
+# Methods banned in production code (the core and wasm crates).
+#
+# Platform math: transcendental functions come from each platform's math library (or the
+# compiler's), and native and WebAssembly builds can differ in the last bit. The pipeline must
+# give the same bits everywhere, so it uses `det.rs` (built from + − × ÷ only) or exact
+# comparisons instead. `sqrt`, `abs`, `floor`, `round`, `to_radians` and friends are exact
+# (IEEE 754 or plain arithmetic) and stay allowed. Tests and the testkit may use these
+# methods; each place says why.
+#
+# Slow in WebAssembly (found by a benchmark): `hypot` and `mul_add`.
+disallowed-methods = [
+  { path = "f64::hypot", reason = "slow software routine in WASM; use geom::length (sqrt)" },
+  { path = "f64::mul_add", reason = "WASM has no fused multiply-add; it becomes a slow call" },
+  { path = "f32::hypot", reason = "slow software routine in WASM; use geom::length (sqrt)" },
+  { path = "f32::mul_add", reason = "WASM has no fused multiply-add; it becomes a slow call" },
+  { path = "f64::sin", reason = "platform math differs between builds; use det.rs" },
+  { path = "f64::cos", reason = "platform math differs between builds; use det::cos" },
+  { path = "f64::tan", reason = "platform math differs between builds; use det.rs" },
+  { path = "f64::sin_cos", reason = "platform math differs between builds; use det.rs" },
+  { path = "f64::asin", reason = "platform math differs between builds; use det.rs" },
+  { path = "f64::acos", reason = "platform math differs between builds; use det.rs" },
+  { path = "f64::atan", reason = "platform math differs between builds; use det.rs" },
+  { path = "f64::atan2", reason = "platform math differs between builds; compare exactly (cross products)" },
+  { path = "f64::sinh", reason = "platform math differs between builds; use det.rs" },
+  { path = "f64::cosh", reason = "platform math differs between builds; use det.rs" },
+  { path = "f64::tanh", reason = "platform math differs between builds; use det.rs" },
+  { path = "f64::asinh", reason = "platform math differs between builds; use det.rs" },
+  { path = "f64::acosh", reason = "platform math differs between builds; use det.rs" },
+  { path = "f64::atanh", reason = "platform math differs between builds; use det.rs" },
+  { path = "f64::exp", reason = "platform math differs between builds; use det::exp" },
+  { path = "f64::exp2", reason = "platform math differs between builds; use det::exp2" },
+  { path = "f64::exp_m1", reason = "platform math differs between builds; use det.rs" },
+  { path = "f64::ln", reason = "platform math differs between builds; use det.rs" },
+  { path = "f64::ln_1p", reason = "platform math differs between builds; use det.rs" },
+  { path = "f64::log", reason = "platform math differs between builds; use det.rs" },
+  { path = "f64::log2", reason = "platform math differs between builds; use det.rs" },
+  { path = "f64::log10", reason = "platform math differs between builds; use det.rs" },
+  { path = "f64::powf", reason = "platform math differs between builds; use det.rs" },
+  { path = "f64::powi", reason = "platform math differs between builds; multiply it out" },
+  { path = "f64::cbrt", reason = "platform math differs between builds; use det.rs" },
+  { path = "f32::sin", reason = "platform math differs between builds; use det.rs" },
+  { path = "f32::cos", reason = "platform math differs between builds; use det::cos" },
+  { path = "f32::tan", reason = "platform math differs between builds; use det.rs" },
+  { path = "f32::sin_cos", reason = "platform math differs between builds; use det.rs" },
+  { path = "f32::asin", reason = "platform math differs between builds; use det.rs" },
+  { path = "f32::acos", reason = "platform math differs between builds; use det.rs" },
+  { path = "f32::atan", reason = "platform math differs between builds; use det.rs" },
+  { path = "f32::atan2", reason = "platform math differs between builds; compare exactly (cross products)" },
+  { path = "f32::sinh", reason = "platform math differs between builds; use det.rs" },
+  { path = "f32::cosh", reason = "platform math differs between builds; use det.rs" },
+  { path = "f32::tanh", reason = "platform math differs between builds; use det.rs" },
+  { path = "f32::asinh", reason = "platform math differs between builds; use det.rs" },
+  { path = "f32::acosh", reason = "platform math differs between builds; use det.rs" },
+  { path = "f32::atanh", reason = "platform math differs between builds; use det.rs" },
+  { path = "f32::exp", reason = "platform math differs between builds; use det::exp" },
+  { path = "f32::exp2", reason = "platform math differs between builds; use det::exp2" },
+  { path = "f32::exp_m1", reason = "platform math differs between builds; use det.rs" },
+  { path = "f32::ln", reason = "platform math differs between builds; use det.rs" },
+  { path = "f32::ln_1p", reason = "platform math differs between builds; use det.rs" },
+  { path = "f32::log", reason = "platform math differs between builds; use det.rs" },
+  { path = "f32::log2", reason = "platform math differs between builds; use det.rs" },
+  { path = "f32::log10", reason = "platform math differs between builds; use det.rs" },
+  { path = "f32::powf", reason = "platform math differs between builds; use det.rs" },
+  { path = "f32::powi", reason = "platform math differs between builds; multiply it out" },
+  { path = "f32::cbrt", reason = "platform math differs between builds; use det.rs" },
+]
+
+# The strict lints (Cargo.toml) keep panics out of production code; tests may panic, that's
+# how they fail.
+allow-unwrap-in-tests = true
+allow-expect-in-tests = true
+allow-panic-in-tests = true

@@ -1,0 +1,60 @@
+{
+  "name": "transit-braid-deck",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A deck.gl layer that draws overlapping transit routes side by side with transit-braid.",
+  "keywords": [
+    "bus",
+    "deck.gl",
+    "geojson",
+    "layer",
+    "map",
+    "transit"
+  ],
+  "homepage": "https://github.com/shakedk/transit-braid#readme",
+  "bugs": {
+    "url": "https://github.com/shakedk/transit-braid/issues"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shakedk/transit-braid.git",
+    "directory": "packages/transit-braid-deck"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": "./src/index.ts",
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "./package.json": "./package.json"
+    },
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.build.json"
+  },
+  "devDependencies": {
+    "@deck.gl/core": "^9.4.1",
+    "@deck.gl/layers": "^9.4.1",
+    "transit-braid": "workspace:*"
+  },
+  "peerDependencies": {
+    "@deck.gl/core": "^9.4.1",
+    "@deck.gl/layers": "^9.4.1",
+    "transit-braid": "workspace:^"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}

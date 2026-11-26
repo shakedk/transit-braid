@@ -1,0 +1,45 @@
+{
+  "type": "FeatureCollection",
+  "braid": {
+    "name": "stops",
+    "description": "Two routes share a straight 600 m street with stops on both sides: a same-name pair across the street, the same name again 250 m on, two different names facing each other, two unnamed stops, and one stop far from any route.",
+    "units": "meters",
+    "license": "MIT",
+    "attribution": "transit-braid authors (synthetic)",
+    "expect": "One bar across both lines per stop. The same-name pair shares one bar at x = 200; every other stop keeps its own bar where it is; the far stop gets none.",
+    "stations": [
+      { "name": "Main St", "at": [190, 8] },
+      { "name": "Main St", "at": [210, -8] },
+      { "name": "Main St", "at": [450, 7] },
+      { "name": "Park", "at": [310, 9] },
+      { "name": "Library", "at": [290, -9] },
+      { "at": [100, 7] },
+      { "at": [104, -7] },
+      { "name": "Far", "at": [300, 100] }
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "line": "A", "color": "#e4002b" },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [0, 0],
+          [600, 0]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "line": "B", "color": "#0072ce" },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [0, 1],
+          [600, 1]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+# Seeds for failure cases proptest has generated in the past. It is
+# automatically read and these particular cases re-run before any
+# novel cases are generated.
+#
+# It is recommended to check this file in to source control so that
+# everyone who runs the test benefits from these saved cases.
+cc ebca073f075b8780d31cce375afb58aa1d14d9013bec1cbfff69f36eb19afcca # shrinks to input = [[Point { x: 0.0, y: 0.0 }, Point { x: 100.0, y: 0.0 }]], first = Remove(0), second = Insert(0, [Point { x: 0.0, y: 0.0 }, Point { x: -100.0, y: 0.0 }, Point { x: 0.0, y: 0.0 }, Point { x: 100.0, y: 0.0 }])

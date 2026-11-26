@@ -1,0 +1,62 @@
+name: Scorecard
+
+# OpenSSF Scorecard checks this repository's supply-chain practices (pinned actions, token
+# permissions, branch protection, signed releases and more), publishes the score to
+# scorecard.dev and adds the findings to GitHub code scanning. It works only on public
+# repositories, so the job runs only in the public one, once its BRAID_PUBLIC variable is 'true';
+# everywhere else it is skipped, never failed. Scorecard rejects published results unless this
+# file keeps its rules: no top-level env or defaults, no run steps, and only the actions below.
+on:
+  # For the Branch-Protection check (default branch only).
+  branch_protection_rule:
+  # Weekly, so the Maintained check stays current.
+  schedule:
+    - cron: '23 4 * * 1'
+  push:
+    branches: [main]
+
+# No permissions by default: the job asks for the two it needs.
+permissions: {}
+
+# No job may restore or save a cache (GitHub Actions' `cache-mode`).
+cache-mode: none
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  analysis:
+    name: Scorecard analysis
+    # The public repository only, and only its default branch (Scorecard supports no other).
+    if: >-
+      github.repository == 'shakedk/transit-braid' && vars.BRAID_PUBLIC == 'true' &&
+      github.event.repository.default_branch == github.ref_name
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      security-events: write # to add the findings to GitHub code scanning
+      id-token: write # to sign the results published to api.scorecard.dev
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ossf/scorecard-action@23f22cd43608bae7a1f1fa2603d7314dee9538a5 # v2.6.0
+        with:
+          results_file: results.sarif
+          results_format: sarif
+          publish_results: true
+          # A rejected publish (this file broke Scorecard's rules) fails the run.
+          fail_on_publish_error: true
+      - name: Upload the results as an artifact
+        if: ${{ always() }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: scorecard-sarif
+          path: results.sarif
+          retention-days: 5
+      - name: Upload the results to code scanning
+        if: ${{ always() }}
+        uses: github/codeql-action/upload-sarif@1bd86f2fdb4b86187fa4059f16f31a3202acc9ea # v4.39.4
+        with:
+          sarif_file: results.sarif

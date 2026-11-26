@@ -1,0 +1,45 @@
+{
+  "type": "FeatureCollection",
+  "braid": {
+    "name": "opposite-direction",
+    "description": "The same track drawn in opposite directions.",
+    "units": "meters",
+    "license": "MIT",
+    "attribution": "transit-braid authors (synthetic)",
+    "expect": "One corridor with two lanes; direction must not matter."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "line": "A",
+        "color": "#e4002b"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [0, 0],
+          [300, 50],
+          [600, 50],
+          [800, 100]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": "B",
+        "color": "#0072ce"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [800, 102],
+          [600, 52],
+          [300, 52],
+          [0, 2]
+        ]
+      }
+    }
+  ]
+}

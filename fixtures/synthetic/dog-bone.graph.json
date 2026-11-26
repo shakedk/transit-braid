@@ -1,0 +1,90 @@
+{
+  "fixture": "dog-bone",
+  "nodes": [
+    {
+      "id": "a-start",
+      "at": [-600, 300]
+    },
+    {
+      "id": "b-start",
+      "at": [-600, -300]
+    },
+    {
+      "id": "join",
+      "at": [-300, -1]
+    },
+    {
+      "id": "part",
+      "at": [300, -0.75]
+    },
+    {
+      "id": "a-end",
+      "at": [600, 300]
+    },
+    {
+      "id": "b-end",
+      "at": [600, -300]
+    }
+  ],
+  "edges": [
+    {
+      "id": "a-in",
+      "from": "a-start",
+      "to": "join",
+      "lines": [
+        {
+          "line": "A",
+          "dir": "forward"
+        }
+      ]
+    },
+    {
+      "id": "b-in",
+      "from": "b-start",
+      "to": "join",
+      "lines": [
+        {
+          "line": "B",
+          "dir": "forward"
+        }
+      ]
+    },
+    {
+      "id": "shared",
+      "from": "join",
+      "to": "part",
+      "lines": [
+        {
+          "line": "A",
+          "dir": "forward"
+        },
+        {
+          "line": "B",
+          "dir": "forward"
+        }
+      ]
+    },
+    {
+      "id": "a-out",
+      "from": "part",
+      "to": "a-end",
+      "lines": [
+        {
+          "line": "A",
+          "dir": "forward"
+        }
+      ]
+    },
+    {
+      "id": "b-out",
+      "from": "part",
+      "to": "b-end",
+      "lines": [
+        {
+          "line": "B",
+          "dir": "forward"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "type": "FeatureCollection",
+  "braid": {
+    "name": "loop-twice",
+    "description": "A route drives around a block and then along the block's first side again, the same way (like Tel Aviv's 24-0 around a roundabout); a straight route crosses the block.",
+    "units": "meters",
+    "license": "MIT",
+    "attribution": "transit-braid authors (synthetic)",
+    "expect": "Route A is one line: in from the west, around the block, along its south side a second time in the same slot, then out to the east. Route B crosses the block north to south on its own."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "line": "A", "color": "#e4002b" },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-300, 0],
+          [0, 0],
+          [200, 0],
+          [200, 200],
+          [0, 200],
+          [0, 2],
+          [200, 2],
+          [500, 2]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "line": "B", "color": "#0072ce" },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [100, 300],
+          [100, -300]
+        ]
+      }
+    }
+  ]
+}

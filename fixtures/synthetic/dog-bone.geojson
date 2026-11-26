@@ -1,0 +1,45 @@
+{
+  "type": "FeatureCollection",
+  "braid": {
+    "name": "dog-bone",
+    "description": "Two lines meet, share a middle stretch, and part again.",
+    "units": "meters",
+    "license": "MIT",
+    "attribution": "transit-braid authors (synthetic)",
+    "expect": "Single lines at both ends, a two-lane bundle in the middle; no crossing needed."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "line": "A",
+        "color": "#e4002b"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-600, 300],
+          [-300, 0],
+          [300, 0],
+          [600, 300]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": "B",
+        "color": "#0072ce"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-600, -300],
+          [-300, -2],
+          [300, -1.5],
+          [600, -300]
+        ]
+      }
+    }
+  ]
+}

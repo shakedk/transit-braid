@@ -1,0 +1,42 @@
+{
+  "name": "transit-braid-monorepo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prepare": "lefthook install",
+    "setup:tools": "scripts/install-tools.sh",
+    "build:wasm": "scripts/build-wasm.sh",
+    "build:packages": "pnpm --filter transit-braid --filter transit-braid-deck build",
+    "demo": "pnpm --filter transit-braid-demo dev",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
+    "lint": "oxlint --type-aware --deny-warnings packages examples scripts *.config.ts",
+    "typecheck": "tsc",
+    "test": "vitest run",
+    "e2e": "playwright test --project chromium",
+    "test:pack": "playwright test --config playwright.pack.config.ts",
+    "build:site": "pnpm --filter transit-braid-demo build:site",
+    "e2e:site": "BRAID_E2E_SITE=1 playwright test demo.spec deck.spec --project chromium",
+    "secrets": "gitleaks git --redact --no-banner",
+    "lint:workflows": "scripts/lint-workflows.sh",
+    "check:ts": "pnpm format:check && pnpm build:wasm && pnpm build:packages && pnpm lint && pnpm typecheck && pnpm test && pnpm e2e && pnpm test:pack",
+    "check:rust": "cargo fmt --all --check && cargo clippy --workspace --all-targets --locked -- -D warnings && cargo clippy -p transit-braid-wasm --target wasm32-unknown-unknown --locked -- -D warnings && cargo test --workspace --locked",
+    "check": "pnpm lint:workflows && pnpm check:ts && pnpm check:rust"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "@types/node": "^26.6.6",
+    "@vitest/browser-playwright": "^5.1.1",
+    "lefthook": "^2.2.2",
+    "oxfmt": "^0.79.0",
+    "oxlint": "^1.94.0",
+    "oxlint-tsgolint": "^7.0.2007",
+    "playwright": "^1.65.1",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.1"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "pnpm@12.18.0"
+}

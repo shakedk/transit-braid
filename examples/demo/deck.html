@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>transit-braid-deck</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        background: #f4f1ea;
+        font-family: system-ui, sans-serif;
+      }
+      #status {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        z-index: 1;
+        background: #fff;
+        padding: 4px 8px;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <span id="status">Loading…</span>
+    <script type="module" src="/src/deck/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+{
+  "fixture": "x-crossing",
+  "nodes": [
+    {
+      "id": "west",
+      "at": [-500, 1]
+    },
+    {
+      "id": "east",
+      "at": [500, 1]
+    },
+    {
+      "id": "south",
+      "at": [1.25, -500]
+    },
+    {
+      "id": "north",
+      "at": [1.25, 500]
+    }
+  ],
+  "edges": [
+    {
+      "id": "east-west",
+      "from": "west",
+      "to": "east",
+      "lines": [
+        {
+          "line": "A",
+          "dir": "forward"
+        },
+        {
+          "line": "B",
+          "dir": "forward"
+        }
+      ]
+    },
+    {
+      "id": "south-north",
+      "from": "south",
+      "to": "north",
+      "lines": [
+        {
+          "line": "C",
+          "dir": "forward"
+        },
+        {
+          "line": "D",
+          "dir": "forward"
+        }
+      ]
+    }
+  ]
+}

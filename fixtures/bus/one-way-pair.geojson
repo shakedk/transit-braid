@@ -1,0 +1,49 @@
+{
+  "type": "FeatureCollection",
+  "braid": {
+    "name": "one-way-pair",
+    "description": "A route splits into a one-way street pair 20 m apart: eastbound on the south street, westbound on the north street, two-way avenue at both ends.",
+    "units": "meters",
+    "license": "MIT",
+    "attribution": "transit-braid authors (synthetic)",
+    "expect": "Shared two-way avenue at both ends; the two one-way streets stay separate (20 m is more than the 5 m merge distance)."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "line": "A-east",
+        "color": "#e4002b"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-300, 9],
+          [0, 9],
+          [30, 0],
+          [600, 0],
+          [630, 9],
+          [900, 9]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": "A-west",
+        "color": "#0072ce"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [900, 11],
+          [630, 11],
+          [600, 20],
+          [30, 20],
+          [0, 11],
+          [-300, 11]
+        ]
+      }
+    }
+  ]
+}

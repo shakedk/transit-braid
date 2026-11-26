@@ -1,0 +1,61 @@
+{
+  "type": "FeatureCollection",
+  "braid": {
+    "name": "parallel-corridor",
+    "description": "Three lines on one route with a bend; the basic bundle.",
+    "units": "meters",
+    "license": "MIT",
+    "attribution": "transit-braid authors (synthetic)",
+    "expect": "One corridor with three parallel lanes, including through the bend."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "line": "A",
+        "color": "#e4002b"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [0, 0],
+          [400, 0],
+          [700, 200],
+          [1000, 200]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": "B",
+        "color": "#0072ce"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [0, 2],
+          [400, 2],
+          [699, 202],
+          [1000, 201.5]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": "C",
+        "color": "#f2a900"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [0, -2],
+          [401, -2],
+          [701, 198],
+          [1000, 198]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "fixture": "one-way-pair",
+  "nodes": [
+    {
+      "id": "west",
+      "at": [-300, 10]
+    },
+    {
+      "id": "split",
+      "at": [0, 10]
+    },
+    {
+      "id": "join",
+      "at": [630, 10]
+    },
+    {
+      "id": "east",
+      "at": [900, 10]
+    }
+  ],
+  "edges": [
+    {
+      "id": "west-avenue",
+      "from": "west",
+      "to": "split",
+      "lines": [
+        {
+          "line": "A-east",
+          "dir": "forward"
+        },
+        {
+          "line": "A-west",
+          "dir": "backward"
+        }
+      ]
+    },
+    {
+      "id": "south-street",
+      "from": "split",
+      "to": "join",
+      "via": [
+        [30, 0],
+        [600, 0]
+      ],
+      "lines": [
+        {
+          "line": "A-east",
+          "dir": "forward"
+        }
+      ]
+    },
+    {
+      "id": "north-street",
+      "from": "split",
+      "to": "join",
+      "via": [
+        [30, 20],
+        [600, 20]
+      ],
+      "lines": [
+        {
+          "line": "A-west",
+          "dir": "backward"
+        }
+      ]
+    },
+    {
+      "id": "east-avenue",
+      "from": "join",
+      "to": "east",
+      "lines": [
+        {
+          "line": "A-east",
+          "dir": "forward"
+        },
+        {
+          "line": "A-west",
+          "dir": "backward"
+        }
+      ]
+    }
+  ]
+}

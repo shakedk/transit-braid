@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "rootDir": "src",
+    "outDir": "dist",
+    "rewriteRelativeImportExtensions": true,
+    "sourceMap": false,
+    "declarationMap": false
+  },
+  "include": ["src"],
+  // The tests stay out; so does the inline worker, which only Vite builds (vite.config.ts).
+  "exclude": ["src/**/*.test.ts", "src/inline-worker.ts"]
+}

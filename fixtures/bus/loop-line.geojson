@@ -1,0 +1,41 @@
+{
+  "type": "FeatureCollection",
+  "braid": {
+    "name": "loop-line",
+    "description": "A circular route that starts and ends in the middle of a street it shares with a straight route.",
+    "units": "meters",
+    "license": "MIT",
+    "attribution": "transit-braid authors (synthetic)",
+    "expect": "The shared street is one two-lane bundle, split where the loop starts and ends; the loop runs alone around the block and closes on itself; the straight route continues alone at both ends."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "line": "A", "color": "#e4002b" },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [0, -200],
+          [300, -200],
+          [300, 200],
+          [-300, 200],
+          [-300, -200],
+          [0, -200]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "line": "B", "color": "#0072ce" },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-600, -202],
+          [-300, -202],
+          [300, -201.5],
+          [600, -201.5]
+        ]
+      }
+    }
+  ]
+}

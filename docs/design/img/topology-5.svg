@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 140" width="240" height="140" role="img" aria-label="Consecutive samples of A with the set A, B form a run, and so do those of B, a little longer; the two runs lie on top of each other, so they become one edge, whose centerline is the longest run, B's.">
+<title>Consecutive samples of A with the set A, B form a run, and so do those of B, a little longer; the two runs lie on top of each other, so they become one edge, whose centerline is the longest run, B's.</title>
+<style>
+svg { --surface: #ffffff; --ink: #17212b; --muted: #546171; --rule: #d6dde6; --code-bg: #e9eef4; --accent: #0a6a91; --accent-soft: #dcecf4; --bar: #17212b; --r-red: #d22b3f; --r-blue: #1d62c6; --r-green: #108a55; font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+@media (prefers-color-scheme: dark) { svg { --surface: #0d1117; --ink: #e4e9ef; --muted: #9aa7b5; --rule: #2b3541; --code-bg: #1d2630; --accent: #5db8e2; --accent-soft: #15303f; --bar: #e4e9ef; --r-red: #ff6074; --r-blue: #66a1ff; --r-green: #3fcb8c; } }
+.ln { fill: none; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+.ln.thin { stroke-width: 2.5; } .ln.mid { stroke-width: 4.5; }
+.ra { stroke: var(--r-red); } .rb { stroke: var(--r-blue); } .rc { stroke: var(--r-green); }
+.fa { fill: var(--r-red); } .fb { fill: var(--r-blue); } .fc { fill: var(--r-green); }
+.bar { fill: var(--bar); stroke: var(--surface); stroke-width: 2; }
+.edge { fill: none; stroke: var(--muted); stroke-width: 3; stroke-linecap: round; }
+.edge.dash { stroke-dasharray: 4 4; stroke-width: 2; }
+.node { fill: var(--surface); stroke: var(--ink); stroke-width: 2; }
+.t-sub { fill: var(--muted); font-size: 11.5px; } .t-note { fill: var(--muted); font-size: 12px; }
+.t-lab { fill: var(--ink); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 11px; }
+.t-accent { fill: var(--accent); font-weight: 700; font-size: 12px; }
+.flow { fill: none; stroke: var(--ink); stroke-width: 1.5; }
+.flow.hot { stroke: var(--accent); stroke-width: 2.2; }
+.flow.link { stroke: var(--accent); stroke-dasharray: 2 3; stroke-width: 1.4; }
+.head { fill: var(--ink); } .head.hot { fill: var(--accent); }
+.pt { fill: var(--surface); stroke: var(--ink); stroke-width: 1.5; } .pt.hot { fill: var(--accent); stroke: var(--accent); }
+.stp { fill: var(--surface); stroke: var(--ink); stroke-width: 2; }
+.dot { fill: var(--ink); } .dot.mut { fill: var(--muted); }
+.gone { stroke-dasharray: 1 5; }
+.near { fill: var(--code-bg); }
+.cell { fill: none; stroke: var(--rule); stroke-width: 1; }
+.zone { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 1.2; stroke-dasharray: 3 3; }
+.ring { fill: none; stroke: var(--accent); stroke-width: 2; }
+.guide { fill: none; stroke: var(--muted); stroke-width: 1; stroke-dasharray: 2 3; }
+.frontln { fill: none; stroke: var(--accent); stroke-width: 1.6; stroke-dasharray: 3 2; }
+.tol { fill: none; stroke: var(--accent-soft); stroke-width: 12; stroke-linecap: round; stroke-linejoin: round; }
+</style>
+<text x="34" y="22" class="t-lab">A's run {A, B}</text>
+<circle class="fa" cx="34" cy="34" r="2.2"/>
+<circle class="fa" cx="42" cy="34" r="2.2"/>
+<circle class="fa" cx="50" cy="34" r="2.2"/>
+<circle class="fa" cx="58" cy="34" r="2.2"/>
+<circle class="fa" cx="66" cy="34" r="2.2"/>
+<circle class="fa" cx="74" cy="34" r="2.2"/>
+<circle class="fa" cx="82" cy="34" r="2.2"/>
+<circle class="fa" cx="90" cy="34" r="2.2"/>
+<circle class="fa" cx="98" cy="34" r="2.2"/>
+<circle class="fa" cx="106" cy="34" r="2.2"/>
+<circle class="fa" cx="114" cy="34" r="2.2"/>
+<circle class="fa" cx="122" cy="34" r="2.2"/>
+<circle class="fa" cx="130" cy="34" r="2.2"/>
+<circle class="fa" cx="138" cy="34" r="2.2"/>
+<circle class="fa" cx="146" cy="34" r="2.2"/>
+<circle class="fa" cx="154" cy="34" r="2.2"/>
+<circle class="fa" cx="162" cy="34" r="2.2"/>
+<circle class="fa" cx="170" cy="34" r="2.2"/>
+<circle class="fa" cx="178" cy="34" r="2.2"/>
+<circle class="fa" cx="186" cy="34" r="2.2"/>
+<circle class="fa" cx="194" cy="34" r="2.2"/>
+<circle class="fa" cx="202" cy="34" r="2.2"/>
+<circle class="fb" cx="26" cy="46" r="2.2"/>
+<circle class="fb" cx="34" cy="46" r="2.2"/>
+<circle class="fb" cx="42" cy="46" r="2.2"/>
+<circle class="fb" cx="50" cy="46" r="2.2"/>
+<circle class="fb" cx="58" cy="46" r="2.2"/>
+<circle class="fb" cx="66" cy="46" r="2.2"/>
+<circle class="fb" cx="74" cy="46" r="2.2"/>
+<circle class="fb" cx="82" cy="46" r="2.2"/>
+<circle class="fb" cx="90" cy="46" r="2.2"/>
+<circle class="fb" cx="98" cy="46" r="2.2"/>
+<circle class="fb" cx="106" cy="46" r="2.2"/>
+<circle class="fb" cx="114" cy="46" r="2.2"/>
+<circle class="fb" cx="122" cy="46" r="2.2"/>
+<circle class="fb" cx="130" cy="46" r="2.2"/>
+<circle class="fb" cx="138" cy="46" r="2.2"/>
+<circle class="fb" cx="146" cy="46" r="2.2"/>
+<circle class="fb" cx="154" cy="46" r="2.2"/>
+<circle class="fb" cx="162" cy="46" r="2.2"/>
+<circle class="fb" cx="170" cy="46" r="2.2"/>
+<circle class="fb" cx="178" cy="46" r="2.2"/>
+<circle class="fb" cx="186" cy="46" r="2.2"/>
+<circle class="fb" cx="194" cy="46" r="2.2"/>
+<circle class="fb" cx="202" cy="46" r="2.2"/>
+<circle class="fb" cx="210" cy="46" r="2.2"/>
+<text x="26" y="66" class="t-lab">B's run {A, B}, longest</text>
+<path class="head" d="M 115.5 81 L 120 90 L 124.5 81 Z"/>
+<path class="flow" d="M 120 74 L 120 82"/>
+<path class="edge" d="M 26 104 L 210 104"/>
+<text x="26" y="122" class="t-lab">one edge {A, B}</text>
+<text x="26" y="136" class="t-note">centerline: the longest run</text>
+</svg>

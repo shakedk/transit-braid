@@ -1,0 +1,34 @@
+{
+  "fixture": "opposite-direction",
+  "nodes": [
+    {
+      "id": "west",
+      "at": [0, 1]
+    },
+    {
+      "id": "east",
+      "at": [800, 101]
+    }
+  ],
+  "edges": [
+    {
+      "id": "corridor",
+      "from": "west",
+      "to": "east",
+      "via": [
+        [300, 51],
+        [600, 51]
+      ],
+      "lines": [
+        {
+          "line": "A",
+          "dir": "forward"
+        },
+        {
+          "line": "B",
+          "dir": "backward"
+        }
+      ]
+    }
+  ]
+}

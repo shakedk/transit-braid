@@ -1,0 +1,45 @@
+{
+  "type": "FeatureCollection",
+  "braid": {
+    "name": "out-and-back",
+    "description": "Line A runs out along a street, turns at the end and comes back on the other side; line B runs the street one way and carries on.",
+    "units": "meters",
+    "license": "MIT",
+    "attribution": "transit-braid authors (synthetic)",
+    "expect": "A takes one slot on the street for both passes, next to B; A folds back onto itself at the turn."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "line": "A",
+        "color": "#e4002b"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [0, 0],
+          [600, 0],
+          [602, 1.5],
+          [600, 3],
+          [0, 3]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": "B",
+        "color": "#0072ce"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [0, -1.9],
+          [600, -1.9],
+          [900, -1.9]
+        ]
+      }
+    }
+  ]
+}

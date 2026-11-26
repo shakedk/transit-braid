@@ -1,0 +1,45 @@
+{
+  "fixture": "out-and-back",
+  "nodes": [
+    {
+      "id": "start",
+      "at": [0, 0.5]
+    },
+    {
+      "id": "turn",
+      "at": [600, 0.5]
+    },
+    {
+      "id": "b-end",
+      "at": [900, -1.9]
+    }
+  ],
+  "edges": [
+    {
+      "id": "street",
+      "from": "start",
+      "to": "turn",
+      "lines": [
+        {
+          "line": "A",
+          "dir": "both"
+        },
+        {
+          "line": "B",
+          "dir": "forward"
+        }
+      ]
+    },
+    {
+      "id": "b-on",
+      "from": "turn",
+      "to": "b-end",
+      "lines": [
+        {
+          "line": "B",
+          "dir": "forward"
+        }
+      ]
+    }
+  ]
+}

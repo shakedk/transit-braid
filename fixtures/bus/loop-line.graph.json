@@ -1,0 +1,94 @@
+{
+  "fixture": "loop-line",
+  "nodes": [
+    {
+      "id": "b-start",
+      "at": [-600, -202]
+    },
+    {
+      "id": "west-corner",
+      "at": [-300, -201]
+    },
+    {
+      "id": "loop-ends",
+      "at": [0, -201]
+    },
+    {
+      "id": "east-corner",
+      "at": [300, -201]
+    },
+    {
+      "id": "b-end",
+      "at": [600, -201.5]
+    }
+  ],
+  "edges": [
+    {
+      "id": "b-in",
+      "from": "b-start",
+      "to": "west-corner",
+      "lines": [
+        {
+          "line": "B",
+          "dir": "forward"
+        }
+      ]
+    },
+    {
+      "id": "shared-west",
+      "from": "west-corner",
+      "to": "loop-ends",
+      "lines": [
+        {
+          "line": "A",
+          "dir": "forward"
+        },
+        {
+          "line": "B",
+          "dir": "forward"
+        }
+      ]
+    },
+    {
+      "id": "shared-east",
+      "from": "loop-ends",
+      "to": "east-corner",
+      "lines": [
+        {
+          "line": "A",
+          "dir": "forward"
+        },
+        {
+          "line": "B",
+          "dir": "forward"
+        }
+      ]
+    },
+    {
+      "id": "loop",
+      "from": "east-corner",
+      "to": "west-corner",
+      "lines": [
+        {
+          "line": "A",
+          "dir": "forward"
+        }
+      ],
+      "via": [
+        [300, 200],
+        [-300, 200]
+      ]
+    },
+    {
+      "id": "b-out",
+      "from": "east-corner",
+      "to": "b-end",
+      "lines": [
+        {
+          "line": "B",
+          "dir": "forward"
+        }
+      ]
+    }
+  ]
+}

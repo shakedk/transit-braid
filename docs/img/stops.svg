@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 767 163" width="767" height="163" role="img" aria-label="Two stops named Main St on both sides of a street share one bar across all three routes; a third Main St stop farther on gets its own bar">
+<title>How stops become bars</title>
+<style>
+svg { --ink: #17212b; --muted: #546171; --bg: #ffffff; --panel: #f4f6f9; }
+@media (prefers-color-scheme: dark) { svg { --ink: #e4e9ef; --muted: #9aa7b5; --bg: #0d1117; --panel: #161b22; } }
+text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: var(--ink); }
+.cap { font-size: 15px; font-weight: 700; } .note { font-size: 12.5px; fill: var(--muted); }
+.panel { fill: var(--panel); }
+.bar { stroke: var(--ink); stroke-width: 3.5; stroke-linecap: round; fill: none; }
+.stop { fill: var(--bg); stroke: var(--ink); stroke-width: 1.6; }
+.ln { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+</style>
+<rect class="panel" width="767" height="163" rx="12"/><path class="ln" stroke="#d22b3f" stroke-width="9" d="M28.0 71.5 L739.5 71.5"/><path class="ln" stroke="#1d62c6" stroke-width="9" d="M739.5 59.6 L28.0 59.6"/><path class="ln" stroke="#108a55" stroke-width="9" d="M28.0 47.7 L739.5 47.7"/><path class="bar" d="M233.5 76.0 L233.5 43.2"/><path class="bar" d="M233.5 76.0 L233.5 43.2"/><path class="bar" d="M581.4 76.0 L581.4 43.2"/><circle class="stop" cx="225.6" cy="37.9" r="5"/><circle class="stop" cx="241.4" cy="81.4" r="5"/><circle class="stop" cx="581.4" cy="37.9" r="5"/><text class="note" x="234" y="125" text-anchor="middle">two "Main St" stops, one each side:</text><text class="note" x="234" y="143" text-anchor="middle">one bar across every line</text><text class="note" x="581" y="125" text-anchor="middle">"Main St" again, 180 m on:</text><text class="note" x="581" y="143" text-anchor="middle">its own bar</text>
+</svg>

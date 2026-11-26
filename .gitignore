@@ -1,0 +1,33 @@
+# Rust
+/target/
+**/*.rs.bk
+
+# Node
+node_modules/
+.pnpm-store/
+dist/
+dist-site/
+*.tsbuildinfo
+coverage/
+
+# WASM build output
+/packages/*/wasm/
+pkg/
+
+# Test artifacts
+test-results/
+# Vitest's local cache.
+.vitest/
+playwright-report/
+blob-report/
+
+# Env and OS
+.env
+.env.*
+!.env.example
+.DS_Store
+.idea/
+*.swp
+
+# Claude Code (local agent worktrees and settings)
+.claude/

@@ -1,0 +1,193 @@
+// The demo: routes drawn side by side by sideBySide() and edited on the map. We don't compare
+// against saved screenshots (rendering differs per OS/GPU); instead we ask deck.gl which line is
+// drawn at a point we know lies on each line (its "probe").
+import { expect, type Page, test } from '@playwright/test';
+
+/** Opens the demo on a plain background (no map tiles from the network: stable tests). */
+async function open(page: Page): Promise<string[]> {
+  const errors: string[] = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  await page.goto('/?basemap=none');
+  await page.waitForFunction(() => window.braidDebug?.ready === true);
+  await expect(page.locator('#status')).toContainText('side by side');
+  return errors;
+}
+
+/** Which line deck.gl draws at each line's probe point. Poll it: drawing takes a frame. */
+async function hits(page: Page): Promise<Record<string, string | undefined>> {
+  return page.evaluate(() => {
+    const braid = window.braidDebug;
+    if (!braid) return {};
+    const result: Record<string, string | undefined> = {};
+    for (const [lineId, lngLat] of Object.entries(braid.probes)) {
+      const { x, y } = braid.map.project(lngLat);
+      const picked = braid.overlay.pickObject({ x, y, radius: 2, layerIds: ['braid-lines'] }) as {
+        object?: { lineId?: string };
+      } | null;
+      result[lineId] = picked?.object?.lineId;
+    }
+    return result;
+  });
+}
+
+/** Screen distance in px between two lines' probe points. */
+async function gap(page: Page, a: string, b: string): Promise<number> {
+  return page.evaluate(
+    ([idA, idB]: [string, string]) => {
+      const braid = window.braidDebug;
+      const pa = braid?.probes[idA];
+      const pb = braid?.probes[idB];
+      if (!braid || !pa || !pb) return Number.NaN;
+      const p = braid.map.project(pa);
+      const q = braid.map.project(pb);
+      return Math.hypot(p.x - q.x, p.y - q.y);
+    },
+    [a, b] satisfies [string, string],
+  );
+}
+
+const state = (
+  page: Page,
+): Promise<{ routes: string[]; runs: number; editing: string | null; drafting: number | null }> =>
+  page.evaluate(() => {
+    const d = window.braidDebug!;
+    return { routes: d.routes, runs: d.runs, editing: d.editing, drafting: d.drafting };
+  });
+
+test('draws the sample routes side by side, one lane (6 + 2 px) apart', async ({ page }, info) => {
+  const errors = await open(page);
+  expect((await state(page)).routes).toEqual(['red', 'blue', 'yellow']);
+  await expect.poll(() => hits(page)).toEqual({ red: 'red', blue: 'blue', yellow: 'yellow' });
+  // The three share their first stretch, so their probes sit side by side across it.
+  const lane = await gap(page, 'red', 'blue');
+  expect(lane).toBeGreaterThan(7.5);
+  expect(lane).toBeLessThan(8.5);
+  await info.attach('side by side', { body: await page.screenshot(), contentType: 'image/png' });
+  expect(errors).toEqual([]);
+});
+
+test('"Side by side" off shows the routes as given, on top of each other', async ({ page }) => {
+  await open(page);
+  await page.locator('#side-by-side').uncheck();
+  await expect(page.locator('#status')).toContainText('as given');
+  // Only the top one (drawn last) shows where they share a street.
+  await expect.poll(() => hits(page)).toEqual({ red: 'yellow', blue: 'yellow', yellow: 'yellow' });
+  expect(await gap(page, 'red', 'blue')).toBe(0);
+  await page.locator('#side-by-side').check();
+  await expect.poll(() => hits(page)).toEqual({ red: 'red', blue: 'blue', yellow: 'yellow' });
+});
+
+test('removing a route draws the others again without it', async ({ page }) => {
+  await open(page);
+  const before = (await state(page)).runs;
+  await page.getByRole('button', { name: 'Remove blue' }).click();
+  await expect.poll(async () => (await state(page)).routes).toEqual(['red', 'yellow']);
+  await expect.poll(() => hits(page)).toEqual({ red: 'red', yellow: 'yellow' });
+  expect((await state(page)).runs).toBeGreaterThan(before);
+  await expect(page.locator('#routes li')).toHaveCount(2);
+});
+
+test('adding a route: click points on the map, then Finish', async ({ page }) => {
+  const errors = await open(page);
+  const mapBox = (await page.locator('#map').boundingBox())!;
+  const at = (fx: number, fy: number) => ({
+    x: mapBox.x + mapBox.width * fx,
+    y: mapBox.y + mapBox.height * fy,
+  });
+  await page.locator('#add').click();
+  await expect(page.locator('#finish')).toBeVisible();
+  // One click is not a route yet.
+  const p1 = at(0.7, 0.3);
+  await page.mouse.click(p1.x, p1.y);
+  await page.locator('#finish').click();
+  await expect(page.locator('#status')).toHaveText('A route needs at least two different points.');
+  expect((await state(page)).drafting).toBe(1);
+  const p2 = at(0.75, 0.5);
+  await page.mouse.click(p2.x, p2.y);
+  const p3 = at(0.85, 0.6);
+  await page.mouse.click(p3.x, p3.y);
+  expect((await state(page)).drafting).toBe(3);
+  await page.locator('#finish').click();
+  await expect
+    .poll(async () => (await state(page)).routes)
+    .toEqual(['red', 'blue', 'yellow', 'route-1']);
+  expect((await state(page)).drafting).toBeNull();
+  await expect.poll(async () => (await hits(page))['route-1']).toBe('route-1');
+  // Cancel leaves the routes alone.
+  await page.locator('#add').click();
+  await page.mouse.click(p1.x, p1.y);
+  await page.locator('#cancel').click();
+  expect((await state(page)).routes).toHaveLength(4);
+  expect(errors).toEqual([]);
+});
+
+test('moving a route: drag one of its points and the drawn line moves', async ({ page }) => {
+  const errors = await open(page);
+  await page.locator('#routes .pick', { hasText: 'red' }).click();
+  expect((await state(page)).editing).toBe('red');
+  await expect(page.locator('.maplibregl-marker')).toHaveCount(5);
+  const before = await page.evaluate(() => window.braidDebug!.probes['red']!);
+  const runs = (await state(page)).runs;
+
+  // Point 1 ends red's first segment (point 0 is off screen in the test window).
+  const marker = page.locator('.maplibregl-marker[data-point="1"]');
+  const box = (await marker.boundingBox())!;
+  const from = { x: box.x + box.width / 2, y: box.y + box.height * 0.8 };
+  await page.mouse.move(from.x, from.y);
+  await page.mouse.down();
+  await page.mouse.move(from.x + 60, from.y + 40, { steps: 8 });
+  await page.mouse.up();
+
+  // The drag calls sideBySide() again, and red's drawn line is somewhere else now.
+  await expect.poll(async () => (await state(page)).runs).toBeGreaterThan(runs);
+  await expect
+    .poll(() => page.evaluate(() => window.braidDebug!.probes['red']!))
+    .not.toEqual(before);
+  // Red's first drawn segment may now end at a new node near its start, below the test window:
+  // center the map there (no zoom, so nothing is drawn again), then ask what is drawn.
+  await page.evaluate(() => {
+    const d = window.braidDebug!;
+    d.map.jumpTo({ center: d.probes['red']! });
+  });
+  await expect.poll(async () => (await hits(page))['red']).toBe('red');
+  // Picking it again stops editing.
+  await page.locator('#routes .pick', { hasText: 'red' }).click();
+  await expect(page.locator('.maplibregl-marker')).toHaveCount(0);
+  expect(errors).toEqual([]);
+});
+
+test('rapid edits: only the newest change is computed and drawn', async ({ page }) => {
+  const errors = await open(page);
+  const counts = () =>
+    page.evaluate(() => {
+      const d = window.braidDebug!;
+      return { runs: d.runs, calls: d.calls, shown: d.shown };
+    });
+  await expect.poll(async () => (await counts()).shown).toBe((await counts()).runs);
+  const before = await counts();
+  // Six moves of one point in a row, all before the first sideBySide() call can answer.
+  await page.evaluate(() => {
+    const d = window.braidDebug!;
+    const route = d.routes[0]!;
+    const { lng, lat } = d.map.getCenter();
+    for (let k = 1; k <= 6; k += 1) d.move(route, 0, [lng + k * 0.0003, lat]);
+  });
+  await expect.poll(async () => (await counts()).shown).toBe(before.runs + 6);
+  const after = await counts();
+  expect(after.runs).toBe(before.runs + 6);
+  // The first move's call, then one call for the newest move; the four in between never run.
+  expect(after.calls - before.calls).toBeLessThanOrEqual(2);
+  await expect(page.locator('#status')).toContainText('side by side');
+  expect(errors).toEqual([]);
+});
+
+test('zooming draws again, still one lane apart', async ({ page }) => {
+  await open(page);
+  await page.evaluate(() => {
+    window.braidDebug?.map.zoomTo(16, { duration: 0 });
+  });
+  await expect(page.locator('#status')).toContainText('zoom 16.0');
+  const lane = await gap(page, 'red', 'blue');
+  expect(lane).toBeGreaterThan(7.5);
+  expect(lane).toBeLessThan(8.5);
+});

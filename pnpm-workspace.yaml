@@ -1,0 +1,15 @@
+packages:
+  - packages/*
+  - examples/*
+allowBuilds:
+  lefthook: false
+# Supply-chain rules, applied on every install, to the lockfile's entries too: no version
+# published less than 7 days ago (as long as Dependabot's cooldown), and no version published
+# with less trust than the ones before it (for example without their provenance: a possible
+# takeover).
+minimumReleaseAge: 10080
+trustPolicy: no-downgrade
+trustPolicyExclude:
+  # Published by hand, without the provenance of the versions before it; drop this line once a
+  # newer lefthook comes with provenance again.
+  - lefthook@2.2.2

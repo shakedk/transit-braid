@@ -1,0 +1,58 @@
+{
+  "type": "FeatureCollection",
+  "braid": {
+    "name": "y-split",
+    "description": "Three lines share a trunk, then split three ways.",
+    "units": "meters",
+    "license": "MIT",
+    "attribution": "transit-braid authors (synthetic)",
+    "expect": "One shared trunk with three lanes; after the split each line runs alone."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "line": "A",
+        "color": "#e4002b"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [0, 0],
+          [500, 0],
+          [900, 0]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": "B",
+        "color": "#0072ce"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [0, 2],
+          [500, 2],
+          [900, 300]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": "C",
+        "color": "#f2a900"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [0, -2.5],
+          [500, -2],
+          [900, -300]
+        ]
+      }
+    }
+  ]
+}

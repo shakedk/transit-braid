@@ -1,0 +1,241 @@
+name: Release
+
+# DRAFT, never run yet. A version tag (v0.1.0) builds and checks everything, packs both npm
+# packages, then, in a job of its own that runs no project code, attests the tarballs and SBOMs
+# (signed build provenance anyone can check with `gh attestation verify`). After that it stages
+# the packages on npm through trusted publishing (no token; a maintainer approves the staged
+# versions with 2FA) and drafts a GitHub release with the tarballs, their checksums and SBOMs;
+# the demo site goes to GitHub Pages once a maintainer approves. DEVELOPMENT.md, "Releasing", has
+# the steps.
+#
+# Safety locks, each enough on its own to stop a publish:
+# - every job runs only in the public repository, and only once its `BRAID_PUBLIC` variable is
+#   'true' (no other copy of this file has both);
+# - the packages say "private": true until the release that drops it, and npm refuses those;
+# - npm trusts only this repository's release.yml, in the `npm` environment, whose deployments
+#   wait for a maintainer's approval; and a staged version waits for a maintainer's 2FA;
+# - the build refuses a tag that isn't both packages' version, or a version without a dated
+#   CHANGELOG entry.
+on:
+  push:
+    tags: ['v*']
+
+# No permissions by default: each job asks for the least it needs.
+permissions: {}
+
+# No job may restore or save a cache (GitHub Actions' `cache-mode`): everything is built from
+# the tagged source.
+cache-mode: none
+
+# One release run per tag at a time; never cancel a release halfway.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    name: Check, pack and build the site
+    if: github.repository == 'shakedk/transit-braid' && vars.BRAID_PUBLIC == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    permissions:
+      contents: read
+    outputs:
+      # The files' checksums, passed to the other jobs apart from the files themselves.
+      sums: ${{ steps.pack.outputs.sums }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - run: rustup show active-toolchain
+      - name: Install pinned wasm-bindgen, wasm-opt and zizmor (SHA-256 verified)
+        run: |
+          TOOLS_BIN="$RUNNER_TEMP/bin" scripts/install-tools.sh wasm-bindgen wasm-opt zizmor
+          echo "$RUNNER_TEMP/bin" >> "$GITHUB_PATH"
+      # pnpm/action-setup reads the pnpm version from package.json "packageManager".
+      - uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1
+      # No cache here either (setup-node caches the pnpm store by default).
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - name: Check the tag against the versions and the CHANGELOG
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          version="${TAG#v}"
+          for package in packages/transit-braid packages/transit-braid-deck; do
+            found=$(node -p "require('./$package/package.json').version")
+            if [[ "$found" != "$version" ]]; then
+              echo "::error::$package is $found but the tag is $TAG"
+              exit 1
+            fi
+          done
+          if ! grep -Fq "## [$version] - 20" CHANGELOG.md; then
+            echo "::error::CHANGELOG.md has no dated entry for $version"
+            exit 1
+          fi
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium firefox webkit
+      # Everything CI checks, including the pack test of the packages built here.
+      - run: pnpm check
+      - name: Pack, list checksums and SBOMs
+        id: pack
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          version="${TAG#v}"
+          out="$RUNNER_TEMP/release"
+          mkdir -p "$out/files"
+          # pnpm pack writes publishConfig.exports into the packed package.json (npm wouldn't).
+          for package in transit-braid transit-braid-deck; do
+            (cd "packages/$package" && pnpm pack --pack-destination "$out/files")
+            pnpm --filter "$package" sbom --sbom-format cyclonedx --prod --lockfile-only \
+              > "$out/files/$package-$version.cdx.json"
+          done
+          (cd "$out/files" && sha256sum -- * > SHA256SUMS && cat SHA256SUMS)
+          {
+            echo 'sums<<END_OF_SUMS'
+            cat "$out/files/SHA256SUMS"
+            echo 'END_OF_SUMS'
+          } >> "$GITHUB_OUTPUT"
+          awk -v heading="## [$version]" \
+            'index($0, heading) == 1 { found = 1; next } found && /^## \[/ { exit } found' \
+            CHANGELOG.md > "$out/notes.md"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: release
+          path: ${{ runner.temp }}/release/
+          if-no-files-found: error
+          retention-days: 30
+      # The demo site: both demo pages with transit-braid/inline (the worker and the WASM inside
+      # one file), tested in Chromium as served, then handed to the pages job.
+      - run: pnpm build:site
+      - run: pnpm e2e:site
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: examples/demo/dist-site/
+
+  attest:
+    name: Attest the release files
+    needs: build
+    if: github.repository == 'shakedk/transit-braid' && vars.BRAID_PUBLIC == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    # The only job that may sign attestations. It runs no project code (no checkout, no install):
+    # only the two pinned actions and a checksum check, so nothing the build installed can mint
+    # this token or attest a file of its own.
+    permissions:
+      id-token: write # the attestation is signed with this job's OIDC identity (Sigstore)
+      attestations: write # and stored with the repository, for gh attestation verify
+    steps:
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: release
+          path: release
+      # Against the checksums the build job passed as its output, not the copy among the files.
+      - name: Check the files against the build's checksums
+        working-directory: release/files
+        env:
+          SUMS: ${{ needs.build.outputs.sums }}
+        run: printf '%s\n' "$SUMS" | sha256sum --check --strict -
+      # Build provenance for the files the GitHub release carries: which repository, workflow,
+      # tag and commit made each tarball and SBOM. npm's own provenance covers only what npm
+      # serves. Anyone checks a file with `gh attestation verify` (DEVELOPMENT.md, "Releasing").
+      - uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4.2.2
+        with:
+          subject-path: |
+            release/files/*.tgz
+            release/files/*.cdx.json
+
+  publish-npm:
+    name: Stage on npm (trusted publishing)
+    # After the attestation: nothing is staged or released unless its files are attested.
+    needs: [build, attest]
+    if: github.repository == 'shakedk/transit-braid' && vars.BRAID_PUBLIC == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    # A maintainer approves this job's deployment before it runs.
+    environment: npm
+    permissions:
+      id-token: write # npm trades the job's OIDC token for a short-lived publish token
+    steps:
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: release
+          path: release
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          package-manager-cache: false
+      # Against the checksums the build job passed as its output, not the copy among the files.
+      - name: Check the files against the build's checksums
+        working-directory: release/files
+        env:
+          SUMS: ${{ needs.build.outputs.sums }}
+        run: printf '%s\n' "$SUMS" | sha256sum --check --strict -
+      # Staged versions wait on npm until a maintainer approves them with 2FA
+      # (`npm stage list`, `npm stage approve <id>`). The tarballs are the ones the build packed
+      # and checked, so the published package.json is pnpm's, with publishConfig applied.
+      - name: Stage both packages
+        working-directory: release/files
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          npm --version
+          version="${TAG#v}"
+          dist_tag=latest
+          if [[ "$version" == *-* ]]; then dist_tag=next; fi
+          # transit-braid first: transit-braid-deck depends on it.
+          npm stage publish "./transit-braid-$version.tgz" --tag "$dist_tag"
+          npm stage publish "./transit-braid-deck-$version.tgz" --tag "$dist_tag"
+
+  github-release:
+    name: Draft the GitHub release
+    needs: [build, attest]
+    if: github.repository == 'shakedk/transit-braid' && vars.BRAID_PUBLIC == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write # to create the draft release
+    steps:
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: release
+          path: release
+      # Against the checksums the build job passed as its output, not the copy among the files.
+      - name: Check the files against the build's checksums
+        working-directory: release/files
+        env:
+          SUMS: ${{ needs.build.outputs.sums }}
+        run: printf '%s\n' "$SUMS" | sha256sum --check --strict -
+      - name: Create the draft release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          prerelease=()
+          if [[ "$TAG" == *-* ]]; then prerelease=(--prerelease); fi
+          gh release create "$TAG" release/files/* --repo "$GITHUB_REPOSITORY" --draft \
+            --verify-tag --title "$TAG" --notes-file release/notes.md "${prerelease[@]}"
+
+  pages:
+    name: Deploy the demo site
+    needs: build
+    if: github.repository == 'shakedk/transit-braid' && vars.BRAID_PUBLIC == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    # A maintainer approves this job's deployment before it runs (the environment's required
+    # reviewer), so nothing goes public without that approval.
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write # to deploy the site
+      id-token: write # GitHub Pages checks the job's OIDC token
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

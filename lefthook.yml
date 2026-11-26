@@ -1,0 +1,20 @@
+# Runs fast checks on the files you're committing. CI runs the full set on every PR.
+glob_matcher: doublestar
+
+pre-commit:
+  parallel: true
+  jobs:
+    - name: format TS/JSON/MD/YAML
+      glob: '**/*.{ts,tsx,js,mjs,json,jsonc,md,yml,yaml}'
+      run: pnpm exec oxfmt {staged_files}
+      stage_fixed: true
+    - name: lint TS
+      glob: '**/*.{ts,tsx,js,mjs}'
+      run: pnpm exec oxlint --type-aware --deny-warnings {staged_files}
+    - name: scan for secrets
+      run: gitleaks git --pre-commit --staged --redact --no-banner
+    # rustfmt on the staged files themselves, so a file in any Cargo workspace is formatted.
+    - name: format Rust
+      glob: '**/*.rs'
+      run: rustfmt --edition 2024 {staged_files}
+      stage_fixed: true

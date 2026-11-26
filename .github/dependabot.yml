@@ -1,0 +1,23 @@
+# Opens weekly PRs to update dependencies, grouped so there are few PRs. Each waits until a
+# version is 7 days old (the cooldown), as long as pnpm waits (minimumReleaseAge in
+# pnpm-workspace.yaml), so pnpm never refuses what it proposes; security updates don't wait.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule: { interval: weekly }
+    cooldown: { default-days: 7 }
+    groups:
+      actions: { patterns: ['*'] }
+  - package-ecosystem: cargo
+    directory: /
+    schedule: { interval: weekly }
+    cooldown: { default-days: 7 }
+    groups:
+      cargo: { patterns: ['*'] }
+  - package-ecosystem: npm
+    directory: /
+    schedule: { interval: weekly }
+    cooldown: { default-days: 7 }
+    groups:
+      npm: { patterns: ['*'] }

@@ -1,0 +1,38 @@
+{
+  "fixture": "parallel-corridor",
+  "nodes": [
+    {
+      "id": "west",
+      "at": [0, 0]
+    },
+    {
+      "id": "east",
+      "at": [1000, 199.83]
+    }
+  ],
+  "edges": [
+    {
+      "id": "corridor",
+      "from": "west",
+      "to": "east",
+      "via": [
+        [400.33, 0],
+        [700, 200]
+      ],
+      "lines": [
+        {
+          "line": "A",
+          "dir": "forward"
+        },
+        {
+          "line": "B",
+          "dir": "forward"
+        },
+        {
+          "line": "C",
+          "dir": "forward"
+        }
+      ]
+    }
+  ]
+}

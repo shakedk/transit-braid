@@ -1,0 +1,1189 @@
+{
+  "about": "Golden digests of every committed fixture (format: crates/transit-braid-testkit/src/golden.rs). Checked natively by `cargo test -p transit-braid-testkit --test golden` and in WebAssembly by packages/transit-braid/src/golden.test.ts. Update only on purpose: BRAID_GOLDEN_UPDATE=1 cargo test -p transit-braid-testkit --test golden, then review the diff.",
+  "settings": {
+    "widths": "4 px lines, 1 px apart",
+    "zooms": "10 to 19, each fresh",
+    "fractionalZooms": "[12.5, 15.37, 17.75], each fresh",
+    "caps": "[1, 2, 3] at zoom 15, each fresh",
+    "edits": "1-full, 2-move, 3-remove, 4-add, 5-reverse, 6-zoom through one fresh cache, zoom 15 then 17, move by (0.0001, 0.00005) degrees",
+    "metersPerDegree": "111319.49079327357"
+  },
+  "fixtures": {
+    "dog-bone": {
+      "file": "synthetic/dog-bone.geojson",
+      "stations": 6,
+      "zooms": {
+        "10": {
+          "lines": "3d86bbf450e3b688",
+          "bars": "6ad15c18975e9b6d"
+        },
+        "11": {
+          "lines": "ce2557d6721ee2c4",
+          "bars": "3e14a83771e1b58f"
+        },
+        "12": {
+          "lines": "1413abe0e379ce1b",
+          "bars": "2fe91978e4bf911b"
+        },
+        "12.5": {
+          "lines": "6b0a7b486ae7770b",
+          "bars": "46df537387303fac"
+        },
+        "13": {
+          "lines": "356e88ff94b2348d",
+          "bars": "7860ea73ecaf1176"
+        },
+        "14": {
+          "lines": "3393cdc83c5c3d89",
+          "bars": "2b0ee43411717400"
+        },
+        "15": {
+          "lines": "7d4715e6885efae8",
+          "bars": "d988ac2a4140b969"
+        },
+        "15.37": {
+          "lines": "018f50f8bf2a9409",
+          "bars": "bfe7a2893c799342"
+        },
+        "16": {
+          "lines": "3111a2a5e7abd83d",
+          "bars": "16dff30ff45e2303"
+        },
+        "17": {
+          "lines": "207a5c51ac0c3609",
+          "bars": "cf96ba8b7c0864d6"
+        },
+        "17.75": {
+          "lines": "381db9ccf3757a3c",
+          "bars": "666388975750c98b"
+        },
+        "18": {
+          "lines": "732fd6a3be7e3dbc",
+          "bars": "511254a8e2b9df46"
+        },
+        "19": {
+          "lines": "66eda56e03a8c4d3",
+          "bars": "33893b8b77539541"
+        }
+      },
+      "caps": {
+        "1": {
+          "lines": "142246d2791a9934",
+          "bars": "5df4253d6ccc9ff9"
+        },
+        "2": {
+          "lines": "7d4715e6885efae8",
+          "bars": "d988ac2a4140b969"
+        },
+        "3": {
+          "lines": "7d4715e6885efae8",
+          "bars": "d988ac2a4140b969"
+        }
+      },
+      "edits": {
+        "1-full": {
+          "lines": "7d4715e6885efae8",
+          "bars": "d988ac2a4140b969"
+        },
+        "2-move": {
+          "lines": "fc86569e24aeb9a6",
+          "bars": "cc803f6c46820b1b"
+        },
+        "3-remove": {
+          "lines": "7ea85a21f04e0e9f",
+          "bars": "fe466b437e383f8d"
+        },
+        "4-add": {
+          "lines": "fc86569e24aeb9a6",
+          "bars": "cc803f6c46820b1b"
+        },
+        "5-reverse": {
+          "lines": "161deddfe24f4842",
+          "bars": "8ce864b2b5b39833"
+        },
+        "6-zoom": {
+          "lines": "07a20b4d315274ce",
+          "bars": "f0b51fce9097de41"
+        }
+      }
+    },
+    "hairpin": {
+      "file": "synthetic/hairpin.geojson",
+      "stations": 8,
+      "zooms": {
+        "10": {
+          "lines": "2682d5fc614af761",
+          "bars": "d9d82e38849fe413"
+        },
+        "11": {
+          "lines": "fda032d82ea267d9",
+          "bars": "672a62eaa5db82a3"
+        },
+        "12": {
+          "lines": "cee3bbdea333af43",
+          "bars": "e4daa799ab4e99b5"
+        },
+        "12.5": {
+          "lines": "b8d505701cf5f758",
+          "bars": "be3157f40f6432ef"
+        },
+        "13": {
+          "lines": "6de63bec2a66f33f",
+          "bars": "94aaf07d295d5959"
+        },
+        "14": {
+          "lines": "8c6aacd3868442df",
+          "bars": "2fce400277334c19"
+        },
+        "15": {
+          "lines": "7bedf8401ab01de1",
+          "bars": "f1be6e151a463595"
+        },
+        "15.37": {
+          "lines": "22d2f49aaa4158ca",
+          "bars": "ef54e2b9dc29d833"
+        },
+        "16": {
+          "lines": "4fad6e8bbb86dd4f",
+          "bars": "a68ab9b83c501d99"
+        },
+        "17": {
+          "lines": "fc68d052d76768c9",
+          "bars": "1758e10252964a1e"
+        },
+        "17.75": {
+          "lines": "314f5cc5eb0fac03",
+          "bars": "2caaad12c617327a"
+        },
+        "18": {
+          "lines": "b081bec3dbefdde5",
+          "bars": "ceaa4b6977196717"
+        },
+        "19": {
+          "lines": "4efa268b08a00c0c",
+          "bars": "79dc953d4602e84f"
+        }
+      },
+      "caps": {
+        "1": {
+          "lines": "4e499a4108061d39",
+          "bars": "2c24ad4804d298d1"
+        },
+        "2": {
+          "lines": "7bedf8401ab01de1",
+          "bars": "f1be6e151a463595"
+        },
+        "3": {
+          "lines": "7bedf8401ab01de1",
+          "bars": "f1be6e151a463595"
+        }
+      },
+      "edits": {
+        "1-full": {
+          "lines": "7bedf8401ab01de1",
+          "bars": "f1be6e151a463595"
+        },
+        "2-move": {
+          "lines": "96c6774d88ec7140",
+          "bars": "261e76d4abe5c283"
+        },
+        "3-remove": {
+          "lines": "d87736c1676da5b4",
+          "bars": "9b4b9ccc0e16da90"
+        },
+        "4-add": {
+          "lines": "96c6774d88ec7140",
+          "bars": "261e76d4abe5c283"
+        },
+        "5-reverse": {
+          "lines": "76b596c28a80edb2",
+          "bars": "261e76d4abe5c283"
+        },
+        "6-zoom": {
+          "lines": "17017977162b2df1",
+          "bars": "8e07fbb462a39af7"
+        }
+      }
+    },
+    "loop-line": {
+      "file": "bus/loop-line.geojson",
+      "stations": 8,
+      "zooms": {
+        "10": {
+          "lines": "7ddba0bf532ea221",
+          "bars": "10aebe81410d1505"
+        },
+        "11": {
+          "lines": "07cd021c6c90ceb4",
+          "bars": "6d3bc654b661e4b8"
+        },
+        "12": {
+          "lines": "7e2b942cfb2bf763",
+          "bars": "d8528db3cfa919d1"
+        },
+        "12.5": {
+          "lines": "48b0d5d8b9998a06",
+          "bars": "72adc67998f3c1a7"
+        },
+        "13": {
+          "lines": "89a368915b84fa22",
+          "bars": "ae31eb0b9637d15e"
+        },
+        "14": {
+          "lines": "60273a1cbd7d723f",
+          "bars": "bbf797400b6ee22b"
+        },
+        "15": {
+          "lines": "fe35de2562ac3190",
+          "bars": "7bc9911028378364"
+        },
+        "15.37": {
+          "lines": "b7fc6e88e00994e5",
+          "bars": "319fc8febc0bb136"
+        },
+        "16": {
+          "lines": "07e332c32d42ad85",
+          "bars": "43b0c40e670c0a27"
+        },
+        "17": {
+          "lines": "9b63b255caea9894",
+          "bars": "774a10674b44fdb1"
+        },
+        "17.75": {
+          "lines": "e293506511203fe7",
+          "bars": "a5ed63acaeeafd79"
+        },
+        "18": {
+          "lines": "801afa5537be0a1b",
+          "bars": "2eb110ee639ceeb6"
+        },
+        "19": {
+          "lines": "53e41acfecf19f9f",
+          "bars": "dc496a6ce5ebc1a7"
+        }
+      },
+      "caps": {
+        "1": {
+          "lines": "d9fb01083f982d59",
+          "bars": "35269a48dd5247ff"
+        },
+        "2": {
+          "lines": "fe35de2562ac3190",
+          "bars": "7bc9911028378364"
+        },
+        "3": {
+          "lines": "fe35de2562ac3190",
+          "bars": "7bc9911028378364"
+        }
+      },
+      "edits": {
+        "1-full": {
+          "lines": "fe35de2562ac3190",
+          "bars": "7bc9911028378364"
+        },
+        "2-move": {
+          "lines": "2f7a519e61f399dd",
+          "bars": "9074415e610a0fb2"
+        },
+        "3-remove": {
+          "lines": "b2c69fdecdf5199f",
+          "bars": "bacf98ef43277741"
+        },
+        "4-add": {
+          "lines": "2f7a519e61f399dd",
+          "bars": "9074415e610a0fb2"
+        },
+        "5-reverse": {
+          "lines": "cd2f190b972db618",
+          "bars": "7ef3ceb9037b7737"
+        },
+        "6-zoom": {
+          "lines": "fd75bc4ff3c9b9d6",
+          "bars": "70f9db6cc9c9ea94"
+        }
+      }
+    },
+    "loop-twice": {
+      "file": "bus/loop-twice.geojson",
+      "stations": 8,
+      "zooms": {
+        "10": {
+          "lines": "97e01ed39db9e7ea",
+          "bars": "ed4ffbff46cd3e18"
+        },
+        "11": {
+          "lines": "810b747bf2007960",
+          "bars": "665fa3fe6e0a43dd"
+        },
+        "12": {
+          "lines": "1726aa36a9e126e1",
+          "bars": "702988bd9b5f3dc8"
+        },
+        "12.5": {
+          "lines": "c52893c835e39798",
+          "bars": "d7c9e15a2e0bcce5"
+        },
+        "13": {
+          "lines": "9d051969f5b4bbdc",
+          "bars": "1927dfe69a810d36"
+        },
+        "14": {
+          "lines": "fec93258ab675cff",
+          "bars": "9ab34b5294d4412d"
+        },
+        "15": {
+          "lines": "f2941413a33f3b8e",
+          "bars": "7220cf1f04346a27"
+        },
+        "15.37": {
+          "lines": "3ee8251803cfe597",
+          "bars": "96d10800fe86d082"
+        },
+        "16": {
+          "lines": "1770dd4fe5c63688",
+          "bars": "47f6d36e6fe0c272"
+        },
+        "17": {
+          "lines": "47a266498809f2e6",
+          "bars": "5734176ad42d3d33"
+        },
+        "17.75": {
+          "lines": "1853b1b3f820c3f0",
+          "bars": "3b7d718ba5a8c9ee"
+        },
+        "18": {
+          "lines": "b7a6c8a08392f650",
+          "bars": "488a9d774bf148ca"
+        },
+        "19": {
+          "lines": "e757a3960b7beced",
+          "bars": "c9498077e8be2ca2"
+        }
+      },
+      "caps": {
+        "1": {
+          "lines": "f2941413a33f3b8e",
+          "bars": "7220cf1f04346a27"
+        },
+        "2": {
+          "lines": "f2941413a33f3b8e",
+          "bars": "7220cf1f04346a27"
+        },
+        "3": {
+          "lines": "f2941413a33f3b8e",
+          "bars": "7220cf1f04346a27"
+        }
+      },
+      "edits": {
+        "1-full": {
+          "lines": "f2941413a33f3b8e",
+          "bars": "7220cf1f04346a27"
+        },
+        "2-move": {
+          "lines": "3295701e9aa7ab42",
+          "bars": "c3f486ff6533891a"
+        },
+        "3-remove": {
+          "lines": "33f89a4fa9d40bfb",
+          "bars": "30be5afd33a11281"
+        },
+        "4-add": {
+          "lines": "3295701e9aa7ab42",
+          "bars": "c3f486ff6533891a"
+        },
+        "5-reverse": {
+          "lines": "8b909023e6de56d8",
+          "bars": "c3f486ff6533891a"
+        },
+        "6-zoom": {
+          "lines": "41dd98e9912a230f",
+          "bars": "c7ce5235b3142096"
+        }
+      }
+    },
+    "one-way-pair": {
+      "file": "bus/one-way-pair.geojson",
+      "stations": 10,
+      "zooms": {
+        "10": {
+          "lines": "a3e4b54a3f9a3375",
+          "bars": "36513a1f2e1fb4d8"
+        },
+        "11": {
+          "lines": "100d7cadd9bc6407",
+          "bars": "c5e673be9c7990cb"
+        },
+        "12": {
+          "lines": "800a3e46612428fb",
+          "bars": "1ebde29c80b60ce7"
+        },
+        "12.5": {
+          "lines": "859b3168b65e08cd",
+          "bars": "8650faaaf9599cc4"
+        },
+        "13": {
+          "lines": "3123009ee9b8db95",
+          "bars": "548526159cd11842"
+        },
+        "14": {
+          "lines": "06384072303b9a70",
+          "bars": "b91d9d1099347419"
+        },
+        "15": {
+          "lines": "638a7726b87a4856",
+          "bars": "e92f3a2e40886639"
+        },
+        "15.37": {
+          "lines": "7bda09c79ef4cf63",
+          "bars": "f5db6eb0048f65e7"
+        },
+        "16": {
+          "lines": "1eaa6908fac80a55",
+          "bars": "012d2e51a0378a8c"
+        },
+        "17": {
+          "lines": "e3288d56ee54a5b7",
+          "bars": "523ad7d4b02b9389"
+        },
+        "17.75": {
+          "lines": "a60c8409727c4ad9",
+          "bars": "3ce2ec0b0ca220a0"
+        },
+        "18": {
+          "lines": "db7cd50f24839078",
+          "bars": "3d507b3a163f2085"
+        },
+        "19": {
+          "lines": "3e24078ac153d63a",
+          "bars": "351604dc802afdc7"
+        }
+      },
+      "caps": {
+        "1": {
+          "lines": "a406885269ed98be",
+          "bars": "8939e13d4693b14c"
+        },
+        "2": {
+          "lines": "638a7726b87a4856",
+          "bars": "e92f3a2e40886639"
+        },
+        "3": {
+          "lines": "638a7726b87a4856",
+          "bars": "e92f3a2e40886639"
+        }
+      },
+      "edits": {
+        "1-full": {
+          "lines": "638a7726b87a4856",
+          "bars": "e92f3a2e40886639"
+        },
+        "2-move": {
+          "lines": "0a9646c012af5da3",
+          "bars": "7b6c32709f090e3d"
+        },
+        "3-remove": {
+          "lines": "959738c7c4f61ccb",
+          "bars": "eef2b3a0664542e8"
+        },
+        "4-add": {
+          "lines": "0a9646c012af5da3",
+          "bars": "7b6c32709f090e3d"
+        },
+        "5-reverse": {
+          "lines": "1a9912ac924cd63e",
+          "bars": "74ea0302ae210ee7"
+        },
+        "6-zoom": {
+          "lines": "c3dcd207a5295275",
+          "bars": "7fd6035126b03d5a"
+        }
+      }
+    },
+    "opposite-direction": {
+      "file": "synthetic/opposite-direction.geojson",
+      "stations": 6,
+      "zooms": {
+        "10": {
+          "lines": "d455af95983b3bec",
+          "bars": "37ac7e091b2948e9"
+        },
+        "11": {
+          "lines": "3f106e7bff6ee266",
+          "bars": "69fd5ece88e1da00"
+        },
+        "12": {
+          "lines": "cfdf10ceae038c53",
+          "bars": "95a627aa423af63c"
+        },
+        "12.5": {
+          "lines": "b1400a3676eb247d",
+          "bars": "16616a0b84d0b42f"
+        },
+        "13": {
+          "lines": "047d09c1bbe10a63",
+          "bars": "7f2e9370a2515fbf"
+        },
+        "14": {
+          "lines": "26af0997270a9634",
+          "bars": "a7707102a7af8ba0"
+        },
+        "15": {
+          "lines": "b3ff1382f424156e",
+          "bars": "65a4accacb3ce98f"
+        },
+        "15.37": {
+          "lines": "c47ea896d09ba469",
+          "bars": "95ab8c12753dce76"
+        },
+        "16": {
+          "lines": "0e375c2d44b11914",
+          "bars": "9c18cdceb50c35f6"
+        },
+        "17": {
+          "lines": "e2d89b35c5a72bef",
+          "bars": "140d6df27c999ac9"
+        },
+        "17.75": {
+          "lines": "562dae4813d9a7bd",
+          "bars": "0b01393ebb92a312"
+        },
+        "18": {
+          "lines": "b0c7a503efee6484",
+          "bars": "a989643e27aa9f3e"
+        },
+        "19": {
+          "lines": "510683a237eaeb1f",
+          "bars": "60a996cdfdc7d554"
+        }
+      },
+      "caps": {
+        "1": {
+          "lines": "a51d058daf9ccfe7",
+          "bars": "28f39967f18fd28a"
+        },
+        "2": {
+          "lines": "b3ff1382f424156e",
+          "bars": "65a4accacb3ce98f"
+        },
+        "3": {
+          "lines": "b3ff1382f424156e",
+          "bars": "65a4accacb3ce98f"
+        }
+      },
+      "edits": {
+        "1-full": {
+          "lines": "b3ff1382f424156e",
+          "bars": "65a4accacb3ce98f"
+        },
+        "2-move": {
+          "lines": "239af47df9630182",
+          "bars": "52bbc6f89942ac4b"
+        },
+        "3-remove": {
+          "lines": "d38378496ea8ea91",
+          "bars": "3a67bbe29c6fd6a7"
+        },
+        "4-add": {
+          "lines": "239af47df9630182",
+          "bars": "52bbc6f89942ac4b"
+        },
+        "5-reverse": {
+          "lines": "e9c5c49651264a5c",
+          "bars": "52bbc6f89942ac4b"
+        },
+        "6-zoom": {
+          "lines": "47873e58357c9ae6",
+          "bars": "87c23079ee074702"
+        }
+      }
+    },
+    "out-and-back": {
+      "file": "bus/out-and-back.geojson",
+      "stations": 6,
+      "zooms": {
+        "10": {
+          "lines": "3fea5f36e9120062",
+          "bars": "546bdc67188acc57"
+        },
+        "11": {
+          "lines": "2b847bd57eb9990b",
+          "bars": "06abef64688cbb2f"
+        },
+        "12": {
+          "lines": "b7682a76eb29f538",
+          "bars": "0d57eee14cc477ef"
+        },
+        "12.5": {
+          "lines": "811eca471f54fab5",
+          "bars": "ecda862e78798532"
+        },
+        "13": {
+          "lines": "03f31ec65d41daf7",
+          "bars": "f4614fa00544b9a8"
+        },
+        "14": {
+          "lines": "480499f855acd779",
+          "bars": "36a01dff76a8985a"
+        },
+        "15": {
+          "lines": "809bccf2ee59efc6",
+          "bars": "4858e539bd7c1ee0"
+        },
+        "15.37": {
+          "lines": "bfd7b6fb58ac9f7d",
+          "bars": "6f16d8bf1b06d151"
+        },
+        "16": {
+          "lines": "67dbad621470fe7d",
+          "bars": "b3d04e1796b37837"
+        },
+        "17": {
+          "lines": "b42ea54d6b4b8403",
+          "bars": "e3f02d659119223c"
+        },
+        "17.75": {
+          "lines": "4c70050d2a1009e2",
+          "bars": "3c029d4ef51c3604"
+        },
+        "18": {
+          "lines": "40116a6d24e8585e",
+          "bars": "470029463be6922c"
+        },
+        "19": {
+          "lines": "28ecbfb900c07ba3",
+          "bars": "f8bebc11a4fdc440"
+        }
+      },
+      "caps": {
+        "1": {
+          "lines": "19b2dedc461a6b06",
+          "bars": "6694a9c0fad21387"
+        },
+        "2": {
+          "lines": "809bccf2ee59efc6",
+          "bars": "4858e539bd7c1ee0"
+        },
+        "3": {
+          "lines": "809bccf2ee59efc6",
+          "bars": "4858e539bd7c1ee0"
+        }
+      },
+      "edits": {
+        "1-full": {
+          "lines": "809bccf2ee59efc6",
+          "bars": "4858e539bd7c1ee0"
+        },
+        "2-move": {
+          "lines": "ffa95fc4cdf9a997",
+          "bars": "88b31cb68d909b82"
+        },
+        "3-remove": {
+          "lines": "50b3b7953ea44fd6",
+          "bars": "a0a976d3c7d1f741"
+        },
+        "4-add": {
+          "lines": "ffa95fc4cdf9a997",
+          "bars": "88b31cb68d909b82"
+        },
+        "5-reverse": {
+          "lines": "1e4a2a831fd1108f",
+          "bars": "88b31cb68d909b82"
+        },
+        "6-zoom": {
+          "lines": "7e8c2673bcf53f03",
+          "bars": "6a40c7139bd5807a"
+        }
+      }
+    },
+    "parallel-corridor": {
+      "file": "synthetic/parallel-corridor.geojson",
+      "stations": 9,
+      "zooms": {
+        "10": {
+          "lines": "8589e0c0dd9777dc",
+          "bars": "175a766b8780e755"
+        },
+        "11": {
+          "lines": "f2d52289bcd0b1a8",
+          "bars": "e072c191ab84af2c"
+        },
+        "12": {
+          "lines": "d34cd08c212129ff",
+          "bars": "90610c477f454ecf"
+        },
+        "12.5": {
+          "lines": "2b1bda73cbebfe74",
+          "bars": "2ab2fe96083ae9d2"
+        },
+        "13": {
+          "lines": "a251a68c118ba41e",
+          "bars": "55e61b39c5026532"
+        },
+        "14": {
+          "lines": "1487f2ae6eca1a31",
+          "bars": "2ff3fbf456d043e4"
+        },
+        "15": {
+          "lines": "aa3aec98aecea991",
+          "bars": "3983b320b92fb128"
+        },
+        "15.37": {
+          "lines": "4382598c7b4e624d",
+          "bars": "cf8c3033fce59283"
+        },
+        "16": {
+          "lines": "3bd9c723321fa81a",
+          "bars": "2b19d98f34415e6a"
+        },
+        "17": {
+          "lines": "b0e322beb6446b80",
+          "bars": "285158e15ab152be"
+        },
+        "17.75": {
+          "lines": "ffd84bdfe17a1ca8",
+          "bars": "87d898d7325b42d1"
+        },
+        "18": {
+          "lines": "9204f2e0e34955db",
+          "bars": "412f40344997aee2"
+        },
+        "19": {
+          "lines": "c280cede452bb67f",
+          "bars": "9f7b1ba0c9815a2d"
+        }
+      },
+      "caps": {
+        "1": {
+          "lines": "f83ce85e70477338",
+          "bars": "666bb97a215a2ff6"
+        },
+        "2": {
+          "lines": "6798833a1cd7bb0b",
+          "bars": "ab7605683846bd8c"
+        },
+        "3": {
+          "lines": "aa3aec98aecea991",
+          "bars": "3983b320b92fb128"
+        }
+      },
+      "edits": {
+        "1-full": {
+          "lines": "aa3aec98aecea991",
+          "bars": "3983b320b92fb128"
+        },
+        "2-move": {
+          "lines": "ec701f23131b162d",
+          "bars": "d2f6b0698c26d244"
+        },
+        "3-remove": {
+          "lines": "e80f1c96e22dfb86",
+          "bars": "816c7cee54eaf544"
+        },
+        "4-add": {
+          "lines": "ec701f23131b162d",
+          "bars": "d2f6b0698c26d244"
+        },
+        "5-reverse": {
+          "lines": "9a51b3ca5ea4f1c2",
+          "bars": "ba78b24b09cfc257"
+        },
+        "6-zoom": {
+          "lines": "27193bcb2b5d8116",
+          "bars": "ce4515e13d3309fe"
+        }
+      }
+    },
+    "stops": {
+      "file": "bus/stops.geojson",
+      "stations": 8,
+      "zooms": {
+        "10": {
+          "lines": "f11d44d39d417376",
+          "bars": "8b87597cf2f51eaa"
+        },
+        "11": {
+          "lines": "b3b9d8c8cf987df6",
+          "bars": "c99c347ac036e886"
+        },
+        "12": {
+          "lines": "7347d60e4e8bc99a",
+          "bars": "c86dcdc40cc1cc1e"
+        },
+        "12.5": {
+          "lines": "74f3897966bd024e",
+          "bars": "45b37d42024dd695"
+        },
+        "13": {
+          "lines": "11e63e6859c92236",
+          "bars": "7af3bcd436c250de"
+        },
+        "14": {
+          "lines": "e67d176b8d9331f6",
+          "bars": "752b85e1cd40e11e"
+        },
+        "15": {
+          "lines": "aba4f5dcd564d976",
+          "bars": "45ac38f97b678bde"
+        },
+        "15.37": {
+          "lines": "cca130befb7612fa",
+          "bars": "90df375071594836"
+        },
+        "16": {
+          "lines": "7b551bfc330bdd86",
+          "bars": "f49493669de31c1e"
+        },
+        "17": {
+          "lines": "27628619013609ee",
+          "bars": "f5eaccb96bcbb02c"
+        },
+        "17.75": {
+          "lines": "e25de7a98cba5d36",
+          "bars": "7b9d15b436cfce65"
+        },
+        "18": {
+          "lines": "b1719eea96700686",
+          "bars": "4c86c82b87dcfbca"
+        },
+        "19": {
+          "lines": "342d38fb823d5982",
+          "bars": "a19292a9e3f64d27"
+        }
+      },
+      "caps": {
+        "1": {
+          "lines": "6e2b0f1c6f43f203",
+          "bars": "3b709a93f1b83cda"
+        },
+        "2": {
+          "lines": "aba4f5dcd564d976",
+          "bars": "45ac38f97b678bde"
+        },
+        "3": {
+          "lines": "aba4f5dcd564d976",
+          "bars": "45ac38f97b678bde"
+        }
+      },
+      "edits": {
+        "1-full": {
+          "lines": "aba4f5dcd564d976",
+          "bars": "45ac38f97b678bde"
+        },
+        "2-move": {
+          "lines": "8729e10a80362746",
+          "bars": "df3052b2fc935985"
+        },
+        "3-remove": {
+          "lines": "036f100178c4c443",
+          "bars": "e6f422be65a10051"
+        },
+        "4-add": {
+          "lines": "8729e10a80362746",
+          "bars": "df3052b2fc935985"
+        },
+        "5-reverse": {
+          "lines": "6037606156ffa238",
+          "bars": "df3052b2fc935985"
+        },
+        "6-zoom": {
+          "lines": "81495fe7cae18a14",
+          "bars": "65dcaae9c53dc9e3"
+        }
+      }
+    },
+    "stress-grid": {
+      "file": "stress/stress-grid.geojson",
+      "stations": 395,
+      "zooms": {
+        "10": {
+          "lines": "3f4f23b5cb982666",
+          "bars": "3567db21bd5ebf62"
+        },
+        "11": {
+          "lines": "fbd56060b3fe80af",
+          "bars": "627287cdce2d89f2"
+        },
+        "12": {
+          "lines": "52dd17ea4e8d2c65",
+          "bars": "2807dcdbc09b56b8"
+        },
+        "12.5": {
+          "lines": "17b40554e639f85f",
+          "bars": "5998839c0ef97826"
+        },
+        "13": {
+          "lines": "00b9a92e6c6ec64a",
+          "bars": "6da9f78ad84b515b"
+        },
+        "14": {
+          "lines": "95d9410098466cf6",
+          "bars": "94114e575c2922d4"
+        },
+        "15": {
+          "lines": "aada37a873485d31",
+          "bars": "5ef15da4b8deefd5"
+        },
+        "15.37": {
+          "lines": "6ddb3b6065c025b8",
+          "bars": "50984c2255a49723"
+        },
+        "16": {
+          "lines": "68902b9f719edf11",
+          "bars": "6b398d2a953e93cf"
+        },
+        "17": {
+          "lines": "4c0aa0aec2858eea",
+          "bars": "706c2bcd22551b7b"
+        },
+        "17.75": {
+          "lines": "29bc244ce5f07e54",
+          "bars": "7e206e9f70f9de74"
+        },
+        "18": {
+          "lines": "dc18c9f1d671ed95",
+          "bars": "17e56b1f6f2868b9"
+        },
+        "19": {
+          "lines": "9c166d1fd6ad2b5a",
+          "bars": "377944917b97226b"
+        }
+      },
+      "caps": {
+        "1": {
+          "lines": "9c3eefce36f09b7d",
+          "bars": "24ba2b625e8cbe3c"
+        },
+        "2": {
+          "lines": "626cd4ba1f352954",
+          "bars": "243a541a431b0c80"
+        },
+        "3": {
+          "lines": "303697633c0fbe32",
+          "bars": "284ef53c7e14d1cb"
+        }
+      },
+      "edits": {
+        "1-full": {
+          "lines": "aada37a873485d31",
+          "bars": "5ef15da4b8deefd5"
+        },
+        "2-move": {
+          "lines": "7a877ae5d2c477ec",
+          "bars": "55e520bdef5ce4be"
+        },
+        "3-remove": {
+          "lines": "8ff06af0f9ab2c0e",
+          "bars": "b872b43f17f6b19a"
+        },
+        "4-add": {
+          "lines": "64f57a239d1ae2fe",
+          "bars": "55e520bdef5ce4be"
+        },
+        "5-reverse": {
+          "lines": "2881dbf6edb10ae6",
+          "bars": "789e554273daffae"
+        },
+        "6-zoom": {
+          "lines": "52d9aac45a35e686",
+          "bars": "c2506740a501dd89"
+        }
+      }
+    },
+    "x-crossing": {
+      "file": "synthetic/x-crossing.geojson",
+      "stations": 8,
+      "zooms": {
+        "10": {
+          "lines": "f69c66dbf7fc7669",
+          "bars": "3790c62769428e65"
+        },
+        "11": {
+          "lines": "1d9c52ea984712a9",
+          "bars": "26fe6480ebebd2e5"
+        },
+        "12": {
+          "lines": "99091f731ec4f7a9",
+          "bars": "319adf973a326fc5"
+        },
+        "12.5": {
+          "lines": "a0b5774740faf381",
+          "bars": "30d3ec43863a86d5"
+        },
+        "13": {
+          "lines": "32a7d3c97ec261e9",
+          "bars": "0fec4edce9b01d65"
+        },
+        "14": {
+          "lines": "5c5d19d319fc95e9",
+          "bars": "59961960d77cf685"
+        },
+        "15": {
+          "lines": "6ee07de7ef7784a9",
+          "bars": "e677b3cca5dc4ce5"
+        },
+        "15.37": {
+          "lines": "d585ed683f41e1a9",
+          "bars": "cce7ff30a638bdd5"
+        },
+        "16": {
+          "lines": "6b131ab98633a509",
+          "bars": "c952478ac2452145"
+        },
+        "17": {
+          "lines": "cc2e83ea9c4d6a49",
+          "bars": "a8647a4d07d00785"
+        },
+        "17.75": {
+          "lines": "f190fed7fff5d061",
+          "bars": "dd35fd3d68504855"
+        },
+        "18": {
+          "lines": "3547c8d2e6ac7349",
+          "bars": "96962a8859cf1345"
+        },
+        "19": {
+          "lines": "26d7926d8e0fc609",
+          "bars": "860c59a481753105"
+        }
+      },
+      "caps": {
+        "1": {
+          "lines": "7e70a6ef5445ccab",
+          "bars": "3e715c37cbcf31c5"
+        },
+        "2": {
+          "lines": "6ee07de7ef7784a9",
+          "bars": "e677b3cca5dc4ce5"
+        },
+        "3": {
+          "lines": "6ee07de7ef7784a9",
+          "bars": "e677b3cca5dc4ce5"
+        }
+      },
+      "edits": {
+        "1-full": {
+          "lines": "6ee07de7ef7784a9",
+          "bars": "e677b3cca5dc4ce5"
+        },
+        "2-move": {
+          "lines": "c2796805501cdc45",
+          "bars": "b221661fe503f2d0"
+        },
+        "3-remove": {
+          "lines": "b18afe470bbdce63",
+          "bars": "25b2b59d5cefe3a0"
+        },
+        "4-add": {
+          "lines": "c2796805501cdc45",
+          "bars": "b221661fe503f2d0"
+        },
+        "5-reverse": {
+          "lines": "b4c3e2ba196431ed",
+          "bars": "4f50605b478e17d0"
+        },
+        "6-zoom": {
+          "lines": "ecd9d2c0bcfae340",
+          "bars": "f708a99915183096"
+        }
+      }
+    },
+    "y-split": {
+      "file": "synthetic/y-split.geojson",
+      "stations": 6,
+      "zooms": {
+        "10": {
+          "lines": "7d3a39f82013be0a",
+          "bars": "02cda40dc50cf582"
+        },
+        "11": {
+          "lines": "db980d5c6646e053",
+          "bars": "7c80b3a92df9a350"
+        },
+        "12": {
+          "lines": "ea68af714e2b96fa",
+          "bars": "f93f64f50023abd7"
+        },
+        "12.5": {
+          "lines": "255cec3517787825",
+          "bars": "9b810807b9ff1e42"
+        },
+        "13": {
+          "lines": "a56d6c1b1a106cc0",
+          "bars": "79e7dccf61f60d15"
+        },
+        "14": {
+          "lines": "8c75cdb35573a956",
+          "bars": "97b7195cad01bd5d"
+        },
+        "15": {
+          "lines": "7d0ff165ed1a601a",
+          "bars": "794aa6f9a034d154"
+        },
+        "15.37": {
+          "lines": "ffc5c231f7185fd2",
+          "bars": "bf7ba685d19ff0fd"
+        },
+        "16": {
+          "lines": "86eb0ab06af89188",
+          "bars": "f85e34fc724a6d60"
+        },
+        "17": {
+          "lines": "4339f17edffcd77f",
+          "bars": "fb34ddd5a30ea27c"
+        },
+        "17.75": {
+          "lines": "c95284ea4efe5ef1",
+          "bars": "4e95f1dfe0c40e30"
+        },
+        "18": {
+          "lines": "631436c1a2e5cb52",
+          "bars": "5c4b8f3f5673a6c2"
+        },
+        "19": {
+          "lines": "47df6c841aa5532d",
+          "bars": "bb1b848c2dec1215"
+        }
+      },
+      "caps": {
+        "1": {
+          "lines": "5fbd281103517ef6",
+          "bars": "e13990c60094ad89"
+        },
+        "2": {
+          "lines": "3f31d87667827d57",
+          "bars": "003d690797d8b372"
+        },
+        "3": {
+          "lines": "7d0ff165ed1a601a",
+          "bars": "794aa6f9a034d154"
+        }
+      },
+      "edits": {
+        "1-full": {
+          "lines": "7d0ff165ed1a601a",
+          "bars": "794aa6f9a034d154"
+        },
+        "2-move": {
+          "lines": "4b32ebda469f5c2b",
+          "bars": "a1ff5e0da9c347a9"
+        },
+        "3-remove": {
+          "lines": "708e31bb299b9186",
+          "bars": "9eaa87d3c5562b04"
+        },
+        "4-add": {
+          "lines": "4b32ebda469f5c2b",
+          "bars": "a1ff5e0da9c347a9"
+        },
+        "5-reverse": {
+          "lines": "5b07d981fd1bb3fe",
+          "bars": "9d354998a7b4b1b7"
+        },
+        "6-zoom": {
+          "lines": "1bb94534cdad0f33",
+          "bars": "fe6e337b7a1b890c"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "fixture": "hairpin",
+  "nodes": [
+    {
+      "id": "start",
+      "at": [0, 0.75]
+    },
+    {
+      "id": "end",
+      "at": [0, 59.25]
+    }
+  ],
+  "edges": [
+    {
+      "id": "bend",
+      "from": "start",
+      "to": "end",
+      "via": [
+        [500, 0.75],
+        [559, 30],
+        [500, 59.25]
+      ],
+      "lines": [
+        {
+          "line": "A",
+          "dir": "forward"
+        },
+        {
+          "line": "B",
+          "dir": "forward"
+        }
+      ]
+    }
+  ]
+}

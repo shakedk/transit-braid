@@ -1,0 +1,17 @@
+[package]
+name = "transit-braid-core"
+description = "Side-by-side transit line geometry: corridor detection, line ordering and offset rendering geometry"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[dependencies]
+
+[dev-dependencies]
+proptest = "1"
+
+[lints]
+workspace = true

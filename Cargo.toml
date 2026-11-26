@@ -1,0 +1,57 @@
+[workspace]
+resolver = "3"
+members = ["crates/*"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.99"
+license = "MIT"
+repository = "https://github.com/shakedk/transit-braid"
+authors = ["Shaked Ofek"]
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+missing_docs = "warn"
+
+[workspace.lints.clippy]
+all = { level = "warn", priority = -1 }
+float_cmp = "warn"
+# Strict lints for production code. The testkit sets its own [lints] without them; tests may
+# unwrap, expect and panic (clippy.toml). Platform math is banned in clippy.toml.
+# No panics: bad input is an error the caller can read, never a crash.
+unwrap_used = "warn"
+expect_used = "warn"
+panic = "warn"
+todo = "warn"
+unimplemented = "warn"
+unreachable = "warn"
+panic_in_result_fn = "warn"
+unwrap_in_result = "warn"
+string_slice = "warn"
+# Nothing left over from debugging; a library writes nothing to stdout or stderr, never exits.
+dbg_macro = "warn"
+print_stdout = "warn"
+print_stderr = "warn"
+exit = "warn"
+mem_forget = "warn"
+infinite_loop = "warn"
+unused_result_ok = "warn"
+# Every exception says why, as #[expect] (it fails once nothing needs it any more).
+allow_attributes = "warn"
+allow_attributes_without_reason = "warn"
+# A float constant is exactly the number written (or says why not).
+lossy_float_literal = "warn"
+# Public functions say how they fail.
+missing_errors_doc = "warn"
+missing_panics_doc = "warn"
+
+# Fast WebAssembly: opt-level 3, link-time optimization, no unwinding. A benchmark showed
+# opt-level 3 is both faster and smaller than opt-level "z" for our code.
+[profile.wasm-release]
+inherits = "release"
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = false # wasm-bindgen needs the target_features section; wasm-opt strips later

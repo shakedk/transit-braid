@@ -1,0 +1,47 @@
+{
+  "type": "FeatureCollection",
+  "braid": {
+    "name": "hairpin",
+    "description": "Two lines through a tight hairpin bend.",
+    "units": "meters",
+    "license": "MIT",
+    "attribution": "transit-braid authors (synthetic)",
+    "expect": "A two-lane bundle that stays parallel through the hairpin without folding over."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "line": "A",
+        "color": "#e4002b"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [0, 0],
+          [500, 0],
+          [560, 30],
+          [500, 60],
+          [0, 60]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": "B",
+        "color": "#0072ce"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [0, 1.5],
+          [500, 1.5],
+          [558, 30],
+          [500, 58.5],
+          [0, 58.5]
+        ]
+      }
+    }
+  ]
+}

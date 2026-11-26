@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "rootDir": "src",
+    "outDir": "dist",
+    "rewriteRelativeImportExtensions": true,
+    "sourceMap": false,
+    "declarationMap": false,
+    // transit-braid's built types (its `build` runs first), not its source.
+    "paths": { "transit-braid": ["../transit-braid/dist/index.d.ts"] }
+  },
+  "include": ["src"],
+  "exclude": ["src/**/*.test.ts"]
+}
