@@ -1,10 +1,12 @@
+<img src="https://raw.githubusercontent.com/shakedk/transit-braid/v0.1.2/docs/img/logo.png" width="96" height="96" alt="transit-braid logo: three transit routes side by side, one wrapping a bus">
+
 # transit-braid-deck
 
 A [deck.gl](https://deck.gl) layer that draws overlapping transit routes side by side, with
 [`transit-braid`](https://www.npmjs.com/package/transit-braid): each route in its own lane where
 routes share a street, plus station bars across each bundle.
 
-<img src="https://raw.githubusercontent.com/shakedk/transit-braid/v0.1.1/docs/img/before-after.png" width="820" alt="Four bus routes that share a street: drawn as given they hide each other; transit-braid draws each in its own lane">
+<img src="https://raw.githubusercontent.com/shakedk/transit-braid/v0.1.2/docs/img/before-after.png" width="820" alt="Four bus routes that share a street: drawn as given they hide each other; transit-braid draws each in its own lane">
 
 **[Live demo of the layer](https://shakedk.github.io/transit-braid/deck.html)** ·
 [the main demo](https://shakedk.github.io/transit-braid/) ·

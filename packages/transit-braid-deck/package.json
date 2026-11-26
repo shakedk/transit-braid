@@ -1,6 +1,6 @@
 {
   "name": "transit-braid-deck",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A deck.gl layer that draws overlapping transit routes side by side with transit-braid.",
   "keywords": [
     "bus",

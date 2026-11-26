@@ -7,6 +7,13 @@ minor version (0.2.0) may change the API.
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-11-26
+
+### Changed
+
+- The README on npm shows the logo and the picture of how stops get their bars. No change to
+  the code.
+
 ## [0.1.1] - 2026-11-26
 
 ### Changed
@@ -105,6 +112,7 @@ dependencies.
   change redraws the station bars too: about 100 ms with 1,875 stations on a 50-route network.
 - Where junctions are very close together, and at some roundabouts, lines can take small jogs.
 
-[Unreleased]: https://github.com/shakedk/transit-braid/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/shakedk/transit-braid/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/shakedk/transit-braid/releases/tag/v0.1.2
 [0.1.1]: https://github.com/shakedk/transit-braid/releases/tag/v0.1.1
 [0.1.0]: https://github.com/shakedk/transit-braid/releases/tag/v0.1.0

@@ -422,14 +422,14 @@ dependencies = [
 
 [[package]]
 name = "transit-braid-core"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "proptest",
 ]
 
 [[package]]
 name = "transit-braid-testkit"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "proptest",
  "serde",
@@ -439,7 +439,7 @@ dependencies = [
 
 [[package]]
 name = "transit-braid-wasm"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "transit-braid-core",
  "wasm-bindgen",

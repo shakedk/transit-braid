@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/shakedk/transit-braid/v0.1.2/docs/img/logo.png" width="96" height="96" alt="transit-braid logo: three transit routes side by side, one wrapping a bus">
+
 # transit-braid
 
 Side-by-side transit lines for web maps. Give it overlapping bus, tram or rail routes as GeoJSON
@@ -5,7 +7,7 @@ LineStrings; it returns GeoJSON with each route in its own lane where routes sha
 station bars across each bundle. The work runs in Rust compiled to WebAssembly, off the page's
 main thread, and the result is geometry only, so any map library can draw it.
 
-<img src="https://raw.githubusercontent.com/shakedk/transit-braid/v0.1.1/docs/img/before-after.png" width="820" alt="Four bus routes that share a street: drawn as given they hide each other; transit-braid draws each in its own lane">
+<img src="https://raw.githubusercontent.com/shakedk/transit-braid/v0.1.2/docs/img/before-after.png" width="820" alt="Four bus routes that share a street: drawn as given they hide each other; transit-braid draws each in its own lane">
 
 **[Live demo](https://shakedk.github.io/transit-braid/)**: Tel Aviv's bus routes side by side, to
 zoom and edit · [GitHub](https://github.com/shakedk/transit-braid)
@@ -38,6 +40,11 @@ const { lines, stations, dropped } = await sideBySide(routes, { zoom: 13 });
 - Optional: `lineWidth` and `spacing` in pixels (default 4 and 1); `stations`, a FeatureCollection
   of Points, each near a route getting a bar in `stations`; `maxSideBySide`, a lane cap whose
   left-out routes are listed in `dropped`.
+
+<img src="https://raw.githubusercontent.com/shakedk/transit-braid/v0.1.2/docs/img/stops.png" width="560" alt="Two stops named Main St on both sides of a street share one bar across all three routes; a third Main St stop farther on gets its own bar">
+
+Same-name stops within 50 m of each other on the same piece of street share one bar, at their
+average place; each bar crosses every line there.
 
 `sideBySide()` is pure: the same input always draws the same way, and a zoom change of the same
 routes and stations redraws only the geometry. An editor uses a session instead: it remembers its
