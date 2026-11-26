@@ -8,6 +8,8 @@ export type Rgb = [number, number, number];
 
 export interface DemoRoute {
   id: string;
+  /** What the route list shows; the id when absent. */
+  name?: string;
   color: Rgb;
   points: LngLat[];
 }
@@ -93,6 +95,54 @@ export function movePoint(
       ? r
       : { ...r, points: r.points.map((p, i): LngLat => (i === index ? [to[0], to[1]] : p)) },
   );
+}
+
+/** `#rrggbb` as `[r, g, b]`; null for anything else. */
+export function hexToRgb(hex: unknown): Rgb | null {
+  if (typeof hex !== 'string' || !/^#[0-9a-f]{6}$/i.test(hex)) return null;
+  const n = Number.parseInt(hex.slice(1), 16);
+  return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+}
+
+/** A plain object (not null, not an array). */
+export const isRecord = (v: unknown): v is Record<string, unknown> =>
+  typeof v === 'object' && v !== null && !Array.isArray(v);
+
+const isLngLat = (p: unknown): p is LngLat =>
+  Array.isArray(p) && typeof p[0] === 'number' && typeof p[1] === 'number';
+
+/**
+ * The routes of a GeoJSON FeatureCollection: each LineString feature with an id becomes a route,
+ * named by its `name` property and colored by its `color` (`#rrggbb`), or the palette's next
+ * color. Anything else (another geometry, no id, fewer than two points) is skipped.
+ */
+export function routesFromGeoJson(data: unknown): DemoRoute[] {
+  if (!isRecord(data)) return [];
+  const features = data['features'];
+  if (!Array.isArray(features)) return [];
+  const list: readonly unknown[] = features;
+  const routes: DemoRoute[] = [];
+  for (const f of list) {
+    if (!isRecord(f)) continue;
+    const id = f['id'];
+    const geometry = f['geometry'];
+    if (typeof id !== 'string' && typeof id !== 'number') continue;
+    if (!isRecord(geometry) || geometry['type'] !== 'LineString') continue;
+    const coordinates = geometry['coordinates'];
+    if (!Array.isArray(coordinates)) continue;
+    const given: readonly unknown[] = coordinates;
+    const points = given.filter(isLngLat);
+    if (points.length < 2) continue;
+    const props = isRecord(f['properties']) ? f['properties'] : {};
+    const name = props['name'];
+    routes.push({
+      id: String(id),
+      ...(typeof name === 'string' ? { name } : {}),
+      color: hexToRgb(props['color']) ?? PALETTE[routes.length % PALETTE.length] ?? [0, 0, 0],
+      points: points.map(([x, y]): LngLat => [x, y]),
+    });
+  }
+  return routes;
 }
 
 /** The routes as `sideBySide()`'s input: one LineString each, with its id and color. */

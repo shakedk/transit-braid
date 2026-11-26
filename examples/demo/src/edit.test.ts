@@ -1,12 +1,17 @@
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+
 import { describe, expect, it } from 'vitest';
 
 import {
   addRoute,
   type DemoRoute,
+  hexToRgb,
   movePoint,
   PALETTE,
   probeOf,
   removeRoute,
+  routesFromGeoJson,
   SAMPLE_ROUTES,
   toRoutesInput,
 } from './edit.ts';
@@ -184,5 +189,110 @@ describe('toRoutesInput and probeOf', () => {
     ).toEqual([1, 2]);
     expect(probeOf([[0, 0]])).toBeNull();
     expect(probeOf([])).toBeNull();
+  });
+});
+
+describe('hexToRgb', () => {
+  it('reads #rrggbb in either case', () => {
+    expect(hexToRgb('#e4002b')).toEqual([228, 0, 43]);
+    expect(hexToRgb('#00A3AD')).toEqual([0, 163, 173]);
+  });
+
+  it('gives null for anything else', () => {
+    for (const bad of ['', '#fff', 'e4002b', '#e4002', '#e4002bff', '#zz0000', null, 7, {}]) {
+      expect(hexToRgb(bad)).toBeNull();
+    }
+  });
+});
+
+const line = (id: unknown, coordinates: unknown, properties: unknown = {}) => ({
+  type: 'Feature',
+  id,
+  properties,
+  geometry: { type: 'LineString', coordinates },
+});
+
+describe('routesFromGeoJson', () => {
+  it('reads each LineString with an id, its name and color', () => {
+    const routes = routesFromGeoJson({
+      type: 'FeatureCollection',
+      features: [
+        line(
+          '16061-2',
+          [
+            [34.8, 32.0],
+            [34.81, 32.01],
+          ],
+          { name: '61', color: '#e4002b' },
+        ),
+        line(7, [
+          [1, 2],
+          [3, 4],
+        ]),
+      ],
+    });
+    expect(routes).toEqual([
+      {
+        id: '16061-2',
+        name: '61',
+        color: [228, 0, 43],
+        points: [
+          [34.8, 32.0],
+          [34.81, 32.01],
+        ],
+      },
+      {
+        id: '7',
+        color: PALETTE[1],
+        points: [
+          [1, 2],
+          [3, 4],
+        ],
+      },
+    ]);
+  });
+
+  it('skips features without an id, other geometries, and lines with fewer than two points', () => {
+    const routes = routesFromGeoJson({
+      type: 'FeatureCollection',
+      features: [
+        line(undefined, [
+          [0, 0],
+          [1, 1],
+        ]),
+        line('one-point', [[0, 0]]),
+        line('junk-points', [[0, 0], 'x', [1], null]),
+        {
+          type: 'Feature',
+          id: 'p',
+          properties: {},
+          geometry: { type: 'Point', coordinates: [0, 0] },
+        },
+        null,
+        'not a feature',
+        line('ok', [
+          [0, 0],
+          [1, 1],
+        ]),
+      ],
+    });
+    expect(routes.map((r) => r.id)).toEqual(['ok']);
+  });
+
+  it('gives no routes for input that is not a FeatureCollection', () => {
+    for (const bad of [null, undefined, 3, 'routes', [], {}, { features: 'no' }]) {
+      expect(routesFromGeoJson(bad)).toEqual([]);
+    }
+  });
+
+  it('feeds the Tel Aviv file to toRoutesInput with every route kept', () => {
+    const text = readFileSync(
+      join(import.meta.dirname, '..', 'public', 'data', 'tel-aviv-routes.geojson'),
+      'utf8',
+    );
+    const routes = routesFromGeoJson(JSON.parse(text));
+    expect(routes).toHaveLength(25);
+    expect(new Set(routes.map((r) => r.id)).size).toBe(25);
+    expect(toRoutesInput(routes).features).toHaveLength(25);
   });
 });
