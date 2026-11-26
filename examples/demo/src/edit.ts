@@ -26,37 +26,55 @@ export const PALETTE: readonly Rgb[] = [
   [101, 101, 101],
 ];
 
-/** Three made-up routes in central Tel Aviv: they share a trunk, then split three ways. */
+/**
+ * Three made-up routes along real streets in central Tel Aviv. All three come down Ibn Gabirol
+ * Street from Arlozorov Street. Red turns west along Frishman Street, blue carries on south and
+ * turns east onto Shaul HaMelekh Boulevard, and yellow loops around Rabin Square, crosses its own
+ * path and carries on along David Bloch Street. Each point is a street corner or bend taken from
+ * the Tel Aviv bus shapes in `public/data/tel-aviv-routes.geojson`.
+ */
 export const SAMPLE_ROUTES: readonly DemoRoute[] = [
   {
     id: 'red',
     color: [228, 0, 43],
     points: [
-      [34.7705, 32.0663],
-      [34.7745, 32.0712],
-      [34.7768, 32.0775],
-      [34.7812, 32.0809],
-      [34.7826, 32.0868],
+      [34.781816, 32.085285], // Ibn Gabirol / Arlozorov
+      [34.781408, 32.083234], // Ibn Gabirol / Hadassa
+      [34.781366, 32.081516], // Ibn Gabirol / Ben Gurion (Rabin Square's north-east corner)
+      [34.781357, 32.079563], // Ibn Gabirol / Zeitlin (its south-east corner)
+      [34.780053, 32.079558], // Frishman / Malkhei Israel (its south-west corner)
+      [34.773827, 32.079743], // Frishman / Dizengoff
     ],
   },
   {
     id: 'blue',
     color: [0, 114, 206],
     points: [
-      [34.7705, 32.0663],
-      [34.7745, 32.0712],
-      [34.7768, 32.0775],
-      [34.7885, 32.0752],
+      [34.781816, 32.085285], // Ibn Gabirol / Arlozorov
+      [34.781408, 32.083234], // Ibn Gabirol / Hadassa
+      [34.781366, 32.081516], // Ibn Gabirol / Ben Gurion
+      [34.781357, 32.079563], // Ibn Gabirol / Zeitlin
+      [34.781243, 32.077519], // Ibn Gabirol / Netzah Israel
+      [34.7816, 32.07551], // Ibn Gabirol / Shaul HaMelekh
+      [34.783452, 32.075527], // Shaul HaMelekh / Dubnov
+      [34.78445, 32.075611], // Shaul HaMelekh / Leonardo da Vinci
     ],
   },
   {
     id: 'yellow',
     color: [242, 169, 0],
     points: [
-      [34.7705, 32.0663],
-      [34.7745, 32.0712],
-      [34.7768, 32.0775],
-      [34.7731, 32.0851],
+      [34.781816, 32.085285], // Ibn Gabirol / Arlozorov
+      [34.781408, 32.083234], // Ibn Gabirol / Hadassa
+      [34.781366, 32.081516], // Ibn Gabirol / Ben Gurion
+      [34.781357, 32.079563], // Ibn Gabirol / Zeitlin
+      [34.780053, 32.079558], // Frishman / Malkhei Israel
+      [34.780006, 32.08157], // Malkhei Israel / Ben Gurion (Rabin Square's north-west corner)
+      [34.781366, 32.081516], // Ibn Gabirol / Ben Gurion again: the loop closes
+      [34.782007, 32.081567], // David Bloch / Shilo
+      [34.782551, 32.081734], // David Bloch
+      [34.783007, 32.081985], // David Bloch
+      [34.785321, 32.083821], // David Bloch / Beeri
     ],
   },
 ];

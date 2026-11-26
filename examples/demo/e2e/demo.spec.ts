@@ -125,11 +125,11 @@ test('moving a route: drag one of its points and the drawn line moves', async ({
   const errors = await open(page);
   await page.locator('#routes .pick', { hasText: 'red' }).click();
   expect((await state(page)).editing).toBe('red');
-  await expect(page.locator('.maplibregl-marker')).toHaveCount(5);
+  await expect(page.locator('.maplibregl-marker')).toHaveCount(6);
   const before = await page.evaluate(() => window.braidDebug!.probes['red']!);
   const runs = (await state(page)).runs;
 
-  // Point 1 ends red's first segment (point 0 is off screen in the test window).
+  // Point 1 ends red's first segment (the shared stretch of Ibn Gabirol Street).
   const marker = page.locator('.maplibregl-marker[data-point="1"]');
   const box = (await marker.boundingBox())!;
   const from = { x: box.x + box.width / 2, y: box.y + box.height * 0.8 };
@@ -143,8 +143,8 @@ test('moving a route: drag one of its points and the drawn line moves', async ({
   await expect
     .poll(() => page.evaluate(() => window.braidDebug!.probes['red']!))
     .not.toEqual(before);
-  // Red's first drawn segment may now end at a new node near its start, below the test window:
-  // center the map there (no zoom, so nothing is drawn again), then ask what is drawn.
+  // Red's first drawn segment may now end at a new node near its start, at the top edge of the
+  // test window: center the map there (no zoom, so nothing is drawn again), then ask what is drawn.
   await page.evaluate(() => {
     const d = window.braidDebug!;
     d.map.jumpTo({ center: d.probes['red']! });

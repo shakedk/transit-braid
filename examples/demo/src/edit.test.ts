@@ -44,12 +44,20 @@ const two: DemoRoute[] = [
 ];
 
 describe('the sample', () => {
-  it('has three routes that share their first three points (a trunk), then split', () => {
+  it('has three routes that share their first four points (a trunk), then split', () => {
     expect(SAMPLE_ROUTES.map((r) => r.id)).toEqual(['red', 'blue', 'yellow']);
-    const trunk = SAMPLE_ROUTES[0]!.points.slice(0, 3);
-    for (const r of SAMPLE_ROUTES) expect(r.points.slice(0, 3)).toEqual(trunk);
+    const trunk = SAMPLE_ROUTES[0]!.points.slice(0, 4);
+    for (const r of SAMPLE_ROUTES) expect(r.points.slice(0, 4)).toEqual(trunk);
     const ends = SAMPLE_ROUTES.map((r) => JSON.stringify(r.points.at(-1)));
     expect(new Set(ends).size).toBe(3);
+  });
+
+  it('has a loop: yellow comes back to a corner it passed, then carries on', () => {
+    const yellow = SAMPLE_ROUTES.find((r) => r.id === 'yellow')!;
+    const corners = yellow.points.map((p) => JSON.stringify(p));
+    const back = corners.findIndex((c, i) => corners.indexOf(c) < i);
+    expect(back).toBeGreaterThan(0);
+    expect(back).toBeLessThan(corners.length - 1);
   });
 });
 

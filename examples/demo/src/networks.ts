@@ -77,10 +77,10 @@ export const NETWORKS: readonly Network[] = [
     id: 'sample',
     name: 'Three routes to edit',
     about:
-      'Three made-up routes in central Tel Aviv: they share a street, then split three ways. ' +
-      'Move, add or remove them.',
-    center: [34.7775, 32.0765],
-    zoom: 14.5,
+      'Three made-up routes on real streets in central Tel Aviv: they share Ibn Gabirol Street, ' +
+      'and yellow loops around Rabin Square. Move, add or remove them.',
+    center: [34.7796, 32.0804],
+    zoom: 15,
     load: async () => ({ routes: structuredClone([...SAMPLE_ROUTES]), stations: null }),
   },
   {
